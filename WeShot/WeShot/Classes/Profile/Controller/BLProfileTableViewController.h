@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BLProfileTableViewController : UITableViewController
-
+@property (nonatomic, strong) NSString* uid;
 @end

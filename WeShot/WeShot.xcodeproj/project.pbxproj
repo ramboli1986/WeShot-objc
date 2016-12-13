@@ -18,6 +18,7 @@
 		FDC6B3FA1E007B5400250AD5 /* BLProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3F91E007B5400250AD5 /* BLProfileTableViewController.m */; };
 		FDC6B3FE1E00835900250AD5 /* UIView+BLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3FD1E00835900250AD5 /* UIView+BLExtension.m */; };
 		FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4001E008BE800250AD5 /* BLFlowViewController.m */; };
+		FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4031E00977E00250AD5 /* UIBarButtonItem+BLExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		FDC6B3FD1E00835900250AD5 /* UIView+BLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BLExtension.m"; sourceTree = "<group>"; };
 		FDC6B3FF1E008BE800250AD5 /* BLFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFlowViewController.h; sourceTree = "<group>"; };
 		FDC6B4001E008BE800250AD5 /* BLFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFlowViewController.m; sourceTree = "<group>"; };
+		FDC6B4021E00977E00250AD5 /* UIBarButtonItem+BLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+BLExtension.h"; sourceTree = "<group>"; };
+		FDC6B4031E00977E00250AD5 /* UIBarButtonItem+BLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+BLExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,8 @@
 			children = (
 				FDC6B3FC1E00835900250AD5 /* UIView+BLExtension.h */,
 				FDC6B3FD1E00835900250AD5 /* UIView+BLExtension.m */,
+				FDC6B4021E00977E00250AD5 /* UIBarButtonItem+BLExtension.h */,
+				FDC6B4031E00977E00250AD5 /* UIBarButtonItem+BLExtension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */,
 				FDC6B3F71E007B4100250AD5 /* BLExploreViewController.m in Sources */,
 				FDC6B3BD1E0068A100250AD5 /* main.m in Sources */,
 				FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */,

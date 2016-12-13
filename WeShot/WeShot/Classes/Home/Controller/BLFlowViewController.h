@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    BLFlowVCTypeFollow = 1,
+    BLFlowVCTypePopular = 0
+}BLWaterType;
+
 @interface BLFlowViewController : UIViewController
+
+@property (nonatomic, assign) BLWaterType type;
 
 @end
