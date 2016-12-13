@@ -1,0 +1,44 @@
+//
+//  BLGridViewController.m
+//  WeShot
+//
+//  Created by bo LI on 12/13/16.
+//  Copyright © 2016 Bo LI. All rights reserved.
+//
+
+#import "BLGridViewController.h"
+
+@interface BLGridViewController ()
+
+@end
+
+@implementation BLGridViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    if (self.type == 1) {
+        self.view.backgroundColor = [UIColor yellowColor];
+    }else if (self.type == 2) {
+        self.view.backgroundColor = [UIColor greenColor];
+    }else {
+        self.view.backgroundColor = BLGlobalBg;
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

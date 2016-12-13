@@ -33,11 +33,9 @@
     BLFlowViewController* popularVC = [[BLFlowViewController alloc]init];
     popularVC.type = BLFlowVCTypePopular;
     [self addChildViewController:popularVC];
-    
     BLFlowViewController* followVC = [[BLFlowViewController alloc]init];
     followVC.type = BLFlowVCTypeFollow;
     [self addChildViewController:followVC];
-    
 }
 
 
@@ -75,7 +73,7 @@
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         UIColor *tintColor = BLTintColor;
         [button setTitleColor:tintColor forState:UIControlStateDisabled];
-        button.titleLabel.font = [UIFont systemFontOfSize:17];
+        button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:16];
         [button addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titleView addSubview:button];
         

@@ -19,6 +19,7 @@
 		FDC6B3FE1E00835900250AD5 /* UIView+BLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3FD1E00835900250AD5 /* UIView+BLExtension.m */; };
 		FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4001E008BE800250AD5 /* BLFlowViewController.m */; };
 		FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4031E00977E00250AD5 /* UIBarButtonItem+BLExtension.m */; };
+		FDC6B4071E00A1F000250AD5 /* BLGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4061E00A1F000250AD5 /* BLGridViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		FDC6B4001E008BE800250AD5 /* BLFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFlowViewController.m; sourceTree = "<group>"; };
 		FDC6B4021E00977E00250AD5 /* UIBarButtonItem+BLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+BLExtension.h"; sourceTree = "<group>"; };
 		FDC6B4031E00977E00250AD5 /* UIBarButtonItem+BLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+BLExtension.m"; sourceTree = "<group>"; };
+		FDC6B4051E00A1F000250AD5 /* BLGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGridViewController.h; sourceTree = "<group>"; };
+		FDC6B4061E00A1F000250AD5 /* BLGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLGridViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 			children = (
 				FDC6B3F51E007B4100250AD5 /* BLExploreViewController.h */,
 				FDC6B3F61E007B4100250AD5 /* BLExploreViewController.m */,
+				FDC6B4051E00A1F000250AD5 /* BLGridViewController.h */,
+				FDC6B4061E00A1F000250AD5 /* BLGridViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */,
 				FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */,
 				FDC6B3EB1E007A7A00250AD5 /* BLMainTabBarController.m in Sources */,
+				FDC6B4071E00A1F000250AD5 /* BLGridViewController.m in Sources */,
 				FDC6B3E41E0069B400250AD5 /* AppDelegate.m in Sources */,
 				FDC6B3E81E007A6300250AD5 /* BLNavigationController.m in Sources */,
 				FDC6B3FE1E00835900250AD5 /* UIView+BLExtension.m in Sources */,
