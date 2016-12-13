@@ -8,24 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		FDC6B3BD1E0068A100250AD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3BC1E0068A100250AD5 /* main.m */; };
-		FDC6B3C01E0068A100250AD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3BF1E0068A100250AD5 /* AppDelegate.m */; };
-		FDC6B3C31E0068A100250AD5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3C21E0068A100250AD5 /* ViewController.m */; };
-		FDC6B3C61E0068A100250AD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B3C41E0068A100250AD5 /* Main.storyboard */; };
 		FDC6B3C81E0068A100250AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B3C71E0068A100250AD5 /* Assets.xcassets */; };
 		FDC6B3CB1E0068A100250AD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B3C91E0068A100250AD5 /* LaunchScreen.storyboard */; };
+		FDC6B3E41E0069B400250AD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3DF1E0069B400250AD5 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FDC6B3B81E0068A100250AD5 /* WeShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC6B3BC1E0068A100250AD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FDC6B3BE1E0068A100250AD5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		FDC6B3BF1E0068A100250AD5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FDC6B3C11E0068A100250AD5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FDC6B3C21E0068A100250AD5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		FDC6B3C51E0068A100250AD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDC6B3C71E0068A100250AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDC6B3CA1E0068A100250AD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDC6B3CC1E0068A100250AD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDC6B3DE1E0069B400250AD5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FDC6B3DF1E0069B400250AD5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +53,8 @@
 		FDC6B3BA1E0068A100250AD5 /* WeShot */ = {
 			isa = PBXGroup;
 			children = (
-				FDC6B3BE1E0068A100250AD5 /* AppDelegate.h */,
-				FDC6B3BF1E0068A100250AD5 /* AppDelegate.m */,
-				FDC6B3C11E0068A100250AD5 /* ViewController.h */,
-				FDC6B3C21E0068A100250AD5 /* ViewController.m */,
-				FDC6B3C41E0068A100250AD5 /* Main.storyboard */,
+				FDC6B3D21E0069B400250AD5 /* Classes */,
 				FDC6B3C71E0068A100250AD5 /* Assets.xcassets */,
-				FDC6B3C91E0068A100250AD5 /* LaunchScreen.storyboard */,
-				FDC6B3CC1E0068A100250AD5 /* Info.plist */,
 				FDC6B3BB1E0068A100250AD5 /* Supporting Files */,
 			);
 			path = WeShot;
@@ -74,9 +63,140 @@
 		FDC6B3BB1E0068A100250AD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FDC6B3C91E0068A100250AD5 /* LaunchScreen.storyboard */,
+				FDC6B3CC1E0068A100250AD5 /* Info.plist */,
 				FDC6B3BC1E0068A100250AD5 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FDC6B3D21E0069B400250AD5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FDC6B3D31E0069B400250AD5 /* Explore */,
+				FDC6B3D71E0069B400250AD5 /* Extension */,
+				FDC6B3D81E0069B400250AD5 /* Home */,
+				FDC6B3DC1E0069B400250AD5 /* Main */,
+				FDC6B3DD1E0069B400250AD5 /* Others */,
+				FDC6B3E01E0069B400250AD5 /* Profile */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FDC6B3D31E0069B400250AD5 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				FDC6B3D41E0069B400250AD5 /* Controller */,
+				FDC6B3D51E0069B400250AD5 /* Model */,
+				FDC6B3D61E0069B400250AD5 /* View */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		FDC6B3D41E0069B400250AD5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FDC6B3D51E0069B400250AD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDC6B3D61E0069B400250AD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDC6B3D71E0069B400250AD5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FDC6B3D81E0069B400250AD5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FDC6B3D91E0069B400250AD5 /* Controller */,
+				FDC6B3DA1E0069B400250AD5 /* Model */,
+				FDC6B3DB1E0069B400250AD5 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FDC6B3D91E0069B400250AD5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FDC6B3DA1E0069B400250AD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDC6B3DB1E0069B400250AD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDC6B3DC1E0069B400250AD5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		FDC6B3DD1E0069B400250AD5 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				FDC6B3DE1E0069B400250AD5 /* AppDelegate.h */,
+				FDC6B3DF1E0069B400250AD5 /* AppDelegate.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		FDC6B3E01E0069B400250AD5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FDC6B3E11E0069B400250AD5 /* Controller */,
+				FDC6B3E21E0069B400250AD5 /* Model */,
+				FDC6B3E31E0069B400250AD5 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FDC6B3E11E0069B400250AD5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FDC6B3E21E0069B400250AD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDC6B3E31E0069B400250AD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +260,6 @@
 			files = (
 				FDC6B3CB1E0068A100250AD5 /* LaunchScreen.storyboard in Resources */,
 				FDC6B3C81E0068A100250AD5 /* Assets.xcassets in Resources */,
-				FDC6B3C61E0068A100250AD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,23 +270,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDC6B3C31E0068A100250AD5 /* ViewController.m in Sources */,
-				FDC6B3C01E0068A100250AD5 /* AppDelegate.m in Sources */,
 				FDC6B3BD1E0068A100250AD5 /* main.m in Sources */,
+				FDC6B3E41E0069B400250AD5 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FDC6B3C41E0068A100250AD5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FDC6B3C51E0068A100250AD5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FDC6B3C91E0068A100250AD5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -312,6 +422,7 @@
 				FDC6B3D11E0068A100250AD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
