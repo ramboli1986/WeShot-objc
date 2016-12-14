@@ -23,6 +23,8 @@
 		FDC6B40A1E00C31000250AD5 /* BLWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4091E00C31000250AD5 /* BLWaterFlowLayout.m */; };
 		FDC6B40E1E00C80C00250AD5 /* BLFlowCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B40C1E00C80C00250AD5 /* BLFlowCollectionViewCell.m */; };
 		FDC6B40F1E00C80C00250AD5 /* BLFlowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B40D1E00C80C00250AD5 /* BLFlowCollectionViewCell.xib */; };
+		FDC6B4181E00D3F000250AD5 /* BLGridCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4161E00D3F000250AD5 /* BLGridCollectionViewCell.m */; };
+		FDC6B4191E00D3F000250AD5 /* BLGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B4171E00D3F000250AD5 /* BLGridCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,9 @@
 		FDC6B40B1E00C80C00250AD5 /* BLFlowCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFlowCollectionViewCell.h; sourceTree = "<group>"; };
 		FDC6B40C1E00C80C00250AD5 /* BLFlowCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFlowCollectionViewCell.m; sourceTree = "<group>"; };
 		FDC6B40D1E00C80C00250AD5 /* BLFlowCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLFlowCollectionViewCell.xib; sourceTree = "<group>"; };
+		FDC6B4151E00D3F000250AD5 /* BLGridCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGridCollectionViewCell.h; sourceTree = "<group>"; };
+		FDC6B4161E00D3F000250AD5 /* BLGridCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLGridCollectionViewCell.m; sourceTree = "<group>"; };
+		FDC6B4171E00D3F000250AD5 /* BLGridCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLGridCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +154,9 @@
 		FDC6B3D61E0069B400250AD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FDC6B4151E00D3F000250AD5 /* BLGridCollectionViewCell.h */,
+				FDC6B4161E00D3F000250AD5 /* BLGridCollectionViewCell.m */,
+				FDC6B4171E00D3F000250AD5 /* BLGridCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC6B4191E00D3F000250AD5 /* BLGridCollectionViewCell.xib in Resources */,
 				FDC6B3CB1E0068A100250AD5 /* LaunchScreen.storyboard in Resources */,
 				FDC6B40F1E00C80C00250AD5 /* BLFlowCollectionViewCell.xib in Resources */,
 				FDC6B3C81E0068A100250AD5 /* Assets.xcassets in Resources */,
@@ -339,6 +348,7 @@
 				FDC6B3BD1E0068A100250AD5 /* main.m in Sources */,
 				FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */,
 				FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */,
+				FDC6B4181E00D3F000250AD5 /* BLGridCollectionViewCell.m in Sources */,
 				FDC6B3EB1E007A7A00250AD5 /* BLMainTabBarController.m in Sources */,
 				FDC6B4071E00A1F000250AD5 /* BLGridViewController.m in Sources */,
 				FDC6B3E41E0069B400250AD5 /* AppDelegate.m in Sources */,

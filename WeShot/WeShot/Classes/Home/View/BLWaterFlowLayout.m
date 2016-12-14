@@ -10,9 +10,9 @@
 /** 默认的列数 */
 static const NSInteger MSPDefaultColumnCount = 3;
 /** 每一列之间的间距 */
-static const CGFloat MSPDefaultColumnMargin = 10;
+static const CGFloat MSPDefaultColumnMargin = 8;
 /** 每一行之间的间距 */
-static const CGFloat MSPDefaultRowMargin = 10;
+static const CGFloat MSPDefaultRowMargin = 8;
 /** 边缘间距 */
 static const UIEdgeInsets MSPDefaultEdgeInsets = {10, 10, 10, 10};
 
