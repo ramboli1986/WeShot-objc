@@ -7,8 +7,12 @@
 //
 
 #import "BLFlowViewController.h"
+#import "BLWaterFlowLayout.h"
+#import "BLFlowCollectionViewCell.h"
 
-@interface BLFlowViewController ()
+@interface BLFlowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, BLWaterFlowLayoutDelegate>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
 
@@ -22,6 +26,63 @@
     } else {
         self.view.backgroundColor = [UIColor blueColor];
     }
+    [self setupCollectionView];
+}
+
+- (void)setupCollectionView {
+    BLWaterFlowLayout* flowLayout = [[BLWaterFlowLayout alloc]init];
+    flowLayout.delegate = self;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, ScreenSize.width, ScreenSize.height) collectionViewLayout:flowLayout];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.backgroundColor = BLGlobalBg;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, bottom, 0);
+    self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
+    [self.collectionView registerNib:[UINib nibWithNibName:@"BLFlowCollectionViewCell" bundle: [NSBundle mainBundle]] forCellWithReuseIdentifier:@"waterflowCell"];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.collectionView];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 8;
+}
+
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"select item :%@", indexPath);
+    //MSPDetailViewController *vc = [[MSPDetailViewController alloc]init];
+    //vc.hidesBottomBarWhenPushed = YES;
+    //[self.navigationController pushViewController:vc animated:YES];
+}
+
+- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    BLFlowCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"waterflowCell" forIndexPath:indexPath];
+    return cell;
+}
+
+#pragma mark - <MSPWaterflowLayoutDelegate>
+- (CGFloat)waterflowLayout:(BLWaterFlowLayout *)waterflowLayout heightForItemAtIndex:(NSUInteger)index itemWidth:(CGFloat)itemWidth
+{
+
+    return 16+24+(ScreenSize.width-12*3)/2 + 152;
+    
+    
+}
+
+- (CGFloat)rowMarginInWaterflowLayout:(BLWaterFlowLayout *)waterflowLayout
+{
+    return 12;
+}
+
+- (CGFloat)columnCountInWaterflowLayout:(BLWaterFlowLayout *)waterflowLayout
+{
+    return 2;
+}
+
+- (UIEdgeInsets)edgeInsetsInWaterflowLayout:(BLWaterFlowLayout *)waterflowLayout
+{
+    return UIEdgeInsetsMake(8, 8, 8, 8);
 }
 
 - (void)didReceiveMemoryWarning {

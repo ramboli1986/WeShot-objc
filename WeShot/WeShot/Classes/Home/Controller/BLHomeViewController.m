@@ -69,7 +69,6 @@
         button.width = width;
         button.x = width*i;
         [button setTitle:titles[i] forState:UIControlStateNormal];
-        //[button layoutIfNeeded];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         UIColor *tintColor = BLTintColor;
         [button setTitleColor:tintColor forState:UIControlStateDisabled];

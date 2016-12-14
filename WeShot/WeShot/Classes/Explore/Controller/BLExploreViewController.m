@@ -68,7 +68,7 @@
     indicatorView.y = titleView.height - indicatorView.height - 1;
     self.indicatorView = indicatorView;
     
-    NSArray *titles = @[@"Recent", @"Teams", @"Debuts",@"Playoffs"];
+    NSArray *titles = @[@"Recent", @"Teams", @"Debuts", @"Playoffs"];
     CGFloat width = ScreenSize.width/4;
     CGFloat height = titleView.height;
     for (NSInteger i = 0; i < titles.count; i++) {
@@ -79,7 +79,7 @@
         button.x = width*i;
         [button setTitle:titles[i] forState:UIControlStateNormal];
         //[button layoutIfNeeded];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         UIColor *tintColor = BLTintColor;
         [button setTitleColor:tintColor forState:UIControlStateDisabled];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -134,9 +134,6 @@
     vc.view.x = scrollView.contentOffset.x;
     vc.view.y = 0;
     vc.view.height = scrollView.height;
-    //CGFloat bottom = self.tabBarController.tabBar.height;
-    //vc.cv.contentInset = UIEdgeInsetsMake(64, 0, bottom, 0);
-    //vc.cv.scrollIndicatorInsets = vc.cv.contentInset;
     [scrollView addSubview:vc.view];
 }
 
