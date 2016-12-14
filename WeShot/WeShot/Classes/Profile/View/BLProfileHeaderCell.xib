@@ -152,7 +152,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC0-ry-au0">
-                        <rect key="frame" x="8" y="135" width="307" height="18"/>
+                        <rect key="frame" x="8" y="137" width="307" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="MLA-uW-9tQ"/>
                         </constraints>
@@ -162,7 +162,7 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhg-cv-7eK">
-                        <rect key="frame" x="13" y="165" width="297" height="83.5"/>
+                        <rect key="frame" x="13" y="167" width="297" height="83.5"/>
                         <string key="text">When Alice Klieg wins the Mega-Millions lottery, she. Photos.When Alice Klieg wins the Mega-Millions lottery, she. Photos.When Alice Klieg wins the Mega-Millions lottery, she. Photos.</string>
                         <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="14"/>
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,7 +192,7 @@
                 <constraint firstItem="oIr-2z-xfh" firstAttribute="top" secondItem="XDB-eX-2hf" secondAttribute="bottom" constant="16" id="dUg-Xg-M3s"/>
                 <constraint firstItem="XDB-eX-2hf" firstAttribute="leading" secondItem="GJf-gX-gCA" secondAttribute="trailing" constant="8" id="eM5-k6-IuZ"/>
                 <constraint firstItem="GJf-gX-gCA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="fMI-pY-uww"/>
-                <constraint firstItem="vC0-ry-au0" firstAttribute="top" secondItem="oIr-2z-xfh" secondAttribute="bottom" constant="2" id="gxV-Ub-OGN"/>
+                <constraint firstItem="vC0-ry-au0" firstAttribute="top" secondItem="oIr-2z-xfh" secondAttribute="bottom" constant="4" id="gxV-Ub-OGN"/>
                 <constraint firstItem="XDB-eX-2hf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="hKs-X7-ECL"/>
                 <constraint firstItem="vC0-ry-au0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="hYM-TE-RVz"/>
                 <constraint firstItem="oIr-2z-xfh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="mfQ-Px-bR1"/>

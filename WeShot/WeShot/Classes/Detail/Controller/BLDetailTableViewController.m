@@ -64,7 +64,7 @@ static NSString* commentCellID = @"BLDetailCommentCell";
     if (indexPath.row == 0) {
         return ScreenSize.width + 210;
     }
-    return 80;
+    return 100;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
