@@ -41,7 +41,7 @@
     self.collectionView.dataSource = self;
     self.collectionView.backgroundColor = BLGlobalBg;
     CGFloat bottom = self.tabBarController.tabBar.height;
-    self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, bottom, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(64 + 44, 0, bottom, 0);
     self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
     [self.collectionView registerNib:[UINib nibWithNibName:@"BLGridCollectionViewCell" bundle: [NSBundle mainBundle]] forCellWithReuseIdentifier:@"gridflowCell"];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -62,6 +62,7 @@
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BLGridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gridflowCell" forIndexPath:indexPath];
+    
     return cell;
 }
 

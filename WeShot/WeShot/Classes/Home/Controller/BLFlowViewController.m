@@ -58,6 +58,8 @@
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BLFlowCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"waterflowCell" forIndexPath:indexPath];
+    cell.layer.borderWidth=0.3f;
+    cell.layer.borderColor=[[UIColor whiteColor] colorWithAlphaComponent:0.7].CGColor;
     return cell;
 }
 
