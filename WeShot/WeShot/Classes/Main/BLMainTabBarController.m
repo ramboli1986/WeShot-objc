@@ -14,6 +14,7 @@
 
 @interface BLMainTabBarController ()
 @property (nonatomic, strong)UIView* indicatorView;
+@property (nonatomic, strong)UIView* smallview;
 @end
 
 @implementation BLMainTabBarController {
@@ -23,30 +24,25 @@
 }
 
 
-- (UIView*)indicatorView {
-    if (_indicatorView == nil) {
-        _indicatorView = [[UIView alloc]init];
-    }
-    //indicatorW = ScreenSize.width/15.0;
-    indicatorH = 3.0;
-    _indicatorView.width = indicatorW;
-    _indicatorView.height = indicatorH;
-    _indicatorView.y = ScreenSize.height-indicatorH;
-    _indicatorView.backgroundColor = BLTintColor;
-    return _indicatorView;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupChildVC];
     [self setupTabBarIndicator];
     [self setupTabBarBackground];
-    
-    [self.indicatorView removeFromSuperview];
-    self.indicatorView.centerX = ScreenSize.width/6.0;
-    [self.view addSubview:self.indicatorView];
+    [self addTabBarIndicator];
 }
 
+
+- (void)addTabBarIndicator{
+    self.indicatorView = [[UIView alloc]init];
+    indicatorH = 3.0;
+    self.indicatorView.width = indicatorW;
+    self.indicatorView.height = indicatorH;
+    self.indicatorView.y = self.tabBar.height-indicatorH;
+    self.indicatorView.backgroundColor = BLTintColor;
+    self.indicatorView.centerX = ScreenSize.width/6.0;
+    [self.tabBar addSubview:_indicatorView];
+}
 - (void)setupTabBarBackground{
     CGRect rect = CGRectMake(0, 0, 1, 1);
     UIColor *color = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.95];
