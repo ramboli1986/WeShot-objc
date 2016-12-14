@@ -1,5 +1,5 @@
 //
-//  BLProfileTableViewController.h
+//  BLProfileViewController.h
 //  WeShot
 //
 //  Created by bo LI on 12/13/16.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BLProfileTableViewController : UITableViewController
+@interface BLProfileViewController : UIViewController
+
 @property (nonatomic, strong) NSString* uid;
+
 @end

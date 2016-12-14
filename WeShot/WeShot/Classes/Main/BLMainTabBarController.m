@@ -9,7 +9,7 @@
 #import "BLMainTabBarController.h"
 #import "BLHomeViewController.h"
 #import "BLExploreViewController.h"
-#import "BLProfileTableViewController.h"
+#import "BLProfileViewController.h"
 #import "BLNavigationController.h"
 
 @interface BLMainTabBarController ()
@@ -50,7 +50,7 @@
 - (void)setupChildVC {
     [self setupChildVC:[[BLHomeViewController alloc]init] image:@"home"];
     [self setupChildVC:[[BLExploreViewController alloc]init] image:@"explore"];
-    [self setupChildVC:[[BLProfileTableViewController alloc]init] image:@"user"];
+    [self setupChildVC:[[BLProfileViewController alloc]init] image:@"user"];
 }
 
 -(void)setupChildVC:(UIViewController*)vc image:(NSString*)imageName {

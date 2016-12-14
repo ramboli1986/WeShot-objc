@@ -15,7 +15,6 @@
 		FDC6B3EB1E007A7A00250AD5 /* BLMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3EA1E007A7A00250AD5 /* BLMainTabBarController.m */; };
 		FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3F31E007B3800250AD5 /* BLHomeViewController.m */; };
 		FDC6B3F71E007B4100250AD5 /* BLExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3F61E007B4100250AD5 /* BLExploreViewController.m */; };
-		FDC6B3FA1E007B5400250AD5 /* BLProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3F91E007B5400250AD5 /* BLProfileTableViewController.m */; };
 		FDC6B3FE1E00835900250AD5 /* UIView+BLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3FD1E00835900250AD5 /* UIView+BLExtension.m */; };
 		FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4001E008BE800250AD5 /* BLFlowViewController.m */; };
 		FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4031E00977E00250AD5 /* UIBarButtonItem+BLExtension.m */; };
@@ -25,6 +24,13 @@
 		FDC6B40F1E00C80C00250AD5 /* BLFlowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B40D1E00C80C00250AD5 /* BLFlowCollectionViewCell.xib */; };
 		FDC6B4181E00D3F000250AD5 /* BLGridCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4161E00D3F000250AD5 /* BLGridCollectionViewCell.m */; };
 		FDC6B4191E00D3F000250AD5 /* BLGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B4171E00D3F000250AD5 /* BLGridCollectionViewCell.xib */; };
+		FDC6B41C1E00DC8400250AD5 /* BLProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B41B1E00DC8400250AD5 /* BLProfileViewController.m */; };
+		FDC6B4201E00F3BE00250AD5 /* BLProfileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B41E1E00F3BE00250AD5 /* BLProfileHeaderCell.m */; };
+		FDC6B4211E00F3BE00250AD5 /* BLProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B41F1E00F3BE00250AD5 /* BLProfileHeaderCell.xib */; };
+		FDC6B42D1E010D7000250AD5 /* BLCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B42B1E010D7000250AD5 /* BLCollectionReusableView.m */; };
+		FDC6B42E1E010D7000250AD5 /* BLCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B42C1E010D7000250AD5 /* BLCollectionReusableView.xib */; };
+		FDC6B4321E010F9600250AD5 /* BLProfileShotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4301E010F9600250AD5 /* BLProfileShotCell.m */; };
+		FDC6B4331E010F9600250AD5 /* BLProfileShotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B4311E010F9600250AD5 /* BLProfileShotCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +49,6 @@
 		FDC6B3F31E007B3800250AD5 /* BLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHomeViewController.m; sourceTree = "<group>"; };
 		FDC6B3F51E007B4100250AD5 /* BLExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLExploreViewController.h; sourceTree = "<group>"; };
 		FDC6B3F61E007B4100250AD5 /* BLExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLExploreViewController.m; sourceTree = "<group>"; };
-		FDC6B3F81E007B5400250AD5 /* BLProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLProfileTableViewController.h; sourceTree = "<group>"; };
-		FDC6B3F91E007B5400250AD5 /* BLProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLProfileTableViewController.m; sourceTree = "<group>"; };
 		FDC6B3FB1E007F9700250AD5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FDC6B3FC1E00835900250AD5 /* UIView+BLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BLExtension.h"; sourceTree = "<group>"; };
 		FDC6B3FD1E00835900250AD5 /* UIView+BLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BLExtension.m"; sourceTree = "<group>"; };
@@ -62,6 +66,17 @@
 		FDC6B4151E00D3F000250AD5 /* BLGridCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGridCollectionViewCell.h; sourceTree = "<group>"; };
 		FDC6B4161E00D3F000250AD5 /* BLGridCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLGridCollectionViewCell.m; sourceTree = "<group>"; };
 		FDC6B4171E00D3F000250AD5 /* BLGridCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLGridCollectionViewCell.xib; sourceTree = "<group>"; };
+		FDC6B41A1E00DC8400250AD5 /* BLProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLProfileViewController.h; sourceTree = "<group>"; };
+		FDC6B41B1E00DC8400250AD5 /* BLProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLProfileViewController.m; sourceTree = "<group>"; };
+		FDC6B41D1E00F3BE00250AD5 /* BLProfileHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLProfileHeaderCell.h; sourceTree = "<group>"; };
+		FDC6B41E1E00F3BE00250AD5 /* BLProfileHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLProfileHeaderCell.m; sourceTree = "<group>"; };
+		FDC6B41F1E00F3BE00250AD5 /* BLProfileHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLProfileHeaderCell.xib; sourceTree = "<group>"; };
+		FDC6B42A1E010D7000250AD5 /* BLCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCollectionReusableView.h; sourceTree = "<group>"; };
+		FDC6B42B1E010D7000250AD5 /* BLCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCollectionReusableView.m; sourceTree = "<group>"; };
+		FDC6B42C1E010D7000250AD5 /* BLCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLCollectionReusableView.xib; sourceTree = "<group>"; };
+		FDC6B42F1E010F9600250AD5 /* BLProfileShotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLProfileShotCell.h; sourceTree = "<group>"; };
+		FDC6B4301E010F9600250AD5 /* BLProfileShotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLProfileShotCell.m; sourceTree = "<group>"; };
+		FDC6B4311E010F9600250AD5 /* BLProfileShotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLProfileShotCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,8 +251,8 @@
 		FDC6B3E11E0069B400250AD5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FDC6B3F81E007B5400250AD5 /* BLProfileTableViewController.h */,
-				FDC6B3F91E007B5400250AD5 /* BLProfileTableViewController.m */,
+				FDC6B41A1E00DC8400250AD5 /* BLProfileViewController.h */,
+				FDC6B41B1E00DC8400250AD5 /* BLProfileViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +267,15 @@
 		FDC6B3E31E0069B400250AD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FDC6B41D1E00F3BE00250AD5 /* BLProfileHeaderCell.h */,
+				FDC6B41E1E00F3BE00250AD5 /* BLProfileHeaderCell.m */,
+				FDC6B41F1E00F3BE00250AD5 /* BLProfileHeaderCell.xib */,
+				FDC6B42F1E010F9600250AD5 /* BLProfileShotCell.h */,
+				FDC6B4301E010F9600250AD5 /* BLProfileShotCell.m */,
+				FDC6B4311E010F9600250AD5 /* BLProfileShotCell.xib */,
+				FDC6B42A1E010D7000250AD5 /* BLCollectionReusableView.h */,
+				FDC6B42B1E010D7000250AD5 /* BLCollectionReusableView.m */,
+				FDC6B42C1E010D7000250AD5 /* BLCollectionReusableView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,10 +352,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC6B4331E010F9600250AD5 /* BLProfileShotCell.xib in Resources */,
 				FDC6B4191E00D3F000250AD5 /* BLGridCollectionViewCell.xib in Resources */,
 				FDC6B3CB1E0068A100250AD5 /* LaunchScreen.storyboard in Resources */,
+				FDC6B4211E00F3BE00250AD5 /* BLProfileHeaderCell.xib in Resources */,
 				FDC6B40F1E00C80C00250AD5 /* BLFlowCollectionViewCell.xib in Resources */,
 				FDC6B3C81E0068A100250AD5 /* Assets.xcassets in Resources */,
+				FDC6B42E1E010D7000250AD5 /* BLCollectionReusableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,10 +370,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */,
+				FDC6B42D1E010D7000250AD5 /* BLCollectionReusableView.m in Sources */,
+				FDC6B4201E00F3BE00250AD5 /* BLProfileHeaderCell.m in Sources */,
 				FDC6B40A1E00C31000250AD5 /* BLWaterFlowLayout.m in Sources */,
+				FDC6B41C1E00DC8400250AD5 /* BLProfileViewController.m in Sources */,
 				FDC6B3F71E007B4100250AD5 /* BLExploreViewController.m in Sources */,
 				FDC6B3BD1E0068A100250AD5 /* main.m in Sources */,
 				FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */,
+				FDC6B4321E010F9600250AD5 /* BLProfileShotCell.m in Sources */,
 				FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */,
 				FDC6B4181E00D3F000250AD5 /* BLGridCollectionViewCell.m in Sources */,
 				FDC6B3EB1E007A7A00250AD5 /* BLMainTabBarController.m in Sources */,
@@ -354,7 +385,6 @@
 				FDC6B3E41E0069B400250AD5 /* AppDelegate.m in Sources */,
 				FDC6B3E81E007A6300250AD5 /* BLNavigationController.m in Sources */,
 				FDC6B3FE1E00835900250AD5 /* UIView+BLExtension.m in Sources */,
-				FDC6B3FA1E007B5400250AD5 /* BLProfileTableViewController.m in Sources */,
 				FDC6B40E1E00C80C00250AD5 /* BLFlowCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
