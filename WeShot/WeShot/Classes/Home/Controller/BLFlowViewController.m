@@ -53,10 +53,8 @@
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select item :%@", indexPath);
     BLDetailTableViewController* vc = [[BLDetailTableViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
-    //MSPDetailViewController *vc = [[MSPDetailViewController alloc]init];
-    //vc.hidesBottomBarWhenPushed = YES;
-    //[self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

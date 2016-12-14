@@ -19,6 +19,7 @@
 @implementation BLMainTabBarController {
     CGFloat indicatorW;
     CGFloat indicatorH;
+    NSInteger selectedIndex;
 }
 
 
@@ -39,12 +40,24 @@
     [super viewDidLoad];
     [self setupChildVC];
     [self setupTabBarIndicator];
+    [self setupTabBarBackground];
     
     [self.indicatorView removeFromSuperview];
     self.indicatorView.centerX = ScreenSize.width/6.0;
     [self.view addSubview:self.indicatorView];
 }
 
+- (void)setupTabBarBackground{
+    CGRect rect = CGRectMake(0, 0, 1, 1);
+    UIColor *color = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.95];
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+    [color setFill];
+    UIRectFill(rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self.tabBar setBackgroundImage:image];
+}
 
 
 - (void)setupChildVC {
@@ -65,7 +78,7 @@
 }
 
 - (void)setupTabBarIndicator {
-    
+    selectedIndex = 0;
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
@@ -77,15 +90,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

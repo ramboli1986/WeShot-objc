@@ -103,6 +103,9 @@
     CGFloat width = headerView.width/2;
     CGFloat height = headerView.height;
     NSArray* titles = @[@"Shots", @"Likes"];
+    if (headerView.subviews.count >= 2) {
+        return headerView;
+    }
     for (int i = 0; i < 2; i++) {
         UIButton *button = [[UIButton alloc]init];
         button.tag = i;
