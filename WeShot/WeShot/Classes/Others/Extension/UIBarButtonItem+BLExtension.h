@@ -10,4 +10,5 @@
 
 @interface UIBarButtonItem (BLExtension)
 + (instancetype)itemWithImage:(NSString *)image target:(id)target action:(SEL)action;
++ (instancetype)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action;
 @end

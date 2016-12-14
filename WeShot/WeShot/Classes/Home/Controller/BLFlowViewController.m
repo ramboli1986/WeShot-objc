@@ -9,6 +9,7 @@
 #import "BLFlowViewController.h"
 #import "BLWaterFlowLayout.h"
 #import "BLFlowCollectionViewCell.h"
+#import "BLDetailTableViewController.h"
 
 @interface BLFlowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, BLWaterFlowLayoutDelegate>
 
@@ -51,6 +52,8 @@
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select item :%@", indexPath);
+    BLDetailTableViewController* vc = [[BLDetailTableViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
     //MSPDetailViewController *vc = [[MSPDetailViewController alloc]init];
     //vc.hidesBottomBarWhenPushed = YES;
     //[self.navigationController pushViewController:vc animated:YES];

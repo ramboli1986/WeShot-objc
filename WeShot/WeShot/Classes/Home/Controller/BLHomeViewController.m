@@ -72,7 +72,7 @@
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         UIColor *tintColor = BLTintColor;
         [button setTitleColor:tintColor forState:UIControlStateDisabled];
-        button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:16];
+        button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:16];
         [button addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titleView addSubview:button];
         

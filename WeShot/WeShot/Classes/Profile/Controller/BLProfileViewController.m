@@ -15,6 +15,7 @@
 @interface BLProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView* cv;
+@property (nonatomic, weak) UIButton *selectButton;
 
 @end
 
@@ -32,7 +33,12 @@
 - (void)setupNav{
     if (!self.uid) {
         self.navigationItem.title = @"Profile";
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"Logout" target:self action:@selector(logout)];
+    } else {
+        self.navigationItem.title = @"Player";
     }
+    //self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"location" target:self action:@selector(rightClick)];
+    
 }
 
 - (void)setupCollectionView {
@@ -75,7 +81,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         CGFloat cellWidth = ScreenSize.width;
-        return CGSizeMake (cellWidth, cellWidth-110);
+        return CGSizeMake(cellWidth, cellWidth-110);
     } else {
         CGFloat cellWidth = (ScreenSize.width - (3+1)*gap)/3;
         return CGSizeMake(cellWidth, cellWidth);
@@ -84,7 +90,7 @@
 
 - (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (section == 0) {
-        return UIEdgeInsetsMake(0, 0, 8, 0);
+        return UIEdgeInsetsMake(0, 0, gap, 0);
     }
     else {
         return UIEdgeInsetsMake(gap, gap, gap, gap);
@@ -93,8 +99,30 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     BLCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BLCollectionReusableView" forIndexPath:indexPath];
-
-    return  headerView;
+    
+    CGFloat width = headerView.width/2;
+    CGFloat height = headerView.height;
+    NSArray* titles = @[@"Shots", @"Likes"];
+    for (int i = 0; i < 2; i++) {
+        UIButton *button = [[UIButton alloc]init];
+        button.tag = i;
+        button.height = height;
+        button.width = width;
+        button.x = width*i;
+        [button setTitle:titles[i] forState:UIControlStateNormal];
+        //UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0f];
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        UIColor *tintColor = BLTintColor;
+        [button setTitleColor:tintColor forState:UIControlStateDisabled];
+        button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14];
+        [button addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+        [headerView addSubview:button];
+        if (i == 0) {
+            button.enabled = NO;
+            self.selectButton = button;
+        }
+    }
+    return headerView;
 }
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -121,9 +149,21 @@
     if (section == 0) {
         return CGSizeZero;
     } else {
-        return CGSizeMake(ScreenSize.width, 64); // header cell width and height
+        return CGSizeMake(ScreenSize.width, 44); // header cell width and height
     }
 }
+
+- (void)titleClick: (UIButton*) button {
+    self.selectButton.enabled = YES;
+    button.enabled = NO;
+    self.selectButton = button;
+    NSLog(@"switch likes / shots");
+}
+
+- (void)logout{
+    NSLog(@"log out");
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
