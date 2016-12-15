@@ -9,7 +9,7 @@
 #import "BLFlowViewController.h"
 #import "BLWaterFlowLayout.h"
 #import "BLFlowCollectionViewCell.h"
-#import "BLDetailTableViewController.h"
+#import "BLShotDetailTableViewController.h"
 #import "BLShotsTool.h"
 
 
@@ -30,8 +30,16 @@
         self.view.backgroundColor = [UIColor blueColor];
     }
     [self setupCollectionView];
+    [self test];
 }
 
+- (void)test {
+    [BLShotsTool popularShotWithSuccess:^(id shotsArray) {
+        NSLog(@"%@",shotsArray);
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error.localizedDescription);
+    }];
+}
 
 - (void)setupCollectionView {
     BLWaterFlowLayout* flowLayout = [[BLWaterFlowLayout alloc]init];
@@ -55,7 +63,7 @@
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select item :%@", indexPath);
-    BLDetailTableViewController* vc = [[BLDetailTableViewController alloc]init];
+    BLShotDetailTableViewController* vc = [[BLShotDetailTableViewController alloc]init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

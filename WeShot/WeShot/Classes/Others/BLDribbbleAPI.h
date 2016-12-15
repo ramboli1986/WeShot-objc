@@ -19,8 +19,8 @@
 
 #define OAuth2_AuthorizationUrl @"https://dribbble.com/oauth/authorize"
 #define OAuth2_TokenUrl @"https://dribbble.com/oauth/token"
-#define OAuth2_RedirectUrl @"http://yinpans.com/idesign"
-#define OAuth2_DRIBBBLE_SCOPES [NSSet setWithObjects:@"public", @"write", @"upload", @"comment", nil]
+#define OAuth2_RedirectUrl @"http://rambo-li.me/"
+
 #define DRIBBBLE_SHOT @"https://api.dribbble.com/v1/shots"
 
 #endif /* BLDribbbleAPI_h */

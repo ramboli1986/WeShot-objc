@@ -6,15 +6,15 @@
 //  Copyright © 2016 Bo LI. All rights reserved.
 //
 
-#import "BLDetailTableViewController.h"
+#import "BLShotDetailTableViewController.h"
 #import "BLDetailContentCell.h"
 #import "BLDetailCommentCell.h"
 
-@interface BLDetailTableViewController ()
+@interface BLShotDetailTableViewController ()
 
 @end
 
-@implementation BLDetailTableViewController
+@implementation BLShotDetailTableViewController
 
 static NSString* headercellID = @"BLDetailContentCell";
 static NSString* commentCellID = @"BLDetailCommentCell";

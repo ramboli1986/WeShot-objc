@@ -15,7 +15,7 @@
 @implementation BLShotsTool
 
 
-+ (void)popularShotWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
++ (void)popularShotWithSuccess:(void (^)(id shots))success failure:(void (^)(NSError *))failure{
     //send request
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
@@ -26,7 +26,7 @@
     }];
 }
 
-+ (void)recentShotWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure {
++ (void)recentShotWithSuccess:(void (^)(id shots))success failure:(void (^)(NSError *))failure {
     //send request
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;

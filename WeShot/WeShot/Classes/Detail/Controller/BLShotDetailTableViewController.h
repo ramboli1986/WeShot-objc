@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BLDetailTableViewController : UITableViewController
+@interface BLShotDetailTableViewController : UITableViewController
 
 @end
