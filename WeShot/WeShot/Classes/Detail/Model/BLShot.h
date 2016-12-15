@@ -28,5 +28,5 @@
 
 //additonal property
 @property (nonatomic, assign, readonly) CGFloat homeCellHeight;
-
+@property (nonatomic, assign, readonly) CGFloat detailCellHeight;
 @end

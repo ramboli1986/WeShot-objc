@@ -9,6 +9,9 @@
 #import "BLShotDetailTableViewController.h"
 #import "BLDetailContentCell.h"
 #import "BLDetailCommentCell.h"
+#import "BLShot.h"
+
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface BLShotDetailTableViewController ()
 
@@ -22,12 +25,14 @@ static NSString* commentCellID = @"BLDetailCommentCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTableView];
-    self.navigationItem.title = @"SHOT";
+    
+    
 }
 
 - (void) setupTableView {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = BLGlobalBg;
+    self.navigationItem.title = @"SHOT";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +55,20 @@ static NSString* commentCellID = @"BLDetailCommentCell";
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:headercellID owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
+        
+        
+        cell.username.text = self.shot.user.username;
+        NSString* shotImageURLStr = self.shot.images.hidpi?self.shot.images.hidpi:self.shot.images.normal;
+        NSString* avatorImageUrlStr = self.shot.user.avatar_url;
+        [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
+                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+        [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLStr]
+                          placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+        [cell.location setTitle:self.shot.user.location forState:UIControlStateNormal];
+        
+        cell.shotTitle.text = self.shot.title;
+        cell.shotdetail.text = self.shot.detailContent;
+        cell.shotInfo.text = [NSString stringWithFormat:@"%zd comments    %zd views    %zd likes",self.shot.comments_count, self.shot.views_count, self.shot.likes_count];
         return cell;
     }
     BLDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
@@ -62,7 +81,7 @@ static NSString* commentCellID = @"BLDetailCommentCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return ScreenSize.width + 210;
+        return self.shot.detailCellHeight;
     }
     return 100;
 }

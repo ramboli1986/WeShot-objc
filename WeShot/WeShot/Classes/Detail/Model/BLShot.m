@@ -11,6 +11,7 @@
 
 @implementation BLShot {
     CGFloat _homeCellHeight;
+    CGFloat _detailCellHeight;
 }
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
@@ -32,8 +33,23 @@
         CGFloat titleHeight = [self.title boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:2];
         CGFloat detailHeight = [self.detailContent boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:3];
         _homeCellHeight = 8 + BLAvatorHeight + 16 + detailHeight + 16 + titleHeight + 16 + shotImageHeight;
-        NSLog(@"%@,%f, %f",self.title, titleHeight, _homeCellHeight);
+        //NSLog(@"%@,%f, %f",self.title, titleHeight, _homeCellHeight);
     }
     return _homeCellHeight;
+}
+
+- (CGFloat)detailCellHeight {
+    if (!_detailCellHeight) {
+        UIFont *titleFont = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
+        UIFont *detailFont = [UIFont fontWithName:@"Kailasa" size:14.0f];
+        
+        CGFloat shotImageHeight = ScreenSize.width*self.height/self.width;
+        CGFloat titleHeight = [self.title boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:INT_MAX];
+        CGFloat detailHeight = [self.detailContent boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:INT_MAX];
+        
+        _detailCellHeight = 8 + 35 + 8 + shotImageHeight + 16 + titleHeight + 16 + detailHeight + 30;
+        NSLog(@"%@,%f, %f",self.title, titleHeight, _homeCellHeight);
+    }
+    return _detailCellHeight;
 }
 @end

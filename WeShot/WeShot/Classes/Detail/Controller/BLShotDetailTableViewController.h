@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BLShot;
 
 @interface BLShotDetailTableViewController : UITableViewController
+
+@property (nonatomic, strong) BLShot* shot;
 
 @end

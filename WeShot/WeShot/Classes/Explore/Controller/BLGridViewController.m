@@ -65,7 +65,7 @@
 }
 
 - (void)loadNewshot{
-    [self.shots removeAllObjects];
+    
     page = 1;
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
@@ -83,6 +83,7 @@
     }
     NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=99",page];
     [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+        [self.shots removeAllObjects];
         [self.shots addObjectsFromArray:shotsArray];
         [self.collectionView reloadData];
         [self.collectionView.mj_header endRefreshing];
@@ -137,6 +138,7 @@
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select item :%@", indexPath);
     BLShotDetailTableViewController* vc = [[BLShotDetailTableViewController alloc]init];
+    vc.shot = self.shots[indexPath.row];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

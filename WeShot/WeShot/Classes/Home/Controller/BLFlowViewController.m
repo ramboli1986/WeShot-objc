@@ -69,7 +69,7 @@
 }
 
 - (void)loadNewshots{
-    [self.shots removeAllObjects];
+    
     page = 1;
     per_page = 18;
     BLShotsParams* params = [[BLShotsParams alloc]init];
@@ -80,6 +80,7 @@
     if (self.type == 0) {
         NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",page, per_page];
         [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+            [self.shots removeAllObjects];
             [self.shots addObjectsFromArray:shotsArray];
             [self.collectionView reloadData];
             [self.collectionView.mj_header endRefreshing];
@@ -129,6 +130,7 @@
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select item :%@", indexPath);
     BLShotDetailTableViewController* vc = [[BLShotDetailTableViewController alloc]init];
+    vc.shot = self.shots[indexPath.row];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -161,6 +163,10 @@
 {
     BLShot* shot = self.shots[index];
     return shot.homeCellHeight;
+}
+
+- (CGFloat)columnMarginInWaterflowLayout:(BLWaterFlowLayout *)waterflowLayout {
+    return 10;
 }
 
 - (CGFloat)rowMarginInWaterflowLayout:(BLWaterFlowLayout *)waterflowLayout
