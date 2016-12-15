@@ -11,9 +11,9 @@
 @interface BLShotsTool : NSObject
 
 
-+ (void)popularShotWithSuccess:(void(^)(id shots))success failure:(void(^)(NSError* error))failure;
++ (void)popularShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
 
-+ (void)recentShotWithSuccess:(void(^)(id shots))success failure:(void(^)(NSError* error))failure;
++ (void)recentShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
 
 + (void)teamsShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
 

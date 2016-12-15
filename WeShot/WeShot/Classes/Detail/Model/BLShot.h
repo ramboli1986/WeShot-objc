@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "BLUser.h"
-
+#import "BLShotPicture.h"
 @interface BLShot : NSObject
 
 @property (nonatomic, assign, getter=sid) NSInteger id;
-@property (nonatomic, strong) NSString* title;
-@property (nonatomic, strong) NSString* description;
+@property (nonatomic, copy) NSString* title;
+@property (nonatomic, copy) NSString* description;
 @property (nonatomic, assign) NSInteger width;
 @property (nonatomic, assign) NSInteger height;
-@property (nonatomic, strong) NSDictionary* images;
+@property (nonatomic, strong) BLShotPicture* images;
 @property (nonatomic, assign) NSInteger views_count;
 @property (nonatomic, assign) NSInteger likes_count;
 @property (nonatomic, assign) NSInteger comments_count;
-@property (nonatomic, strong) NSString* created_at;
-@property (nonatomic, strong) NSString* comments_url;
+@property (nonatomic, copy) NSString* created_at;
+@property (nonatomic, copy) NSString* comments_url;
 @property (nonatomic, assign) BOOL animated;
 @property (nonatomic, strong) BLUser* user;
 

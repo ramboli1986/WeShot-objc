@@ -38,11 +38,11 @@
 		FDD530701E01E3B700E0DD8D /* BLDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD5306E1E01E3B700E0DD8D /* BLDetailCommentCell.xib */; };
 		FDD530731E01E4D500E0DD8D /* BLShotDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530721E01E4D500E0DD8D /* BLShotDetailTableViewController.m */; };
 		FDD5307B1E020C5F00E0DD8D /* BLHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5307A1E020C5F00E0DD8D /* BLHttpTool.m */; };
-		FDD530821E0210C400E0DD8D /* BLShotsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530811E0210C400E0DD8D /* BLShotsResult.m */; };
 		FDD530851E02122B00E0DD8D /* BLShotsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530841E02122B00E0DD8D /* BLShotsTool.m */; };
 		FDD5308C1E0233B600E0DD8D /* BLShotsParams.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5308B1E0233B600E0DD8D /* BLShotsParams.m */; };
 		FDD5308F1E023B8000E0DD8D /* BLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5308E1E023B8000E0DD8D /* BLUser.m */; };
 		FDD530921E02400600E0DD8D /* BLShot.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530911E02400600E0DD8D /* BLShot.m */; };
+		FDD530951E0247D200E0DD8D /* BLShotPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530941E0247D200E0DD8D /* BLShotPicture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,8 +102,6 @@
 		FDD530721E01E4D500E0DD8D /* BLShotDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotDetailTableViewController.m; sourceTree = "<group>"; };
 		FDD530791E020C5F00E0DD8D /* BLHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHttpTool.h; sourceTree = "<group>"; };
 		FDD5307A1E020C5F00E0DD8D /* BLHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHttpTool.m; sourceTree = "<group>"; };
-		FDD530801E0210C400E0DD8D /* BLShotsResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotsResult.h; sourceTree = "<group>"; };
-		FDD530811E0210C400E0DD8D /* BLShotsResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotsResult.m; sourceTree = "<group>"; };
 		FDD530831E02122B00E0DD8D /* BLShotsTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotsTool.h; sourceTree = "<group>"; };
 		FDD530841E02122B00E0DD8D /* BLShotsTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotsTool.m; sourceTree = "<group>"; };
 		FDD530891E021D3800E0DD8D /* BLDribbbleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLDribbbleAPI.h; sourceTree = "<group>"; };
@@ -113,6 +111,8 @@
 		FDD5308E1E023B8000E0DD8D /* BLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUser.m; sourceTree = "<group>"; };
 		FDD530901E02400600E0DD8D /* BLShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShot.h; sourceTree = "<group>"; };
 		FDD530911E02400600E0DD8D /* BLShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShot.m; sourceTree = "<group>"; };
+		FDD530931E0247D200E0DD8D /* BLShotPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotPicture.h; sourceTree = "<group>"; };
+		FDD530941E0247D200E0DD8D /* BLShotPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotPicture.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +378,8 @@
 			children = (
 				FDD530901E02400600E0DD8D /* BLShot.h */,
 				FDD530911E02400600E0DD8D /* BLShot.m */,
+				FDD530931E0247D200E0DD8D /* BLShotPicture.h */,
+				FDD530941E0247D200E0DD8D /* BLShotPicture.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -420,8 +422,6 @@
 			children = (
 				FDD5308A1E0233B600E0DD8D /* BLShotsParams.h */,
 				FDD5308B1E0233B600E0DD8D /* BLShotsParams.m */,
-				FDD530801E0210C400E0DD8D /* BLShotsResult.h */,
-				FDD530811E0210C400E0DD8D /* BLShotsResult.m */,
 				FDD530831E02122B00E0DD8D /* BLShotsTool.h */,
 				FDD530841E02122B00E0DD8D /* BLShotsTool.m */,
 			);
@@ -558,7 +558,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDD530821E0210C400E0DD8D /* BLShotsResult.m in Sources */,
 				FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */,
 				FDC6B42D1E010D7000250AD5 /* BLCollectionReusableView.m in Sources */,
 				FDC6B4201E00F3BE00250AD5 /* BLProfileHeaderCell.m in Sources */,
@@ -583,6 +582,7 @@
 				FDD5306A1E01E18100E0DD8D /* BLDetailContentCell.m in Sources */,
 				FDD5307B1E020C5F00E0DD8D /* BLHttpTool.m in Sources */,
 				FDC6B40E1E00C80C00250AD5 /* BLFlowCollectionViewCell.m in Sources */,
+				FDD530951E0247D200E0DD8D /* BLShotPicture.m in Sources */,
 				FDD5308F1E023B8000E0DD8D /* BLUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

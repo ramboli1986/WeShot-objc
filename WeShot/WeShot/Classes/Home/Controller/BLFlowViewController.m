@@ -11,6 +11,7 @@
 #import "BLFlowCollectionViewCell.h"
 #import "BLShotDetailTableViewController.h"
 #import "BLShotsTool.h"
+#import "BLShot.h"
 
 
 @interface BLFlowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, BLWaterFlowLayoutDelegate>
@@ -36,6 +37,8 @@
 - (void)test {
     [BLShotsTool popularShotWithSuccess:^(id shotsArray) {
         NSLog(@"%@",shotsArray);
+        BLShot* shot = shotsArray[0];
+        NSLog(@"%@", shot.title);
     } failure:^(NSError *error) {
         NSLog(@"%@",error.localizedDescription);
     }];
