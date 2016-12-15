@@ -21,7 +21,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bo9-vL-z8O">
                         <rect key="frame" x="0.0" y="0.0" width="211" height="228"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="0.24744238700000001" blue="0.22186996810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NASA website concept" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNJ-b7-TCo">
                         <rect key="frame" x="8" y="294" width="195" height="16"/>
@@ -36,7 +36,7 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="0jx-zm-rdc">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0jx-zm-rdc">
                         <rect key="frame" x="8" y="376" width="23" height="23"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="23" id="2jG-P4-6tP"/>
@@ -53,19 +53,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="254" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pym-mw-D1w">
-                        <rect key="frame" x="179" y="377.5" width="24" height="20"/>
+                        <rect key="frame" x="181" y="377.5" width="22" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="8ed-x9-gcY"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unlike" translatesAutoresizingMaskIntoConstraints="NO" id="3as-gH-Th0">
-                        <rect key="frame" x="158" y="380" width="15" height="15"/>
+                        <rect key="frame" x="161" y="380.5" width="14" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="15" id="DHG-la-K0n"/>
-                            <constraint firstAttribute="height" constant="15" id="m3c-xa-b1F"/>
+                            <constraint firstAttribute="width" constant="14" id="DHG-la-K0n"/>
+                            <constraint firstAttribute="height" constant="14" id="m3c-xa-b1F"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -83,16 +83,24 @@
                 <constraint firstItem="tH6-h7-0kd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Q6k-yR-9f1"/>
                 <constraint firstItem="Opf-6X-nci" firstAttribute="leading" secondItem="0jx-zm-rdc" secondAttribute="trailing" constant="4" id="gWS-2w-LtR"/>
                 <constraint firstAttribute="trailing" secondItem="pym-mw-D1w" secondAttribute="trailing" constant="8" id="kgR-Ij-Yth"/>
+                <constraint firstItem="3as-gH-Th0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Opf-6X-nci" secondAttribute="trailing" constant="2" id="nXo-Ep-NxI"/>
                 <constraint firstItem="tH6-h7-0kd" firstAttribute="top" secondItem="yNJ-b7-TCo" secondAttribute="bottom" constant="16" id="qN5-b5-LVu"/>
                 <constraint firstItem="3as-gH-Th0" firstAttribute="centerY" secondItem="pym-mw-D1w" secondAttribute="centerY" id="rgi-pg-9cI"/>
                 <constraint firstItem="yNJ-b7-TCo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="tmM-gt-1Gh"/>
             </constraints>
             <size key="customSize" width="211" height="407"/>
+            <connections>
+                <outlet property="likeCount" destination="pym-mw-D1w" id="Hwl-9T-r1N"/>
+                <outlet property="shotDetail" destination="tH6-h7-0kd" id="OV2-15-CyA"/>
+                <outlet property="shotImage" destination="Bo9-vL-z8O" id="omG-Ii-T4n"/>
+                <outlet property="shotTitle" destination="yNJ-b7-TCo" id="gdH-Sc-ZKE"/>
+                <outlet property="userAvatorImage" destination="0jx-zm-rdc" id="ZDX-cS-RMT"/>
+                <outlet property="username" destination="Opf-6X-nci" id="fT6-wr-EFc"/>
+            </connections>
             <point key="canvasLocation" x="67.5" y="48.5"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="bookmark" width="24" height="24"/>
         <image name="unlike" width="12" height="12"/>
     </resources>
 </document>

@@ -12,15 +12,30 @@
 #import "BLShotDetailTableViewController.h"
 #import "BLShotsTool.h"
 #import "BLShot.h"
+#import "BLShotsParams.h"
+#import "BLDribbbleAPI.h"
 
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDImageCache.h>
+#import <MJRefresh.h>
 
 @interface BLFlowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, BLWaterFlowLayoutDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray* shots;
 
 @end
 
-@implementation BLFlowViewController
+@implementation BLFlowViewController {
+    NSInteger page;
+}
+
+- (NSMutableArray*)shots {
+    if (_shots == nil) {
+        _shots = [NSMutableArray array];
+    }
+    return _shots;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,9 +46,62 @@
         self.view.backgroundColor = [UIColor blueColor];
     }
     [self setupCollectionView];
+    [self setupRefresh];
 }
 
+- (void)setupRefresh {
+    // The drop-down refresh
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewshot)];
+    
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.stateLabel.hidden = YES;
+    [header beginRefreshing];
+    
+    self.collectionView.mj_header = header;
+    
+    // The pull-up refresh
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self loadMoreShot];
+    }];
+}
 
+- (void)loadNewshot{
+    [self.shots removeAllObjects];
+    page = 0;
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    
+    //@{@"page":@(page), @"per_page":@100};
+    
+    if (self.type == 0) {
+        NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=18",page];
+        [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+            [self.shots addObjectsFromArray:shotsArray];
+            [self.collectionView reloadData];
+            [self.collectionView.mj_header endRefreshing];
+        } failure:^(NSError *error) {
+            NSLog(@"error:%@",error.localizedDescription);
+            [self.collectionView.mj_header endRefreshing];
+        }];
+
+    }
+}
+- (void)loadMoreShot {
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    if (self.type == 0) {
+        NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=18",page];
+        [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
+            [self.shots addObjectsFromArray:shotsArray];
+            [self.collectionView reloadData];
+            [self.collectionView.mj_footer endRefreshing];
+        } failure:^(NSError *error) {
+            NSLog(@"error:%@",error.localizedDescription);
+            [self.collectionView.mj_footer endRefreshing];
+        }];
+    }
+}
 
 - (void)setupCollectionView {
     BLWaterFlowLayout* flowLayout = [[BLWaterFlowLayout alloc]init];
@@ -51,7 +119,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return self.shots.count;
 }
 
 
@@ -66,6 +134,19 @@
     BLFlowCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"waterflowCell" forIndexPath:indexPath];
     cell.layer.borderWidth=0.3f;
     cell.layer.borderColor=[[UIColor whiteColor] colorWithAlphaComponent:0.7].CGColor;
+    
+    BLShot* shot = self.shots[indexPath.row];
+    NSString* shotImageURLStr = shot.images.normal;
+    NSString* avatorImageUrlStr = shot.user.avatar_url;
+    
+    [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLStr]
+                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    [cell.userAvatorImage sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
+                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    cell.shotTitle.text = shot.title;
+    cell.shotDetail.text = shot.detailContent;
+    cell.username.text = shot.user.username;
+    cell.likeCount.text = [NSString stringWithFormat:@"%zd",shot.likes_count];
     return cell;
 }
 
