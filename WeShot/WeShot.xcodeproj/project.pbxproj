@@ -38,9 +38,9 @@
 		FDD530701E01E3B700E0DD8D /* BLDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD5306E1E01E3B700E0DD8D /* BLDetailCommentCell.xib */; };
 		FDD530731E01E4D500E0DD8D /* BLDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530721E01E4D500E0DD8D /* BLDetailTableViewController.m */; };
 		FDD5307B1E020C5F00E0DD8D /* BLHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5307A1E020C5F00E0DD8D /* BLHttpTool.m */; };
-		FDD5307F1E020FFB00E0DD8D /* BLShotsParam.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5307E1E020FFB00E0DD8D /* BLShotsParam.m */; };
 		FDD530821E0210C400E0DD8D /* BLShotsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530811E0210C400E0DD8D /* BLShotsResult.m */; };
 		FDD530851E02122B00E0DD8D /* BLShotsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530841E02122B00E0DD8D /* BLShotsTool.m */; };
+		FDD5308C1E0233B600E0DD8D /* BLShotsParams.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5308B1E0233B600E0DD8D /* BLShotsParams.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,13 +100,13 @@
 		FDD530721E01E4D500E0DD8D /* BLDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailTableViewController.m; sourceTree = "<group>"; };
 		FDD530791E020C5F00E0DD8D /* BLHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHttpTool.h; sourceTree = "<group>"; };
 		FDD5307A1E020C5F00E0DD8D /* BLHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHttpTool.m; sourceTree = "<group>"; };
-		FDD5307D1E020FFB00E0DD8D /* BLShotsParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotsParam.h; sourceTree = "<group>"; };
-		FDD5307E1E020FFB00E0DD8D /* BLShotsParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotsParam.m; sourceTree = "<group>"; };
 		FDD530801E0210C400E0DD8D /* BLShotsResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotsResult.h; sourceTree = "<group>"; };
 		FDD530811E0210C400E0DD8D /* BLShotsResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotsResult.m; sourceTree = "<group>"; };
 		FDD530831E02122B00E0DD8D /* BLShotsTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotsTool.h; sourceTree = "<group>"; };
 		FDD530841E02122B00E0DD8D /* BLShotsTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotsTool.m; sourceTree = "<group>"; };
 		FDD530891E021D3800E0DD8D /* BLDribbbleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLDribbbleAPI.h; sourceTree = "<group>"; };
+		FDD5308A1E0233B600E0DD8D /* BLShotsParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotsParams.h; sourceTree = "<group>"; };
+		FDD5308B1E0233B600E0DD8D /* BLShotsParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotsParams.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,8 +407,8 @@
 		FDD5307C1E020F3900E0DD8D /* Shots */ = {
 			isa = PBXGroup;
 			children = (
-				FDD5307D1E020FFB00E0DD8D /* BLShotsParam.h */,
-				FDD5307E1E020FFB00E0DD8D /* BLShotsParam.m */,
+				FDD5308A1E0233B600E0DD8D /* BLShotsParams.h */,
+				FDD5308B1E0233B600E0DD8D /* BLShotsParams.m */,
 				FDD530801E0210C400E0DD8D /* BLShotsResult.h */,
 				FDD530811E0210C400E0DD8D /* BLShotsResult.m */,
 				FDD530831E02122B00E0DD8D /* BLShotsTool.h */,
@@ -551,8 +551,8 @@
 				FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */,
 				FDC6B42D1E010D7000250AD5 /* BLCollectionReusableView.m in Sources */,
 				FDC6B4201E00F3BE00250AD5 /* BLProfileHeaderCell.m in Sources */,
-				FDD5307F1E020FFB00E0DD8D /* BLShotsParam.m in Sources */,
 				FDD530851E02122B00E0DD8D /* BLShotsTool.m in Sources */,
+				FDD5308C1E0233B600E0DD8D /* BLShotsParams.m in Sources */,
 				FDC6B40A1E00C31000250AD5 /* BLWaterFlowLayout.m in Sources */,
 				FDC6B41C1E00DC8400250AD5 /* BLProfileViewController.m in Sources */,
 				FDD5306F1E01E3B700E0DD8D /* BLDetailCommentCell.m in Sources */,

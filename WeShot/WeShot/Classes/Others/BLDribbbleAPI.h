@@ -15,4 +15,12 @@
 #define OAuth2_CLIENT_ACCESS_TOKEN @"17840caa0d314c0d157aa4f5b8dc34c7fdfaa4c0e072ffc1591c366afe24d6cf"
 
 
+#define OAuth2_BASE_URL @"https://api.dribbble.com/v1/"
+
+#define OAuth2_AuthorizationUrl @"https://dribbble.com/oauth/authorize"
+#define OAuth2_TokenUrl @"https://dribbble.com/oauth/token"
+#define OAuth2_RedirectUrl @"http://yinpans.com/idesign"
+#define OAuth2_DRIBBBLE_SCOPES [NSSet setWithObjects:@"public", @"write", @"upload", @"comment", nil]
+#define DRIBBBLE_SHOT @"https://api.dribbble.com/v1/shots"
+
 #endif /* BLDribbbleAPI_h */

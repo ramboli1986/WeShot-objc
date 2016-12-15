@@ -8,12 +8,12 @@
 
 #import "BLHttpTool.h"
 #import <AFNetworking.h>
-
+#import <MJExtension.h>
 @implementation BLHttpTool
 
 + (void)Get:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))sucess failure:(void (^)(NSError *))failure {
     AFHTTPSessionManager* mgr = [AFHTTPSessionManager manager];
-    [mgr GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [mgr GET:URLString parameters:[parameters mj_keyValues] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (sucess) {
             sucess(responseObject);
         }

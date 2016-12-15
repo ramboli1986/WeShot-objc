@@ -8,28 +8,71 @@
 
 #import "BLShotsTool.h"
 #import "BLHttpTool.h"
-#import "BLShotsParam.h"
+#import "BLShotsParams.h"
 #import "BLShotsResult.h"
-
+#import "BLDribbbleAPI.h"
 
 @implementation BLShotsTool
 
-static NSString* APIURL = @"https://api.dribbble.com/v1/user?access_token=17840caa0d314c0d157aa4f5b8dc34c7fdfaa4c0e072ffc1591c366afe24d6cf/shots";
 
-
-+ (void)allShotsWithList:(NSString *)list sortBy:(NSString *)sortType success:(void (^)(NSArray* shotsArray))success failure:(void (^)(NSError *))failure {
-    //create parameter model object
-    BLShotsParam* param = [[BLShotsParam alloc]init];
-    param.list = list;
-    param.sortType = sortType;
-    
++ (void)popularShotWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
     //send request
-    [BLHttpTool Get:APIURL parameters:param success:^(id responseObject) {
-        if (success) {
-            success(responseObject);
-        }
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    [BLHttpTool Get:DRIBBBLE_SHOT parameters:params success:^(id responseObject) {
+        success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
     }];
 }
+
++ (void)recentShotWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure {
+    //send request
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    params.sort = @"recent";
+    [BLHttpTool Get:DRIBBBLE_SHOT parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)teamsShotWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure {
+    //send request
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    params.list = @"teams";
+    [BLHttpTool Get:DRIBBBLE_SHOT parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)debutsShotWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure {
+    //send request
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    params.list = @"debuts";
+    [BLHttpTool Get:DRIBBBLE_SHOT parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)playoffsShotWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure {
+    //send request
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    params.list = @"playoffs";
+    [BLHttpTool Get:DRIBBBLE_SHOT parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+
 @end

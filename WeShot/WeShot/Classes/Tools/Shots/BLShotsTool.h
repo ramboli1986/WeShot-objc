@@ -10,7 +10,15 @@
 
 @interface BLShotsTool : NSObject
 
-+ (void)allShotsWithList:(NSString*)list sortBy:(NSString*)sortType success:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
 
++ (void)popularShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
+
++ (void)recentShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
+
++ (void)teamsShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
+
++ (void)debutsShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
+
++ (void)playoffsShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
 
 @end
