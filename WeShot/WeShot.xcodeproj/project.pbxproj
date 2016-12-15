@@ -41,6 +41,7 @@
 		FDD530821E0210C400E0DD8D /* BLShotsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530811E0210C400E0DD8D /* BLShotsResult.m */; };
 		FDD530851E02122B00E0DD8D /* BLShotsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530841E02122B00E0DD8D /* BLShotsTool.m */; };
 		FDD5308C1E0233B600E0DD8D /* BLShotsParams.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5308B1E0233B600E0DD8D /* BLShotsParams.m */; };
+		FDD5308F1E023B8000E0DD8D /* BLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5308E1E023B8000E0DD8D /* BLUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,8 @@
 		FDD530891E021D3800E0DD8D /* BLDribbbleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLDribbbleAPI.h; sourceTree = "<group>"; };
 		FDD5308A1E0233B600E0DD8D /* BLShotsParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotsParams.h; sourceTree = "<group>"; };
 		FDD5308B1E0233B600E0DD8D /* BLShotsParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotsParams.m; sourceTree = "<group>"; };
+		FDD5308D1E023B8000E0DD8D /* BLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUser.h; sourceTree = "<group>"; };
+		FDD5308E1E023B8000E0DD8D /* BLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +316,8 @@
 		FDC6B3E21E0069B400250AD5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FDD5308D1E023B8000E0DD8D /* BLUser.h */,
+				FDD5308E1E023B8000E0DD8D /* BLUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -571,6 +576,7 @@
 				FDD5306A1E01E18100E0DD8D /* BLDetailContentCell.m in Sources */,
 				FDD5307B1E020C5F00E0DD8D /* BLHttpTool.m in Sources */,
 				FDC6B40E1E00C80C00250AD5 /* BLFlowCollectionViewCell.m in Sources */,
+				FDD5308F1E023B8000E0DD8D /* BLUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

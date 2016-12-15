@@ -200,7 +200,13 @@
             <size key="customSize" width="323" height="268"/>
             <connections>
                 <outlet property="followBtn" destination="DTi-OJ-bgH" id="xUA-Ao-KFR"/>
+                <outlet property="followerCount" destination="z0G-l3-p1g" id="spm-Ci-JoA"/>
+                <outlet property="followingCount" destination="ep7-Ya-FlQ" id="ghl-6y-KZc"/>
                 <outlet property="headImgView" destination="GJf-gX-gCA" id="FpM-YB-phZ"/>
+                <outlet property="shotsCount" destination="jAg-pQ-mvW" id="X7c-th-AZG"/>
+                <outlet property="userBIO" destination="qhg-cv-7eK" id="6cl-fM-MH3"/>
+                <outlet property="userLocation" destination="vC0-ry-au0" id="Lwr-KF-ath"/>
+                <outlet property="userName" destination="oIr-2z-xfh" id="yY8-gX-pNA"/>
             </connections>
             <point key="canvasLocation" x="106.5" y="86"/>
         </collectionViewCell>
