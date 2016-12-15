@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface BLShotsParams : NSObject
-@property(nonatomic, strong) NSString* access_token;
-@property(nonatomic, strong) NSString* list;
-@property(nonatomic, strong) NSString* sort;
+@property (nonatomic, copy) NSString* access_token;
+@property (nonatomic, copy) NSString* list;
+@property (nonatomic, copy) NSString* sort;
 @end

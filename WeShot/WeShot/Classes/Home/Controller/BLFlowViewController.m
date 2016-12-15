@@ -31,22 +31,8 @@
         self.view.backgroundColor = [UIColor blueColor];
     }
     [self setupCollectionView];
-    //[self loadNewShots];
 }
 
-- (void)loadNewShots {
-    if (self.type == 0) { //load popular shots
-        
-        [BLShotsTool popularShotWithSuccess:^(id shotsArray) {
-            BLShot* shot = shotsArray[0];
-            NSLog(@"%@", shot.detailContent);
-        } failure:^(NSError *error) {
-            NSLog(@"%@",error.localizedDescription);
-        }];
-    } else {
-        NSLog(@"load following shots");
-    }
-}
 
 
 - (void)setupCollectionView {

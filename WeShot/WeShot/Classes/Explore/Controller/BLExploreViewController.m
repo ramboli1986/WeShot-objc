@@ -51,7 +51,7 @@
 - (void)setupTitleView {
     //setup TitleView
     UIView *titleView = [[UIView alloc] init];
-    titleView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
+    titleView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
     titleView.width = ScreenSize.width;
     titleView.height = 44;
     titleView.y = 64;
@@ -63,7 +63,7 @@
     UIView *indicatorView = [[UIView alloc]init];
     indicatorView.backgroundColor = BLTintColor;
     indicatorView.alpha = 0.9;
-    indicatorView.height = 1;
+    indicatorView.height = 2;
     indicatorView.tag = -1;
     indicatorView.y = titleView.height - indicatorView.height - 1;
     self.indicatorView = indicatorView;
@@ -82,7 +82,8 @@
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         UIColor *tintColor = BLTintColor;
         [button setTitleColor:tintColor forState:UIControlStateDisabled];
-        button.titleLabel.font = [UIFont systemFontOfSize:14];
+        //button.titleLabel.font = [UIFont systemFontOfSize:14];
+        button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14];
         [button addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titleView addSubview:button];
         

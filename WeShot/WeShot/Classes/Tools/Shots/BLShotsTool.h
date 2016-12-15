@@ -7,18 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class BLShotsParams;
 @interface BLShotsTool : NSObject
 
 
-+ (void)popularShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
++ (void)shotWithParams:(BLShotsParams*)params pageStr:(NSString*)pageStr Success:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
 
-+ (void)recentShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
-
-+ (void)teamsShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
-
-+ (void)debutsShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
-
-+ (void)playoffsShotWithSuccess:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
 
 @end

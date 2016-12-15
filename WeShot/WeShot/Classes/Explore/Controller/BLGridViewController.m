@@ -12,8 +12,8 @@
 #import "BLShotDetailTableViewController.h"
 #import "BLShotsTool.h"
 #import "BLShot.h"
-
-
+#import "BLShotsParams.h"
+#import "BLDribbbleAPI.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDImageCache.h>
@@ -29,6 +29,7 @@
 
 @implementation BLGridViewController {
     CGFloat gap;
+    NSInteger page;
 }
 
 - (NSMutableArray*)shots {
@@ -39,18 +40,16 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     gap = 4.0;
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = BLGlobalBg;
-
+    
+    [super viewDidLoad];
     [self setupCollectionView];
     [self setupRefresh];
 }
 
 - (void)setupRefresh {
     // The drop-down refresh
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewshot)];
     
     header.automaticallyChangeAlpha = YES;
     header.lastUpdatedTimeLabel.hidden = YES;
@@ -59,54 +58,60 @@
     
     self.collectionView.mj_header = header;
     
-    
+    // The pull-up refresh
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self loadMoreShot];
+    }];
 }
 
-- (void)loadNewData{
+- (void)loadNewshot{
     [self.shots removeAllObjects];
-    if (self.type == 0) {
-        [BLShotsTool recentShotWithSuccess:^(NSArray *shotsArray) {
-            [self.shots addObjectsFromArray:shotsArray];
-            [self.collectionView reloadData];
-            [self.collectionView.mj_header endRefreshing];
-        } failure:^(NSError *error) {
-            NSLog(@"error:%@",error.localizedDescription);
-            [self.collectionView.mj_header endRefreshing];
-        }];
-    }
-    else if (self.type == 1) {
-        [BLShotsTool teamsShotWithSuccess:^(NSArray *shotsArray) {
-            [self.shots addObjectsFromArray:shotsArray];
-            [self.collectionView reloadData];
-            [self.collectionView.mj_header endRefreshing];
-        } failure:^(NSError *error) {
-            NSLog(@"error:%@",error.localizedDescription);
-            [self.collectionView.mj_header endRefreshing];
-        }];
-    } else if (self.type == 2) {
-        [BLShotsTool debutsShotWithSuccess:^(NSArray *shotsArray) {
-            [self.shots addObjectsFromArray:shotsArray];
-            [self.collectionView reloadData];
-            [self.collectionView.mj_header endRefreshing];
-        } failure:^(NSError *error) {
-            NSLog(@"error:%@",error.localizedDescription);
-        }];
-    } else if (self.type == 3) {
-        [BLShotsTool playoffsShotWithSuccess:^(NSArray *shotsArray) {
-            [self.shots addObjectsFromArray:shotsArray];
-            [self.collectionView reloadData];
-            [self.collectionView.mj_header endRefreshing];
-        } failure:^(NSError *error) {
-            NSLog(@"error:%@",error.localizedDescription);
-            [self.collectionView.mj_header endRefreshing];
-        }];
-    } else {
-        NSLog(@"NOTHING");
-        [self.collectionView.mj_header endRefreshing];
-    }
+    page = 0;
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
     
+    //@{@"page":@(page), @"per_page":@100};
+    
+    if (self.type == 1) {
+        params.sort = @"recent";
+    } else if (self.type == 2) {
+        params.list = @"teams";
+    } else if (self.type == 3) {
+        params.list = @"debuts";
+    }
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=99",page];
+    [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+        [self.shots addObjectsFromArray:shotsArray];
+        [self.collectionView reloadData];
+        [self.collectionView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        NSLog(@"error:%@",error.localizedDescription);
+        [self.collectionView.mj_header endRefreshing];
+    }];
 }
 
+
+- (void)loadMoreShot {
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    if (self.type == 1) {
+        params.sort = @"recent";
+    } else if (self.type == 2) {
+        params.list = @"teams";
+    } else if (self.type == 3) {
+        params.list = @"debuts";
+    }
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=99",page];
+    [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
+        [self.shots addObjectsFromArray:shotsArray];
+        [self.collectionView reloadData];
+        [self.collectionView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        NSLog(@"error:%@",error.localizedDescription);
+        [self.collectionView.mj_footer endRefreshing];
+    }];
+
+}
 - (void)setupCollectionView {
     BLWaterFlowLayout* flowLayout = [[BLWaterFlowLayout alloc]init];
     flowLayout.delegate = self;

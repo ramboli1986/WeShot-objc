@@ -33,6 +33,7 @@
 - (void)setupNav{
     if (!self.uid) {
         self.navigationItem.title = @"Profile";
+        
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"Logout" target:self action:@selector(logout)];
     } else {
         self.navigationItem.title = @"Player";
