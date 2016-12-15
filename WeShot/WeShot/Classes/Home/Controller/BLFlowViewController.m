@@ -10,6 +10,8 @@
 #import "BLWaterFlowLayout.h"
 #import "BLFlowCollectionViewCell.h"
 #import "BLDetailTableViewController.h"
+#import "BLShotsTool.h"
+
 
 @interface BLFlowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, BLWaterFlowLayoutDelegate>
 
@@ -28,6 +30,15 @@
         self.view.backgroundColor = [UIColor blueColor];
     }
     [self setupCollectionView];
+    [self test];
+}
+
+- (void)test {
+    [BLShotsTool allShotsWithList:nil sortBy:nil success:^(id obj) {
+        NSLog(@"result:%@",obj);
+    } failure:^(NSError *error) {
+        NSLog(@"error:%@",error.localizedDescription);
+    }];
 }
 
 - (void)setupCollectionView {
