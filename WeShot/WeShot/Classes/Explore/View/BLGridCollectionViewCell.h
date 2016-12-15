@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BLGridCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 
 @end

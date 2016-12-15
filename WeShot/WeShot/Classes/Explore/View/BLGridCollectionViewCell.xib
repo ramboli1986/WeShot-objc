@@ -20,7 +20,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sJK-8B-kOB">
                         <rect key="frame" x="0.0" y="0.0" width="159" height="154"/>
-                        <color key="backgroundColor" red="1" green="0.96116357109999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                     </imageView>
                 </subviews>
             </view>
@@ -31,6 +31,9 @@
                 <constraint firstAttribute="trailing" secondItem="sJK-8B-kOB" secondAttribute="trailing" id="lL4-tu-kpR"/>
             </constraints>
             <size key="customSize" width="159" height="154"/>
+            <connections>
+                <outlet property="shotImage" destination="sJK-8B-kOB" id="kyX-GX-NxW"/>
+            </connections>
             <point key="canvasLocation" x="88.5" y="106"/>
         </collectionViewCell>
     </objects>

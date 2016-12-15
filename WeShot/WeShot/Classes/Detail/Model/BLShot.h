@@ -11,9 +11,9 @@
 #import "BLShotPicture.h"
 @interface BLShot : NSObject
 
-@property (nonatomic, assign, getter=sid) NSInteger id;
+@property (nonatomic, assign) NSInteger sid;
 @property (nonatomic, copy) NSString* title;
-@property (nonatomic, copy) NSString* description;
+@property (nonatomic, copy) NSString* detailContent;
 @property (nonatomic, assign) NSInteger width;
 @property (nonatomic, assign) NSInteger height;
 @property (nonatomic, strong) BLShotPicture* images;

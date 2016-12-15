@@ -31,18 +31,23 @@
         self.view.backgroundColor = [UIColor blueColor];
     }
     [self setupCollectionView];
-    [self test];
+    //[self loadNewShots];
 }
 
-- (void)test {
-    [BLShotsTool popularShotWithSuccess:^(id shotsArray) {
-        NSLog(@"%@",shotsArray);
-        BLShot* shot = shotsArray[0];
-        NSLog(@"%@", shot.title);
-    } failure:^(NSError *error) {
-        NSLog(@"%@",error.localizedDescription);
-    }];
+- (void)loadNewShots {
+    if (self.type == 0) { //load popular shots
+        
+        [BLShotsTool popularShotWithSuccess:^(id shotsArray) {
+            BLShot* shot = shotsArray[0];
+            NSLog(@"%@", shot.detailContent);
+        } failure:^(NSError *error) {
+            NSLog(@"%@",error.localizedDescription);
+        }];
+    } else {
+        NSLog(@"load following shots");
+    }
 }
+
 
 - (void)setupCollectionView {
     BLWaterFlowLayout* flowLayout = [[BLWaterFlowLayout alloc]init];

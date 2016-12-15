@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = BLGlobalBg;
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"Explore";
     [self setupChildView];
     [self setupTitleView];
