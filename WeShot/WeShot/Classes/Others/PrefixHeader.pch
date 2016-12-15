@@ -19,6 +19,7 @@
 #define BLTagColor BLRGBColor(255, 51, 0)
 #define BLTintColor BLRGBColor(225, 25, 25)
 #define ScreenSize [UIScreen mainScreen].bounds.size
+#define BLAvatorHeight 23
 
 #endif /* PrefixHeader_pch */
 

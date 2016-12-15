@@ -25,4 +25,8 @@
 @property (nonatomic, assign) BOOL animated;
 @property (nonatomic, strong) BLUser* user;
 
+
+//additonal property
+@property (nonatomic, assign, readonly) CGFloat homeCellHeight;
+
 @end

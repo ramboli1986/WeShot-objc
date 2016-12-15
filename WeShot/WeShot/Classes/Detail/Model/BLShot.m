@@ -7,8 +7,11 @@
 //
 
 #import "BLShot.h"
+#import "NSString+BLExtension.h"
 
-@implementation BLShot
+@implementation BLShot {
+    CGFloat _homeCellHeight;
+}
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
@@ -19,4 +22,18 @@
              };
 }
 
+- (CGFloat)homeCellHeight {
+    if (!_homeCellHeight) {
+        UIFont *titleFont = [UIFont systemFontOfSize:12.0f weight:UIFontWeightSemibold];
+        UIFont *detailFont = [UIFont fontWithName:@"Kohinoor Telugu" size:12.0f];
+        CGFloat cellWidth = (ScreenSize.width-12*3)/2.0;
+        
+        CGFloat shotImageHeight = cellWidth*self.height/self.width;
+        CGFloat titleHeight = [self.title boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:2];
+        CGFloat detailHeight = [self.detailContent boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:3];
+        _homeCellHeight = 8 + BLAvatorHeight + 16 + detailHeight + 16 + titleHeight + 16 + shotImageHeight;
+        NSLog(@"%@,%f, %f",self.title, titleHeight, _homeCellHeight);
+    }
+    return _homeCellHeight;
+}
 @end

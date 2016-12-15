@@ -28,6 +28,7 @@
 
 @implementation BLFlowViewController {
     NSInteger page;
+    NSInteger per_page;
 }
 
 - (NSMutableArray*)shots {
@@ -37,9 +38,10 @@
     return _shots;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     if (self.type == 0) {
         self.view.backgroundColor = BLGlobalBg;
     } else {
@@ -51,7 +53,7 @@
 
 - (void)setupRefresh {
     // The drop-down refresh
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewshot)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewshots)];
     
     header.automaticallyChangeAlpha = YES;
     header.lastUpdatedTimeLabel.hidden = YES;
@@ -62,20 +64,21 @@
     
     // The pull-up refresh
     self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self loadMoreShot];
+        [self loadMoreShots];
     }];
 }
 
-- (void)loadNewshot{
+- (void)loadNewshots{
     [self.shots removeAllObjects];
-    page = 0;
+    page = 1;
+    per_page = 18;
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
     
     //@{@"page":@(page), @"per_page":@100};
     
     if (self.type == 0) {
-        NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=18",page];
+        NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",page, per_page];
         [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
             [self.shots addObjectsFromArray:shotsArray];
             [self.collectionView reloadData];
@@ -87,11 +90,11 @@
 
     }
 }
-- (void)loadMoreShot {
+- (void)loadMoreShots {
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
     if (self.type == 0) {
-        NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=18",page];
+        NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",++page, per_page];
         [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
             [self.shots addObjectsFromArray:shotsArray];
             [self.collectionView reloadData];
@@ -143,20 +146,21 @@
                       placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     [cell.userAvatorImage sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
                       placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    CGFloat shotImageHeight = cell.width*shot.height/shot.width;
+    cell.shotImage.height = shotImageHeight;
     cell.shotTitle.text = shot.title;
     cell.shotDetail.text = shot.detailContent;
     cell.username.text = shot.user.username;
     cell.likeCount.text = [NSString stringWithFormat:@"%zd",shot.likes_count];
+    
     return cell;
 }
 
 #pragma mark - <MSPWaterflowLayoutDelegate>
 - (CGFloat)waterflowLayout:(BLWaterFlowLayout *)waterflowLayout heightForItemAtIndex:(NSUInteger)index itemWidth:(CGFloat)itemWidth
 {
-
-    return 16+24+(ScreenSize.width-12*3)/2 + 152;
-    
-    
+    BLShot* shot = self.shots[index];
+    return shot.homeCellHeight;
 }
 
 - (CGFloat)rowMarginInWaterflowLayout:(BLWaterFlowLayout *)waterflowLayout

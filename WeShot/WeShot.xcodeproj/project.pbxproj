@@ -43,6 +43,7 @@
 		FDD5308F1E023B8000E0DD8D /* BLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5308E1E023B8000E0DD8D /* BLUser.m */; };
 		FDD530921E02400600E0DD8D /* BLShot.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530911E02400600E0DD8D /* BLShot.m */; };
 		FDD530951E0247D200E0DD8D /* BLShotPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530941E0247D200E0DD8D /* BLShotPicture.m */; };
+		FDD5309B1E02F3BC00E0DD8D /* NSString+BLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,8 @@
 		FDD530911E02400600E0DD8D /* BLShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShot.m; sourceTree = "<group>"; };
 		FDD530931E0247D200E0DD8D /* BLShotPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotPicture.h; sourceTree = "<group>"; };
 		FDD530941E0247D200E0DD8D /* BLShotPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotPicture.m; sourceTree = "<group>"; };
+		FDD530991E02F3BC00E0DD8D /* NSString+BLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BLExtension.h"; sourceTree = "<group>"; };
+		FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BLExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +351,8 @@
 				FDC6B3FD1E00835900250AD5 /* UIView+BLExtension.m */,
 				FDC6B4021E00977E00250AD5 /* UIBarButtonItem+BLExtension.h */,
 				FDC6B4031E00977E00250AD5 /* UIBarButtonItem+BLExtension.m */,
+				FDD530991E02F3BC00E0DD8D /* NSString+BLExtension.h */,
+				FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */,
 			);
 			name = Category;
 			path = Extension;
@@ -561,6 +566,7 @@
 				FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */,
 				FDC6B42D1E010D7000250AD5 /* BLCollectionReusableView.m in Sources */,
 				FDC6B4201E00F3BE00250AD5 /* BLProfileHeaderCell.m in Sources */,
+				FDD5309B1E02F3BC00E0DD8D /* NSString+BLExtension.m in Sources */,
 				FDD530851E02122B00E0DD8D /* BLShotsTool.m in Sources */,
 				FDD5308C1E0233B600E0DD8D /* BLShotsParams.m in Sources */,
 				FDC6B40A1E00C31000250AD5 /* BLWaterFlowLayout.m in Sources */,

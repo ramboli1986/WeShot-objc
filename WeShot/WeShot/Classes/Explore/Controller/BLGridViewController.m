@@ -66,18 +66,20 @@
 
 - (void)loadNewshot{
     [self.shots removeAllObjects];
-    page = 0;
+    page = 1;
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
     
     //@{@"page":@(page), @"per_page":@100};
     
-    if (self.type == 1) {
+    if (self.type == 0) {
         params.sort = @"recent";
-    } else if (self.type == 2) {
+    } else if (self.type == 1) {
         params.list = @"teams";
-    } else if (self.type == 3) {
+    } else if (self.type == 2) {
         params.list = @"debuts";
+    } else if (self.type == 3) {
+        params.list = @"playoffs";
     }
     NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=99",page];
     [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
@@ -101,7 +103,7 @@
     } else if (self.type == 3) {
         params.list = @"debuts";
     }
-    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=99",page];
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=99",++page];
     [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
         [self.shots addObjectsFromArray:shotsArray];
         [self.collectionView reloadData];
@@ -145,6 +147,8 @@
     NSString* shotImageURLString = shot.images.teaser;
     [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLString]
                  placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    NSLog(@"%zd, %zd", shot.height, shot.width);
+
     return cell;
 }
 
