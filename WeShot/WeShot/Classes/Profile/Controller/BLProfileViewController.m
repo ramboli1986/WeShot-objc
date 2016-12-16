@@ -19,6 +19,8 @@
 #import "BLShotsParams.h"
 #import "BLDribbbleAPI.h"
 
+#import "NSString+BLExtension.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDImageCache.h>
 #import <MJRefresh.h>
@@ -222,10 +224,13 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         CGFloat cellWidth = ScreenSize.width;
-        return CGSizeMake(cellWidth, cellWidth-110);
+        UIFont* bioFont = [UIFont fontWithName:@"Kannada Sangam MN" size:14.0f];
+        CGFloat bioWidth = [self.user.bio boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:bioFont lineSpacing:0 maxLines:100];
+        CGFloat cellHeight = 16 + 80 + 16 + 43 + 16 + bioWidth + 16;
+        return CGSizeMake(cellWidth, cellHeight);
     } else {
         CGFloat cellWidth = (ScreenSize.width - (3+1)*gap)/3;
-        return CGSizeMake(cellWidth, cellWidth);
+        return CGSizeMake(cellWidth, 3*cellWidth/4);
     }
 }
 
@@ -272,9 +277,15 @@
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
         BLShotDetailTableViewController* vc = [[BLShotDetailTableViewController alloc]init];
-        BLLikeShot* likeShot = self.likeShots[indexPath.row];
-        vc.shot = self.isLike ? likeShot.shot : self.shots[indexPath.row];
-        vc.shot.user = self.isLike ? likeShot.shot.user : self.user;
+        
+        if (self.isLike) {
+            BLLikeShot* likeShot = self.likeShots[indexPath.row];
+            vc.shot = likeShot.shot;
+        }else {
+            vc.shot = self.shots[indexPath.row];
+            vc.shot.user = self.user;
+        }
+        
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

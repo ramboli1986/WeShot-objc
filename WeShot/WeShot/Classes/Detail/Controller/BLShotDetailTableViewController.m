@@ -71,7 +71,8 @@ static NSString* commentCellID = @"BLDetailCommentCell";
         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             cell.progressView.hidden = YES;
         }];
-        [cell.location setTitle:self.shot.user.location forState:UIControlStateNormal];
+        NSString* locationTitle = self.shot.user.location ? self.shot.user.location : @"unknow";
+        [cell.location setTitle:locationTitle forState:UIControlStateNormal];
         
         cell.shotTitle.text = self.shot.title;
         cell.shotdetail.text = self.shot.detailContent;
