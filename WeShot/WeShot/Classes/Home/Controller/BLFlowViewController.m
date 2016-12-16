@@ -88,18 +88,20 @@
 }
 - (void)loadMoreShots {
     BLShotsParams* params = [[BLShotsParams alloc]init];
-    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
     if (self.type == 0) {
-        NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",++page, per_page];
-        [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
-            [self.shots addObjectsFromArray:shotsArray];
-            [self.collectionView reloadData];
-            [self.collectionView.mj_footer endRefreshing];
-        } failure:^(NSError *error) {
-            NSLog(@"error:%@",error.localizedDescription);
-            [self.collectionView.mj_footer endRefreshing];
-        }];
+        params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    } else {
+        params.access_token = [BLAcountTool access_Token];
     }
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",++page,per_page];
+    [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
+        [self.shots addObjectsFromArray:shotsArray];
+        [self.collectionView reloadData];
+        [self.collectionView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        NSLog(@"error:%@",error.localizedDescription);
+        [self.collectionView.mj_footer endRefreshing];
+    }];
 }
 
 - (void)setupCollectionView {
