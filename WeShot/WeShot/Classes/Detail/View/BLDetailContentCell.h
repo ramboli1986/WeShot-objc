@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DACircularProgressView;
 
 @interface BLDetailContentCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
+@property (weak, nonatomic) IBOutlet UIButton *headBtn;
+
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UIButton *location;
 @property (weak, nonatomic) IBOutlet UILabel *create_time_label;
@@ -18,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *shotdetail;
 @property (weak, nonatomic) IBOutlet UILabel *shotInfo;
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
+@property (weak, nonatomic) IBOutlet DACircularProgressView *progressView;
 
 @end

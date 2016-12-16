@@ -149,8 +149,6 @@
     NSString* shotImageURLString = shot.images.teaser;
     [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLString]
                  placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
-    NSLog(@"%zd, %zd", shot.height, shot.width);
-
     return cell;
 }
 

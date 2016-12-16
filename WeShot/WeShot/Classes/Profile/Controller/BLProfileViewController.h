@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class BLUser;
+
 @interface BLProfileViewController : UIViewController
 
-@property (nonatomic, strong) NSString* uid;
+@property (nonatomic, strong) BLUser* user;
 
 @end

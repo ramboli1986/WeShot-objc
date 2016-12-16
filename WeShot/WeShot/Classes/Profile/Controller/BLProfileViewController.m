@@ -10,37 +10,124 @@
 #import "BLProfileHeaderCell.h"
 #import "BLProfileShotCell.h"
 #import "BLCollectionReusableView.h"
+#import "BLShotDetailTableViewController.h"
+#import "BLUser.h"
 
+#import "BLShotsTool.h"
+#import "BLShot.h"
+#import "BLLikeShot.h"
+#import "BLShotsParams.h"
+#import "BLDribbbleAPI.h"
+
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDImageCache.h>
+#import <MJRefresh.h>
 
 @interface BLProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView* cv;
 @property (nonatomic, weak) UIButton *selectButton;
 
+@property (nonatomic, strong) NSMutableArray* shots;
+@property (nonatomic, strong) NSMutableArray* likeShots;
+
+@property (nonatomic, assign) BOOL isLike;
+
 @end
 
 @implementation BLProfileViewController {
     CGFloat gap;
+    NSInteger shotpage;
+    NSInteger likepage;
+}
+
+- (NSMutableArray*)shots {
+    if (_shots == nil) {
+        _shots = [NSMutableArray array];
+    }
+    return _shots;
+}
+
+- (NSMutableArray*)likeShots {
+    if (_likeShots == nil) {
+        _likeShots = [NSMutableArray array];
+    }
+    return _likeShots;
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     gap = 4.0;
+    [super viewDidLoad];
     [self setupNav];
     [self setupCollectionView];
+    [self setupRefresh];
+}
+
+- (void)setupRefresh {
+    // The drop-down refresh
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewShots)];
+    
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.stateLabel.hidden = YES;
+    [header beginRefreshing];
+    
+    self.cv.mj_header = header;
+    
+    // The pull-up refresh
+    self.cv.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self loadMoreShots];
+    }];
 }
 
 - (void)setupNav{
-    if (!self.uid) {
+    if (!self.user) {
         self.navigationItem.title = @"Profile";
-        
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"Logout" target:self action:@selector(logout)];
     } else {
         self.navigationItem.title = @"Player";
     }
-    //self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"location" target:self action:@selector(rightClick)];
+}
+
+- (void)loadNewShots {
+    shotpage = 1;
+    likepage = 1;
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    
+    //shot data
+    [BLShotsTool shotWithURLStr:self.user.shots_url Params:params pageStr:@"page=1&per_page=21" Success:^(NSArray *shotsArray) {
+        shotpage = 1;
+        likepage = 1;
+        [self.shots removeAllObjects];
+        [self.shots addObjectsFromArray:shotsArray];
+        [self.cv reloadData];
+        [self.cv.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        NSLog(@"error:%@",error.localizedDescription);
+        [self.cv.mj_header endRefreshing];
+    }];
+    //like shot data
+    [BLShotsTool likeshotWithURLStr:self.user.likes_url Params:params pageStr:@"page=1&per_page=21" Success:^(NSArray *shotsArray) {
+        [self.likeShots removeAllObjects];
+        //[self.likeShots addObjectsFromArray:shotsArray];
+        for (int i = 0; i < shotsArray.count; i++) {
+            BLLikeShot* likeshot = shotsArray[i];
+            [self.likeShots addObject:likeshot.shot];
+            NSLog(@"like title %@",likeshot.shot.title);
+        }
+        //[self.cv reloadData];
+        [self.cv.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        NSLog(@"error:%@",error.localizedDescription);
+        [self.cv.mj_header endRefreshing];
+    }];
+}
+
+- (void)loadMoreShots {
     
 }
+
 
 - (void)setupCollectionView {
     UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
@@ -59,10 +146,23 @@
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         BLProfileHeaderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BLProfileHeaderCell" forIndexPath:indexPath];
+        NSString* avatorURLStr = self.user.avatar_url;
+        [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorURLStr] placeholderImage:nil];
+        cell.userName.text = self.user.username;
+        cell.shotsCount.text = [NSString stringWithFormat:@"%zd",self.user.shots_count];
+        cell.followerCount.text = [NSString stringWithFormat:@"%zd",self.user.followers_count];
+        cell.followingCount.text = [NSString stringWithFormat:@"%zd",self.user.followings_count];
+        [cell.userLocation setTitle:self.user.location forState:UIControlStateNormal];
+        cell.userBIO.text = self.user.bio;
         return cell;
     }
     else {
         BLProfileShotCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BLProfileShotCell" forIndexPath:indexPath];
+        
+        BLShot *shot = self.isLike?self.likeShots[indexPath.row]:self.shots[indexPath.row];
+        NSString* imageURLStr = shot.images.teaser;
+        
+        [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:imageURLStr] placeholderImage:nil];
         return cell;
     }
 }
@@ -71,7 +171,7 @@
     if (section == 0) {
         return 1;
     } else {
-        return 21;
+        return self.isLike?self.likeShots.count:self.shots.count;
     }
 }
 
@@ -132,12 +232,11 @@
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select item :%@", indexPath);
     if (indexPath.section == 1) {
-        NSLog(@"go to detail");
-//        MSPDetailViewController *vc = [[MSPDetailViewController alloc]init];
-//        vc.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:vc animated:YES];
+        BLShotDetailTableViewController* vc = [[BLShotDetailTableViewController alloc]init];
+        vc.shot = self.isLike ? self.likeShots[indexPath.row] : self.shots[indexPath.row];
+        vc.shot.user = self.user;
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
@@ -161,7 +260,8 @@
     self.selectButton.enabled = YES;
     button.enabled = NO;
     self.selectButton = button;
-    NSLog(@"switch likes / shots");
+    self.isLike = !self.isLike;
+    [self.cv reloadData];
 }
 
 - (void)logout{

@@ -20,7 +20,6 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E2M-Ab-yyS">
                         <rect key="frame" x="0.0" y="0.0" width="149" height="151"/>
-                        <color key="backgroundColor" red="0.2392156869" green="0.67450982329999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
                 </subviews>
             </view>
@@ -32,6 +31,9 @@
                 <constraint firstItem="E2M-Ab-yyS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eHC-UW-8DI"/>
             </constraints>
             <size key="customSize" width="149" height="151"/>
+            <connections>
+                <outlet property="shotImage" destination="E2M-Ab-yyS" id="DrD-UT-xHb"/>
+            </connections>
             <point key="canvasLocation" x="83.5" y="104.5"/>
         </collectionViewCell>
     </objects>

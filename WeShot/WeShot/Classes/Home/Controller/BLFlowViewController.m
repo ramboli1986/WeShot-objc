@@ -141,7 +141,7 @@
     cell.layer.borderColor=[[UIColor whiteColor] colorWithAlphaComponent:0.7].CGColor;
     
     BLShot* shot = self.shots[indexPath.row];
-    NSString* shotImageURLStr = shot.images.normal;
+    NSString* shotImageURLStr = shot.images.teaser;
     NSString* avatorImageUrlStr = shot.user.avatar_url;
     
     [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLStr]
@@ -187,6 +187,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [[SDImageCache sharedImageCache] clearMemory];
+    [[SDImageCache sharedImageCache] clearDisk];
 }
 
 /*

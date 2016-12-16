@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BLProfileShotCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 
 @end
