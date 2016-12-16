@@ -27,7 +27,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="great render and lighting. What redner engine? octane?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aF-ZT-RbH">
-                        <rect key="frame" x="44" y="47" width="268" height="31.5"/>
+                        <rect key="frame" x="44" y="47" width="252" height="31.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="1cg-ja-aHs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="8d2-Fo-gtm"/>
-                    <constraint firstItem="5aF-ZT-RbH" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="MBh-1Q-0rp"/>
+                    <constraint firstItem="5aF-ZT-RbH" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-16" id="MBh-1Q-0rp"/>
                     <constraint firstItem="5aF-ZT-RbH" firstAttribute="leading" secondItem="Xf7-7E-f7r" secondAttribute="leading" id="MPe-jZ-dBd"/>
                     <constraint firstItem="Xf7-7E-f7r" firstAttribute="leading" secondItem="1cg-ja-aHs" secondAttribute="trailing" constant="8" id="RcP-O6-P6G"/>
                     <constraint firstItem="Xf7-7E-f7r" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="eCw-TQ-f6g"/>
