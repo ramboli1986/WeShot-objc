@@ -63,23 +63,34 @@
     page = 1;
     per_page = 18;
     BLShotsParams* params = [[BLShotsParams alloc]init];
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",page, per_page];
     if (self.type == 0) {
         params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+        [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+            [self.shots removeAllObjects];
+            [self.shots addObjectsFromArray:shotsArray];
+            [self.collectionView reloadData];
+            [self.collectionView.mj_header endRefreshing];
+        } failure:^(NSError *error) {
+            NSLog(@"error:%@",error.localizedDescription);
+            [self.collectionView.mj_header endRefreshing];
+        }];
     } else {
         params.access_token = [BLAcountTool access_Token];
+        [BLShotsTool followShotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+            [self.shots removeAllObjects];
+            [self.shots addObjectsFromArray:shotsArray];
+            [self.collectionView reloadData];
+            [self.collectionView.mj_header endRefreshing];
+        } failure:^(NSError *error) {
+            NSLog(@"error:%@",error.localizedDescription);
+            [self.collectionView.mj_header endRefreshing];
+        }];
     }
     
     
-    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",page, per_page];
-    [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
-        [self.shots removeAllObjects];
-        [self.shots addObjectsFromArray:shotsArray];
-        [self.collectionView reloadData];
-        [self.collectionView.mj_header endRefreshing];
-    } failure:^(NSError *error) {
-        NSLog(@"error:%@",error.localizedDescription);
-        [self.collectionView.mj_header endRefreshing];
-    }];
+    
+    
 
 }
 - (void)loadMoreShots {

@@ -63,4 +63,13 @@
         failure(error);
     }];
 }
+
++ (void)followShotWithParams:(BLShotsParams*)params pageStr:(NSString*)pageStr Success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
+    [BLHttpTool Get:[NSString stringWithFormat:@"%@?%@",DRIBBBLE_FOLLOW_SHOT,pageStr] parameters:params success:^(id responseObject) {
+        NSArray* shotsArray = [BLShot mj_objectArrayWithKeyValuesArray:responseObject];
+        success(shotsArray);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 @end
