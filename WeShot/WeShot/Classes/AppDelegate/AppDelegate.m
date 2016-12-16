@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BLMainTabBarController.h"
+#import "BLLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,10 +21,12 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    self.window.rootViewController = [[BLMainTabBarController alloc]init];
+    //self.window.rootViewController = [[BLMainTabBarController alloc]init];
+    self.window.rootViewController = [[BLLoginViewController alloc]init];
     [self.window makeKeyAndVisible];
     return YES;
 }
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

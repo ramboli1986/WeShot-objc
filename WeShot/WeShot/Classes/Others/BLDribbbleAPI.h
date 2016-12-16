@@ -19,7 +19,7 @@
 
 #define OAuth2_AuthorizationUrl @"https://dribbble.com/oauth/authorize"
 #define OAuth2_TokenUrl @"https://dribbble.com/oauth/token"
-#define OAuth2_RedirectUrl @"http://rambo-li.me/"
+#define OAuth2_RedirectUrl @"http://www.google.com/"
 
 #define DRIBBBLE_SHOT @"https://api.dribbble.com/v1/shots"
 
