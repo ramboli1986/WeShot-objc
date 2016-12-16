@@ -87,26 +87,29 @@ static NSString* commentCellID = @"BLDetailCommentCell";
             cell = [nib objectAtIndex:0];
         }
         
-        
         cell.username.text = self.shot.user.username;
         NSString* shotImageURLStr = self.shot.images.hidpi?self.shot.images.hidpi:self.shot.images.normal;
         NSString* avatorImageUrlStr = self.shot.user.avatar_url;
+        NSString* locationTitle = self.shot.user.location ? self.shot.user.location : @"unknow";
+        [cell.location setTitle:locationTitle forState:UIControlStateNormal];
+        
+        
+        
         [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
                             placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+        cell.shotTitle.text = self.shot.title;
+        cell.shotdetail.text = self.shot.detailContent;
         
         [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLStr] placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             cell.progressView.hidden = NO;
             [cell.progressView setProgress:1.0*receivedSize/expectedSize animated:YES];
         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             cell.progressView.hidden = YES;
+            
         }];
-        NSString* locationTitle = self.shot.user.location ? self.shot.user.location : @"unknow";
-        [cell.location setTitle:locationTitle forState:UIControlStateNormal];
         
-        cell.shotTitle.text = self.shot.title;
-        cell.shotdetail.text = self.shot.detailContent;
+        
         cell.shotInfo.text = [NSString stringWithFormat:@"%zd comments    %zd views    %zd likes",self.shot.comments_count, self.shot.views_count, self.shot.likes_count];
-        
         [cell.headBtn addTarget:self action:@selector(headerBtn) forControlEvents:UIControlEventTouchUpInside];
         
         return cell;
@@ -136,11 +139,8 @@ static NSString* commentCellID = @"BLDetailCommentCell";
     if (indexPath.row == 0) {
         return self.shot.detailCellHeight;
     }
-    CGFloat cellWidth = ScreenSize.width - 52;
-    UIFont* font = [UIFont systemFontOfSize:13.0f];
-    BLShotComment* comment = self.comments[indexPath.row-1];
-    CGFloat bodyHeight = [comment.body boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:font lineSpacing:0 maxLines:100];
-    return 16 + 28 + 8 + bodyHeight + 16;
+    BLShotComment* shotComent = self.comments[indexPath.row-1];
+    return shotComent.height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

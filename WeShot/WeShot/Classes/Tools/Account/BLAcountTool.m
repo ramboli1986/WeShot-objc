@@ -15,6 +15,7 @@
 
 #import <MJExtension.h>
 #import <WebKit/WebKit.h>
+#import <SDImageCache.h>
 
 //#import "AppDelegate.h"
 
@@ -51,6 +52,8 @@ static BLUser* _user;
                                                modifiedSince:dateFrom completionHandler:^{
                                                    // code
                                                    [[UIApplication sharedApplication] keyWindow].rootViewController = [[BLLoginViewController alloc]init];
+                                                   [[SDImageCache sharedImageCache] cleanDisk];
+                                                   [[SDImageCache sharedImageCache] clearMemory];
                                                }];
 }
 

@@ -15,4 +15,5 @@
 @property (nonatomic, strong) BLUser* user;
 @property (nonatomic, copy) NSString* created_at;
 
+@property (nonatomic, assign) CGFloat height;
 @end

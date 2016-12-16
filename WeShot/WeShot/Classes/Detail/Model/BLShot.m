@@ -43,11 +43,11 @@
         UIFont *titleFont = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
         UIFont *detailFont = [UIFont fontWithName:@"Kailasa" size:14.0f];
         
-        CGFloat shotImageHeight = ScreenSize.width*self.height/self.width;
+        CGFloat shotImageHeight = ScreenSize.width*3/4;
         CGFloat titleHeight = [self.title boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:INT_MAX];
         CGFloat detailHeight = [self.detailContent boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:INT_MAX];
         
-        _detailCellHeight = 8 + 35 + 8 + shotImageHeight + 16 + titleHeight + 16 + detailHeight + 30;
+        _detailCellHeight = 8 + 35 + 8 + shotImageHeight + 16 + titleHeight + 16 + detailHeight + 30 + 44;
         NSLog(@"%@,%f, %f",self.title, titleHeight, _homeCellHeight);
     }
     return _detailCellHeight;

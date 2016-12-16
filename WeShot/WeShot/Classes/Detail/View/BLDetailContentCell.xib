@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,7 +49,7 @@
                         </state>
                     </button>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just wrapped up another monster for the Campy Creatures game for Keymaster." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yE8-jF-NaV">
-                        <rect key="frame" x="8" y="386" width="357" height="46"/>
+                        <rect key="frame" x="8" y="392" width="357" height="46"/>
                         <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -86,17 +87,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campy Creatures Kong Illustration" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug9-qH-kHB">
-                        <rect key="frame" x="8" y="350" width="357" height="20"/>
+                        <rect key="frame" x="8" y="356" width="357" height="20"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y0K-1C-dvY">
-                        <rect key="frame" x="0.0" y="61" width="373" height="273"/>
+                        <rect key="frame" x="0.0" y="61" width="373" height="279"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="y0K-1C-dvY" secondAttribute="height" multiplier="373:279" id="As3-qk-5fj"/>
+                        </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3h-r1-0Hv" customClass="DACircularProgressView">
-                        <rect key="frame" x="136.5" y="147.5" width="100" height="100"/>
+                        <rect key="frame" x="137" y="151" width="100" height="100"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="L5v-W3-bpL"/>
@@ -106,31 +110,30 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="yE8-jF-NaV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1ZC-Gi-FVa"/>
+                    <constraint firstItem="H3h-r1-0Hv" firstAttribute="centerX" secondItem="y0K-1C-dvY" secondAttribute="centerX" id="3IE-2E-CYd"/>
                     <constraint firstItem="p3e-Uw-6tS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="3Lf-Hn-niu"/>
-                    <constraint firstItem="ug9-qH-kHB" firstAttribute="top" secondItem="y0K-1C-dvY" secondAttribute="bottom" constant="16" id="3qZ-n5-fDH"/>
                     <constraint firstItem="sSn-RJ-mFG" firstAttribute="leading" secondItem="Kz2-UV-wrI" secondAttribute="trailing" constant="8" id="48y-At-Shc"/>
                     <constraint firstItem="p3e-Uw-6tS" firstAttribute="bottom" secondItem="Kz2-UV-wrI" secondAttribute="bottom" id="9B8-ev-tuN"/>
                     <constraint firstItem="J0P-Jl-wYh" firstAttribute="leading" secondItem="Kz2-UV-wrI" secondAttribute="trailing" constant="5" id="BnR-Co-S3y"/>
+                    <constraint firstItem="y0K-1C-dvY" firstAttribute="top" secondItem="J0P-Jl-wYh" secondAttribute="bottom" constant="8" id="Bz1-ij-fbP"/>
                     <constraint firstItem="ug9-qH-kHB" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="FsW-cQ-ohs"/>
                     <constraint firstItem="zjn-Mv-TOK" firstAttribute="centerY" secondItem="Kz2-UV-wrI" secondAttribute="centerY" id="JA4-P0-5NT"/>
                     <constraint firstItem="p3e-Uw-6tS" firstAttribute="leading" secondItem="Kz2-UV-wrI" secondAttribute="leading" id="L3c-fL-bP5"/>
                     <constraint firstItem="J0P-Jl-wYh" firstAttribute="leading" secondItem="Kz2-UV-wrI" secondAttribute="trailing" constant="5" id="Lj1-Xb-jdk"/>
-                    <constraint firstItem="H3h-r1-0Hv" firstAttribute="centerY" secondItem="y0K-1C-dvY" secondAttribute="centerY" id="V7m-vt-whW"/>
+                    <constraint firstItem="H3h-r1-0Hv" firstAttribute="centerY" secondItem="y0K-1C-dvY" secondAttribute="centerY" id="OP1-Fq-Zy4"/>
                     <constraint firstItem="zjn-Mv-TOK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J0P-Jl-wYh" secondAttribute="trailing" constant="16" id="YTR-U2-ltC"/>
-                    <constraint firstItem="y0K-1C-dvY" firstAttribute="top" secondItem="J0P-Jl-wYh" secondAttribute="bottom" constant="8" id="YbY-Zc-71E"/>
                     <constraint firstItem="J0P-Jl-wYh" firstAttribute="top" secondItem="sSn-RJ-mFG" secondAttribute="bottom" constant="2" id="gIB-xg-58W"/>
                     <constraint firstItem="ug9-qH-kHB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="gbi-jo-rUr"/>
-                    <constraint firstItem="XSA-7s-TrH" firstAttribute="top" secondItem="yE8-jF-NaV" secondAttribute="bottom" constant="16" id="jdG-sR-kAs"/>
-                    <constraint firstItem="yE8-jF-NaV" firstAttribute="top" secondItem="ug9-qH-kHB" secondAttribute="bottom" constant="16" id="jy2-nh-o3g"/>
+                    <constraint firstItem="yE8-jF-NaV" firstAttribute="top" secondItem="ug9-qH-kHB" secondAttribute="bottom" constant="16" id="hqr-zI-5Jj"/>
+                    <constraint firstItem="ug9-qH-kHB" firstAttribute="top" secondItem="y0K-1C-dvY" secondAttribute="bottom" constant="16" id="jCz-VY-XRf"/>
                     <constraint firstItem="p3e-Uw-6tS" firstAttribute="trailing" secondItem="Kz2-UV-wrI" secondAttribute="trailing" id="kN6-wI-2rZ"/>
                     <constraint firstAttribute="bottom" secondItem="XSA-7s-TrH" secondAttribute="bottom" constant="8" id="kQo-h3-XdG"/>
-                    <constraint firstItem="H3h-r1-0Hv" firstAttribute="centerX" secondItem="y0K-1C-dvY" secondAttribute="centerX" id="m3Y-AJ-b2Y"/>
-                    <constraint firstItem="y0K-1C-dvY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="onW-Pp-0sk"/>
                     <constraint firstItem="p3e-Uw-6tS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="psK-EH-HPd"/>
-                    <constraint firstAttribute="trailing" secondItem="y0K-1C-dvY" secondAttribute="trailing" id="q9U-M0-dVi"/>
                     <constraint firstItem="p3e-Uw-6tS" firstAttribute="top" secondItem="Kz2-UV-wrI" secondAttribute="top" id="qZY-Je-39e"/>
                     <constraint firstAttribute="trailing" secondItem="XSA-7s-TrH" secondAttribute="trailing" id="rQ7-2h-yUc"/>
+                    <constraint firstAttribute="trailing" secondItem="y0K-1C-dvY" secondAttribute="trailing" id="sYY-eB-vkP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zjn-Mv-TOK" secondAttribute="trailing" id="v8e-9s-2dR"/>
+                    <constraint firstItem="y0K-1C-dvY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="y13-jw-8Qg"/>
                     <constraint firstItem="sSn-RJ-mFG" firstAttribute="top" secondItem="Kz2-UV-wrI" secondAttribute="top" id="yQW-xc-p6A"/>
                     <constraint firstItem="XSA-7s-TrH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yhJ-1R-Fhp"/>
                     <constraint firstItem="yE8-jF-NaV" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="zlk-J7-Rwx"/>
