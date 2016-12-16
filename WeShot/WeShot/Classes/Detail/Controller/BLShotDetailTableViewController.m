@@ -10,12 +10,21 @@
 #import "BLDetailContentCell.h"
 #import "BLDetailCommentCell.h"
 #import "BLShot.h"
+#import "BLShotComment.h"
+#import "BLShotsTool.h"
+#import "BLShotsParams.h"
+#import "BLDribbbleAPI.h"
+
+#import "NSString+BLExtension.h"
+
 #import "BLProfileViewController.h"
 
 #import <DALabeledCircularProgressView.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface BLShotDetailTableViewController ()
+
+@property (nonatomic, strong) NSMutableArray* comments;
 
 @end
 
@@ -24,10 +33,17 @@
 static NSString* headercellID = @"BLDetailContentCell";
 static NSString* commentCellID = @"BLDetailCommentCell";
 
+- (NSMutableArray*)comments {
+    if (_comments == nil) {
+        _comments = [NSMutableArray array];
+    }
+    return _comments;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTableView];
-    
+    [self loadAllComments];
     
 }
 
@@ -36,6 +52,20 @@ static NSString* commentCellID = @"BLDetailCommentCell";
     self.tableView.backgroundColor = BLGlobalBg;
     self.navigationItem.title = @"SHOT";
 }
+
+- (void) loadAllComments{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    NSString* pageStr = @"page=1&per_page=99";
+    
+    [BLShotsTool commentWithURLStr:self.shot.comments_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+        [self.comments addObjectsFromArray:shotsArray];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"comment:%@",error.localizedDescription);
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -46,11 +76,10 @@ static NSString* commentCellID = @"BLDetailCommentCell";
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1 + 6;
+    return self.comments.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.row == 0) {
         BLDetailContentCell* cell = [tableView dequeueReusableCellWithIdentifier:headercellID];
         if (cell == nil) {
@@ -82,11 +111,18 @@ static NSString* commentCellID = @"BLDetailCommentCell";
         
         return cell;
     }
+    
+    //Comment cell
+    
     BLDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
     if (cell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:commentCellID owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    BLShotComment* comment = self.comments[indexPath.row-1];
+    [cell.userImage sd_setImageWithURL:[NSURL URLWithString:comment.user.avatar_url] placeholderImage:nil];
+    cell.username.text = comment.user.username;
+    cell.comment.text = comment.body;
     return cell;
 }
 
@@ -100,7 +136,11 @@ static NSString* commentCellID = @"BLDetailCommentCell";
     if (indexPath.row == 0) {
         return self.shot.detailCellHeight;
     }
-    return 100;
+    CGFloat cellWidth = ScreenSize.width - 52;
+    UIFont* font = [UIFont systemFontOfSize:13.0f];
+    BLShotComment* comment = self.comments[indexPath.row-1];
+    CGFloat bodyHeight = [comment.body boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:font lineSpacing:0 maxLines:100];
+    return 16 + 28 + 8 + bodyHeight + 16;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

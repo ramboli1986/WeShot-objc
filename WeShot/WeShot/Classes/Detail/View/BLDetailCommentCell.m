@@ -18,7 +18,7 @@
 }
 
 - (void) setFrame:(CGRect)frame {
-    frame.size.height -= 1;
+    frame.size.height -= 4;
     [super setFrame:frame];
 }
 

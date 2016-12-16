@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BLDetailCommentCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *userImage;
+@property (weak, nonatomic) IBOutlet UILabel *username;
+@property (weak, nonatomic) IBOutlet UILabel *comment;
 
 @end

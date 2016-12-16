@@ -50,6 +50,11 @@
                     <constraint firstItem="5aF-ZT-RbH" firstAttribute="top" secondItem="Xf7-7E-f7r" secondAttribute="bottom" constant="8" id="nqw-sh-gSv"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="comment" destination="5aF-ZT-RbH" id="XME-GG-Klc"/>
+                <outlet property="userImage" destination="1cg-ja-aHs" id="zna-Lq-Wzo"/>
+                <outlet property="username" destination="Xf7-7E-f7r" id="7h0-id-IjS"/>
+            </connections>
             <point key="canvasLocation" x="34" y="71"/>
         </tableViewCell>
     </objects>

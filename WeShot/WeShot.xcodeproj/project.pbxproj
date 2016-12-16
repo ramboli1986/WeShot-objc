@@ -45,6 +45,7 @@
 		FDD530951E0247D200E0DD8D /* BLShotPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530941E0247D200E0DD8D /* BLShotPicture.m */; };
 		FDD5309B1E02F3BC00E0DD8D /* NSString+BLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */; };
 		FDD5309E1E035F7700E0DD8D /* BLLikeShot.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5309D1E035F7700E0DD8D /* BLLikeShot.m */; };
+		FDD530A11E037B8600E0DD8D /* BLShotComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530A01E037B8600E0DD8D /* BLShotComment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,8 @@
 		FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BLExtension.m"; sourceTree = "<group>"; };
 		FDD5309C1E035F7700E0DD8D /* BLLikeShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLikeShot.h; sourceTree = "<group>"; };
 		FDD5309D1E035F7700E0DD8D /* BLLikeShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLLikeShot.m; sourceTree = "<group>"; };
+		FDD5309F1E037B8600E0DD8D /* BLShotComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotComment.h; sourceTree = "<group>"; };
+		FDD530A01E037B8600E0DD8D /* BLShotComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotComment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,6 +393,8 @@
 				FDD530941E0247D200E0DD8D /* BLShotPicture.m */,
 				FDD5309C1E035F7700E0DD8D /* BLLikeShot.h */,
 				FDD5309D1E035F7700E0DD8D /* BLLikeShot.m */,
+				FDD5309F1E037B8600E0DD8D /* BLShotComment.h */,
+				FDD530A01E037B8600E0DD8D /* BLShotComment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 				FDC6B40A1E00C31000250AD5 /* BLWaterFlowLayout.m in Sources */,
 				FDC6B41C1E00DC8400250AD5 /* BLProfileViewController.m in Sources */,
 				FDD5306F1E01E3B700E0DD8D /* BLDetailCommentCell.m in Sources */,
+				FDD530A11E037B8600E0DD8D /* BLShotComment.m in Sources */,
 				FDC6B3F71E007B4100250AD5 /* BLExploreViewController.m in Sources */,
 				FDC6B3BD1E0068A100250AD5 /* main.m in Sources */,
 				FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */,
