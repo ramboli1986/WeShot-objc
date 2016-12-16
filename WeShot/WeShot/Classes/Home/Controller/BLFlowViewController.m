@@ -56,10 +56,6 @@
     
     self.collectionView.mj_header = header;
     
-    // The pull-up refresh
-    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self loadMoreShots];
-    }];
 }
 
 - (void)loadNewshots{
@@ -97,10 +93,8 @@
     [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
         [self.shots addObjectsFromArray:shotsArray];
         [self.collectionView reloadData];
-        [self.collectionView.mj_footer endRefreshing];
     } failure:^(NSError *error) {
         NSLog(@"error:%@",error.localizedDescription);
-        [self.collectionView.mj_footer endRefreshing];
     }];
 }
 
@@ -152,6 +146,9 @@
     cell.username.text = shot.user.username;
     cell.likeCount.text = [NSString stringWithFormat:@"%zd",shot.likes_count];
     
+    if (indexPath.row == self.shots.count - 1) {
+        [self loadMoreShots];
+    }
     return cell;
 }
 

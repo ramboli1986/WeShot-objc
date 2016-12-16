@@ -58,10 +58,6 @@
     
     self.collectionView.mj_header = header;
     
-    // The pull-up refresh
-    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self loadMoreShot];
-    }];
 }
 
 - (void)loadNewshot{
@@ -108,10 +104,8 @@
     [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
         [self.shots addObjectsFromArray:shotsArray];
         [self.collectionView reloadData];
-        [self.collectionView.mj_footer endRefreshing];
     } failure:^(NSError *error) {
         NSLog(@"error:%@",error.localizedDescription);
-        [self.collectionView.mj_footer endRefreshing];
     }];
 
 }
@@ -149,6 +143,9 @@
     NSString* shotImageURLString = shot.images.teaser;
     [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLString]
                  placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    if (indexPath.row == self.shots.count-1) {
+        [self loadMoreShot];
+    }
     return cell;
 }
 

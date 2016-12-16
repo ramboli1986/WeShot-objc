@@ -81,15 +81,6 @@
     [header beginRefreshing];
     
     self.cv.mj_header = header;
-    
-    // The pull-up refresh
-    self.cv.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        if (self.isLike) {
-            [self loadMoreLikeShots];
-        } else {
-            [self loadMoreShots];
-        }
-    }];
 }
 
 - (void)setupNav{
@@ -224,6 +215,16 @@
         }
         
         [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:imageURLStr] placeholderImage:nil];
+        
+        if (self.isLike) {
+            if (indexPath.row == self.likeShots.count-1) {
+                [self loadMoreLikeShots];
+            }
+        } else {
+            if (indexPath.row == self.shots.count-1) {
+                [self loadMoreShots];
+            }
+        }
         return cell;
     }
 }
