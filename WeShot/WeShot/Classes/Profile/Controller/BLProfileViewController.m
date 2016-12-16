@@ -39,6 +39,7 @@
     CGFloat gap;
     NSInteger shotpage;
     NSInteger likepage;
+    NSInteger per_page;
 }
 
 - (NSMutableArray*)shots {
@@ -57,6 +58,7 @@
 
 - (void)viewDidLoad {
     gap = 4.0;
+    per_page = 27;
     [super viewDidLoad];
     [self setupNav];
     [self setupCollectionView];
@@ -76,7 +78,11 @@
     
     // The pull-up refresh
     self.cv.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self loadMoreShots];
+        if (self.isLike) {
+            [self loadMoreLikeShots];
+        } else {
+            [self loadMoreShots];
+        }
     }];
 }
 
@@ -90,13 +96,11 @@
 }
 
 - (void)loadNewShots {
-    shotpage = 1;
-    likepage = 1;
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
-    
+    NSString* pageStr = @"page=1&per_page=21";
     //shot data
-    [BLShotsTool shotWithURLStr:self.user.shots_url Params:params pageStr:@"page=1&per_page=21" Success:^(NSArray *shotsArray) {
+    [BLShotsTool shotWithURLStr:self.user.shots_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
         shotpage = 1;
         likepage = 1;
         [self.shots removeAllObjects];
@@ -108,13 +112,12 @@
         [self.cv.mj_header endRefreshing];
     }];
     //like shot data
-    [BLShotsTool likeshotWithURLStr:self.user.likes_url Params:params pageStr:@"page=1&per_page=21" Success:^(NSArray *shotsArray) {
+    [BLShotsTool likeshotWithURLStr:self.user.likes_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
         [self.likeShots removeAllObjects];
         //[self.likeShots addObjectsFromArray:shotsArray];
         for (int i = 0; i < shotsArray.count; i++) {
             BLLikeShot* likeshot = shotsArray[i];
-            [self.likeShots addObject:likeshot.shot];
-            NSLog(@"like title %@",likeshot.shot.title);
+            [self.likeShots addObject:likeshot];
         }
         //[self.cv reloadData];
         [self.cv.mj_header endRefreshing];
@@ -125,7 +128,38 @@
 }
 
 - (void)loadMoreShots {
-    
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",shotpage+1, per_page];
+    //shot data
+    [BLShotsTool shotWithURLStr:self.user.shots_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+        shotpage++;
+        [self.shots addObjectsFromArray:shotsArray];
+        [self.cv reloadData];
+        [self.cv.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        NSLog(@"error:%@",error.localizedDescription);
+        [self.cv.mj_footer endRefreshing];
+    }];
+}
+
+- (void)loadMoreLikeShots{
+    //like shot data
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",likepage+1, per_page];
+    [BLShotsTool likeshotWithURLStr:self.user.likes_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+        likepage++;
+        for (int i = 0; i < shotsArray.count; i++) {
+            BLLikeShot* likeshot = shotsArray[i];
+            [self.likeShots addObject:likeshot];
+        }
+        [self.cv reloadData];
+        [self.cv.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        NSLog(@"error:%@",error.localizedDescription);
+        [self.cv.mj_footer endRefreshing];
+    }];
 }
 
 
@@ -159,8 +193,14 @@
     else {
         BLProfileShotCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BLProfileShotCell" forIndexPath:indexPath];
         
-        BLShot *shot = self.isLike?self.likeShots[indexPath.row]:self.shots[indexPath.row];
-        NSString* imageURLStr = shot.images.teaser;
+        NSString* imageURLStr;
+        if (self.isLike) {
+            BLLikeShot* likeShot = self.likeShots[indexPath.row];
+            imageURLStr = likeShot.shot.images.teaser;
+        } else {
+            BLShot *shot = self.shots[indexPath.row];
+            imageURLStr = shot.images.teaser;
+        }
         
         [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:imageURLStr] placeholderImage:nil];
         return cell;
@@ -230,11 +270,11 @@
 }
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"select item :%@", indexPath);
     if (indexPath.section == 1) {
         BLShotDetailTableViewController* vc = [[BLShotDetailTableViewController alloc]init];
-        vc.shot = self.isLike ? self.likeShots[indexPath.row] : self.shots[indexPath.row];
-        vc.shot.user = self.user;
+        BLLikeShot* likeShot = self.likeShots[indexPath.row];
+        vc.shot = self.isLike ? likeShot.shot : self.shots[indexPath.row];
+        vc.shot.user = self.isLike ? likeShot.shot.user : self.user;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
