@@ -49,6 +49,7 @@
 		FDD530AC1E03A53800E0DD8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530AB1E03A53800E0DD8D /* AppDelegate.m */; };
 		FDD530B01E03A8A000E0DD8D /* BLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530AE1E03A8A000E0DD8D /* BLLoginViewController.m */; };
 		FDD530B11E03A8A000E0DD8D /* BLLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD530AF1E03A8A000E0DD8D /* BLLoginViewController.xib */; };
+		FDD530B41E03B9B700E0DD8D /* BLOAuthorParam.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530B31E03B9B700E0DD8D /* BLOAuthorParam.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,8 @@
 		FDD530AD1E03A8A000E0DD8D /* BLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLoginViewController.h; sourceTree = "<group>"; };
 		FDD530AE1E03A8A000E0DD8D /* BLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLLoginViewController.m; sourceTree = "<group>"; };
 		FDD530AF1E03A8A000E0DD8D /* BLLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLLoginViewController.xib; sourceTree = "<group>"; };
+		FDD530B21E03B9B700E0DD8D /* BLOAuthorParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLOAuthorParam.h; sourceTree = "<group>"; };
+		FDD530B31E03B9B700E0DD8D /* BLOAuthorParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLOAuthorParam.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,13 +206,13 @@
 			isa = PBXGroup;
 			children = (
 				FDD530A91E03A51900E0DD8D /* AppDelegate */,
-				FDD530A21E039DC100E0DD8D /* OAuth */,
 				FDD530771E020BA100E0DD8D /* Tools (bussiness Logic) */,
 				FDC6B3DC1E0069B400250AD5 /* Main */,
 				FDC6B3D81E0069B400250AD5 /* Home */,
 				FDC6B3D31E0069B400250AD5 /* Explore */,
 				FDC6B3E01E0069B400250AD5 /* Profile */,
 				FDD530631E01E03F00E0DD8D /* Shot Detail */,
+				FDD530A21E039DC100E0DD8D /* OAuth+Login */,
 				FDC6B3DD1E0069B400250AD5 /* Others */,
 			);
 			path = Classes;
@@ -451,13 +454,14 @@
 			path = Shots;
 			sourceTree = "<group>";
 		};
-		FDD530A21E039DC100E0DD8D /* OAuth */ = {
+		FDD530A21E039DC100E0DD8D /* OAuth+Login */ = {
 			isa = PBXGroup;
 			children = (
 				FDD530A31E039DC100E0DD8D /* Controller */,
 				FDD530A41E039DC100E0DD8D /* Model */,
 				FDD530A51E039DC100E0DD8D /* View */,
 			);
+			name = "OAuth+Login";
 			path = OAuth;
 			sourceTree = "<group>";
 		};
@@ -476,6 +480,8 @@
 		FDD530A41E039DC100E0DD8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FDD530B21E03B9B700E0DD8D /* BLOAuthorParam.h */,
+				FDD530B31E03B9B700E0DD8D /* BLOAuthorParam.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -639,6 +645,7 @@
 				FDD5306F1E01E3B700E0DD8D /* BLDetailCommentCell.m in Sources */,
 				FDD530A11E037B8600E0DD8D /* BLShotComment.m in Sources */,
 				FDC6B3F71E007B4100250AD5 /* BLExploreViewController.m in Sources */,
+				FDD530B41E03B9B700E0DD8D /* BLOAuthorParam.m in Sources */,
 				FDC6B3BD1E0068A100250AD5 /* main.m in Sources */,
 				FDD530B01E03A8A000E0DD8D /* BLLoginViewController.m in Sources */,
 				FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */,

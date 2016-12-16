@@ -24,6 +24,8 @@
     //self.window.rootViewController = [[BLMainTabBarController alloc]init];
     self.window.rootViewController = [[BLLoginViewController alloc]init];
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]);
     return YES;
 }
 
