@@ -10,7 +10,7 @@
 #import "BLDribbbleAPI.h"
 #import "BLHttpTool.h"
 #import "BLOAuthorParam.h"
-
+#import "BLAcountTool.h"
 #import <WebKit/WebKit.h>
 
 @interface BLOAuthViewController () <WKNavigationDelegate>
@@ -87,10 +87,8 @@
     
     [BLHttpTool Post:OAuth2_TokenUrl parameters:param success:^(id responseObject) {
         NSString* access_token = [responseObject valueForKey:@"access_token"];
+        [BLAcountTool saveAcount:access_token];
         
-        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:access_token forKey:@"accessToken"];
-        [defaults synchronize];
     } failure:^(NSError *error) {
         NSLog(@"Login fail:%@",error.localizedDescription);
     }];

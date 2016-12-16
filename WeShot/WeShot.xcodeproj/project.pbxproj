@@ -50,6 +50,7 @@
 		FDD530B01E03A8A000E0DD8D /* BLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530AE1E03A8A000E0DD8D /* BLLoginViewController.m */; };
 		FDD530B11E03A8A000E0DD8D /* BLLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD530AF1E03A8A000E0DD8D /* BLLoginViewController.xib */; };
 		FDD530B41E03B9B700E0DD8D /* BLOAuthorParam.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530B31E03B9B700E0DD8D /* BLOAuthorParam.m */; };
+		FDD530B81E03C28700E0DD8D /* BLAcountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530B71E03C28700E0DD8D /* BLAcountTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,8 @@
 		FDD530AF1E03A8A000E0DD8D /* BLLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLLoginViewController.xib; sourceTree = "<group>"; };
 		FDD530B21E03B9B700E0DD8D /* BLOAuthorParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLOAuthorParam.h; sourceTree = "<group>"; };
 		FDD530B31E03B9B700E0DD8D /* BLOAuthorParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLOAuthorParam.m; sourceTree = "<group>"; };
+		FDD530B61E03C28700E0DD8D /* BLAcountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAcountTool.h; sourceTree = "<group>"; };
+		FDD530B71E03C28700E0DD8D /* BLAcountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAcountTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD530781E020C2A00E0DD8D /* HttpTool */,
+				FDD530B51E03C27A00E0DD8D /* Account */,
 				FDD5307C1E020F3900E0DD8D /* Shots */,
 			);
 			name = "Tools (bussiness Logic)";
@@ -500,6 +504,15 @@
 				FDD530AB1E03A53800E0DD8D /* AppDelegate.m */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		FDD530B51E03C27A00E0DD8D /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				FDD530B61E03C28700E0DD8D /* BLAcountTool.h */,
+				FDD530B71E03C28700E0DD8D /* BLAcountTool.m */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -634,6 +647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */,
+				FDD530B81E03C28700E0DD8D /* BLAcountTool.m in Sources */,
 				FDC6B42D1E010D7000250AD5 /* BLCollectionReusableView.m in Sources */,
 				FDC6B4201E00F3BE00250AD5 /* BLProfileHeaderCell.m in Sources */,
 				FDD5309B1E02F3BC00E0DD8D /* NSString+BLExtension.m in Sources */,

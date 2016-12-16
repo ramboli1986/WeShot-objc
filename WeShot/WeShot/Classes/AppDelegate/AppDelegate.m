@@ -10,6 +10,7 @@
 #import "BLMainTabBarController.h"
 #import "BLLoginViewController.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -21,11 +22,16 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    //self.window.rootViewController = [[BLMainTabBarController alloc]init];
-    self.window.rootViewController = [[BLLoginViewController alloc]init];
-    [self.window makeKeyAndVisible];
     
-    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]);
+    // OAuth View Controller
+    if (![BLAcountTool access_Token]){
+        self.window.rootViewController = [[BLLoginViewController alloc]init];
+    }
+    //Enter Home View Controller
+    else {
+        [BLAcountTool homeRootViewController:self.window];
+    }
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

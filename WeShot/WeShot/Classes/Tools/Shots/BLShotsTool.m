@@ -11,6 +11,7 @@
 #import "BLShotsParams.h"
 #import "BLDribbbleAPI.h"
 #import "BLShot.h"
+#import "BLUser.h"
 #import "BLLikeShot.h"
 #import "BLShotsParams.h"
 #import "BLShotComment.h"
@@ -50,6 +51,14 @@
     [BLHttpTool Get:[NSString stringWithFormat:@"%@?%@",urlStr,pageStr] parameters:params success:^(id responseObject) {
         NSArray* shotsArray = [BLShotComment mj_objectArrayWithKeyValuesArray:responseObject];
         success(shotsArray);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)userWithParams:(BLShotsParams*)params success:(void(^)(BLUser*))success failure:(void(^)(NSError* error))failure {
+    [BLHttpTool Get:DRIBBBLE_USER parameters:params success:^(id responseObject) {
+        success([BLUser mj_objectWithKeyValues:responseObject]);
     } failure:^(NSError *error) {
         failure(error);
     }];

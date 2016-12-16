@@ -18,12 +18,14 @@
 #import "BLLikeShot.h"
 #import "BLShotsParams.h"
 #import "BLDribbbleAPI.h"
+#import "BLHttpTool.h"
 
 #import "NSString+BLExtension.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDImageCache.h>
 #import <MJRefresh.h>
+#import <MJExtension.h>
 
 @interface BLProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -32,6 +34,8 @@
 
 @property (nonatomic, strong) NSMutableArray* shots;
 @property (nonatomic, strong) NSMutableArray* likeShots;
+
+@property (nonatomic, weak) UIButton* likeBtn;
 
 @property (nonatomic, assign) BOOL isLike;
 
@@ -92,9 +96,24 @@
     if (!self.user) {
         self.navigationItem.title = @"Profile";
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"Logout" target:self action:@selector(logout)];
+        [self loadUser];
     } else {
         self.navigationItem.title = @"Player";
     }
+}
+
+- (void)loadUser{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = [BLAcountTool access_Token];
+    [BLShotsTool userWithParams:params success:^(BLUser *user) {
+        self.user = user;
+        [self loadNewShots];
+        [self titleClick:self.likeBtn];
+        [self.cv reloadData];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error.localizedDescription);
+    }];
 }
 
 - (void)loadNewShots {
@@ -254,6 +273,9 @@
     }
     for (int i = 0; i < 2; i++) {
         UIButton *button = [[UIButton alloc]init];
+        if (i == 1) {
+            self.likeBtn = button;
+        }
         button.tag = i;
         button.height = height;
         button.width = width;

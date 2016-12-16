@@ -59,7 +59,7 @@
     indicatorView.y = titleView.height - indicatorView.height + 4;
     self.indicatorView = indicatorView;
     
-    NSArray *titles = @[@"Popular", @"Follow"];
+    NSArray *titles = @[@"Popular", @"Following"];
     CGFloat width = ScreenSize.width/4;
     CGFloat height = titleView.height;
     for (NSInteger i = 0; i < titles.count; i++) {
