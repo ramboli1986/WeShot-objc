@@ -7,7 +7,11 @@ A [Dribbble](http://dribbble.com) app build with Objective-C.
 ####Preview
 ![home page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/home2.png)
 
+####Preview
+
 ![explore page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/explore.png)
+
+####Preview
 
 ![detail page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/detail.png)
 
