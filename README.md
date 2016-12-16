@@ -2,14 +2,14 @@
 
 A [Dribbble](http://dribbble.com) app build with Objective-C.
 
-![dribbble_app_screenshot](https://github.com/ramboli1986/WeShot-objc/blob/master/home1.PNG)
+![dribbble_app_screenshot](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/home1.PNG)
 
 ####Preview
-![home page](https://github.com/ramboli1986/WeShot-objc/blob/master/home2.PNG)
+![home page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/home2.PNG)
 
-![explore page](https://github.com/ramboli1986/WeShot-objc/blob/master/explore.PNG)
+![explore page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/explore.PNG)
 
-![detail page](https://github.com/ramboli1986/WeShot-objc/blob/master/detail.PNG)
+![detail page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/detail.PNG)
 
 
 Third Party Libary used:
