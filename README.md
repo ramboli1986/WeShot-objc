@@ -21,6 +21,7 @@ Third Party Libary used:
 
 ####Todo List
 - [x] Add Waterfall layout for the home View Controller
+- [ ] Parse html to text
 - [ ] Support OAuthor OAuth2 and add Login page
 - [ ] Optimize Gif display
 - [ ] Optimize memory
