@@ -11,8 +11,12 @@
 #import "BLUser.h"
 #import "BLHttpTool.h"
 #import "BLShotsParams.h"
+#import "BLLoginViewController.h"
 
 #import <MJExtension.h>
+#import <WebKit/WebKit.h>
+
+//#import "AppDelegate.h"
 
 #define ACCESS_TOKEN_KEY @"accessToken"
 @implementation BLAcountTool
@@ -40,9 +44,19 @@ static BLUser* _user;
     [defaults synchronize];
 }
 
++ (void)logout{
+    NSSet *websiteDataTypes = [WKWebsiteDataStore allWebsiteDataTypes];
+    NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
+    [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes
+                                               modifiedSince:dateFrom completionHandler:^{
+                                                   // code
+                                                   [[UIApplication sharedApplication] keyWindow].rootViewController = [[BLLoginViewController alloc]init];
+                                               }];
+}
 
 + (void)homeRootViewController:(UIWindow *)window{
     BLMainTabBarController* vc = [[BLMainTabBarController alloc]init];
     window.rootViewController = vc;
+    [window makeKeyAndVisible];
 }
 @end

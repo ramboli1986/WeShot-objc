@@ -88,7 +88,7 @@
     [BLHttpTool Post:OAuth2_TokenUrl parameters:param success:^(id responseObject) {
         NSString* access_token = [responseObject valueForKey:@"access_token"];
         [BLAcountTool saveAcount:access_token];
-        
+        [BLAcountTool homeRootViewController:[[UIApplication sharedApplication] keyWindow]];
     } failure:^(NSError *error) {
         NSLog(@"Login fail:%@",error.localizedDescription);
     }];

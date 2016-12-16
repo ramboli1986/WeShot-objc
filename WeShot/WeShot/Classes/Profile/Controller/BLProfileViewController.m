@@ -183,6 +183,7 @@
     _cv.backgroundColor = BLGlobalBg;
     
     [_cv registerNib:[UINib nibWithNibName:@"BLCollectionReusableView" bundle: [NSBundle mainBundle]] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BLCollectionReusableView"];
+    
     [_cv registerNib:[UINib nibWithNibName:@"BLProfileShotCell" bundle: [NSBundle mainBundle]] forCellWithReuseIdentifier:@"BLProfileShotCell"];
     [_cv registerNib:[UINib nibWithNibName:@"BLProfileHeaderCell" bundle: [NSBundle mainBundle]] forCellWithReuseIdentifier:@"BLProfileHeaderCell"];
     
@@ -228,6 +229,7 @@
         return cell;
     }
 }
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
@@ -340,6 +342,7 @@
 
 - (void)logout{
     NSLog(@"log out");
+    [BLAcountTool logout];
 }
 
 

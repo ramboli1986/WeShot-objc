@@ -26,12 +26,13 @@
     // OAuth View Controller
     if (![BLAcountTool access_Token]){
         self.window.rootViewController = [[BLLoginViewController alloc]init];
+        [self.window makeKeyAndVisible];
     }
     //Enter Home View Controller
     else {
         [BLAcountTool homeRootViewController:self.window];
     }
-    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

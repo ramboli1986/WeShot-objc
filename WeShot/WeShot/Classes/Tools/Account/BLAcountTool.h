@@ -14,5 +14,5 @@
 + (NSString*)access_Token;
 + (void)deleteToken;
 + (void)homeRootViewController:(UIWindow *)window;
-
++ (void)logout;
 @end
