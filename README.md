@@ -2,10 +2,10 @@
 
 A [Dribbble](http://dribbble.com) app build with Objective-C.
 
-![dribbble_app_screenshot](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/home1.png)
+![dribbble_app_screenshot](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/WeShotGIF.gif)
 
 ####Preview
-![home page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/home2.png)
+![home page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/home1.png)
 
 ####Preview
 
