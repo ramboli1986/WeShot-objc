@@ -67,14 +67,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="211" height="177.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gif" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Un1-Jv-H1C">
-                        <rect key="frame" x="181" y="157.5" width="26" height="16"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.17734925176056338" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GIF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Un1-Jv-H1C">
+                        <rect key="frame" x="177" y="153.5" width="26" height="16"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.39953785211267606" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="26" id="V2Z-4H-gm5"/>
                             <constraint firstAttribute="height" constant="16" id="gh4-Bm-9Rf"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -92,9 +92,9 @@
                 <constraint firstAttribute="trailing" secondItem="yNJ-b7-TCo" secondAttribute="trailing" constant="8" id="CYZ-We-j7C"/>
                 <constraint firstAttribute="bottom" secondItem="0jx-zm-rdc" secondAttribute="bottom" constant="8" id="Ejg-Qw-4dR"/>
                 <constraint firstItem="pym-mw-D1w" firstAttribute="leading" secondItem="3as-gH-Th0" secondAttribute="trailing" constant="6" id="JD5-Zb-glz"/>
-                <constraint firstAttribute="trailing" secondItem="Un1-Jv-H1C" secondAttribute="trailing" constant="4" id="MB3-Ka-SeR"/>
+                <constraint firstAttribute="trailing" secondItem="Un1-Jv-H1C" secondAttribute="trailing" constant="8" id="MB3-Ka-SeR"/>
                 <constraint firstItem="tH6-h7-0kd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Q6k-yR-9f1"/>
-                <constraint firstItem="Un1-Jv-H1C" firstAttribute="bottom" secondItem="Bo9-vL-z8O" secondAttribute="bottom" constant="-4" id="SWu-42-NxJ"/>
+                <constraint firstItem="Un1-Jv-H1C" firstAttribute="bottom" secondItem="Bo9-vL-z8O" secondAttribute="bottom" constant="-8" id="SWu-42-NxJ"/>
                 <constraint firstItem="Bo9-vL-z8O" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aAi-BR-xWa"/>
                 <constraint firstItem="Opf-6X-nci" firstAttribute="leading" secondItem="0jx-zm-rdc" secondAttribute="trailing" constant="4" id="gWS-2w-LtR"/>
                 <constraint firstItem="yNJ-b7-TCo" firstAttribute="top" secondItem="Bo9-vL-z8O" secondAttribute="bottom" constant="16" id="inH-6a-rGc"/>
