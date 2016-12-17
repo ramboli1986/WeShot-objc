@@ -2,10 +2,10 @@
 
 A [Dribbble](http://dribbble.com) app build with Objective-C.
 
-![dribbble_app_screenshot](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/home1.png)
+![dribbble_app_screenshot](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/WeShotGIF.gif)
 
 ####Preview
-![home page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/home2.png)
+![home page](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/home1.png)
 
 ####Preview
 
@@ -26,7 +26,8 @@ Third Party Libary used:
 ####Todo List
 - [x] Add Waterfall layout for the home View Controller
 - [ ] Parse html to text
+- [ ] Implement 'LIKE' and 'FOLLOW' function 
 - [x] Support OAuthor OAuth2 and add Login page
-- [x] Optimize Gif display
-- [x] Optimize memory
-- [ ] Rewrite Swift Version
+- [x] Optimize Gif display and Optimize performance
+- [ ] unexcepted error handle (off networking, crash)
+- [ ] Rewrite Swift3.0 Version
