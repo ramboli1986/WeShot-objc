@@ -20,8 +20,26 @@
 
 @implementation BLShotsTool
 
++ (void)userWithParams:(BLShotsParams*)params success:(void(^)(BLUser*))success failure:(void(^)(NSError* error))failure {
+    [BLHttpTool Get:DRIBBBLE_USER parameters:params success:^(id responseObject) {
+        success([BLUser mj_objectWithKeyValues:responseObject]);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
 + (void)shotWithParams:(BLShotsParams*)params pageStr:(NSString*)pageStr Success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
     [BLHttpTool Get:[NSString stringWithFormat:@"%@?%@",DRIBBBLE_SHOT,pageStr] parameters:params success:^(id responseObject) {
+        NSArray* shotsArray = [BLShot mj_objectArrayWithKeyValuesArray:responseObject];
+        success(shotsArray);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+
++ (void)followShotWithParams:(BLShotsParams*)params pageStr:(NSString*)pageStr Success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
+    [BLHttpTool Get:[NSString stringWithFormat:@"%@?%@",DRIBBBLE_FOLLOW_SHOT,pageStr] parameters:params success:^(id responseObject) {
         NSArray* shotsArray = [BLShot mj_objectArrayWithKeyValuesArray:responseObject];
         success(shotsArray);
     } failure:^(NSError *error) {
@@ -56,20 +74,4 @@
     }];
 }
 
-+ (void)userWithParams:(BLShotsParams*)params success:(void(^)(BLUser*))success failure:(void(^)(NSError* error))failure {
-    [BLHttpTool Get:DRIBBBLE_USER parameters:params success:^(id responseObject) {
-        success([BLUser mj_objectWithKeyValues:responseObject]);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
-}
-
-+ (void)followShotWithParams:(BLShotsParams*)params pageStr:(NSString*)pageStr Success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
-    [BLHttpTool Get:[NSString stringWithFormat:@"%@?%@",DRIBBBLE_FOLLOW_SHOT,pageStr] parameters:params success:^(id responseObject) {
-        NSArray* shotsArray = [BLShot mj_objectArrayWithKeyValuesArray:responseObject];
-        success(shotsArray);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
-}
 @end
