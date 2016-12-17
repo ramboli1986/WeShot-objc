@@ -100,8 +100,9 @@ static NSString* commentCellID = @"BLDetailCommentCell";
                 NSLog(@"receive size %zd",receivedSize);
                 [cell.progressView setProgress:1.0*receivedSize/expectedSize animated:YES];
             } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                cell.progressView.hidden = YES;
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.progressView.hidden = YES;
                     cell.GifImageView.image = [YLGIFImage imageWithData:data];
                 });
             }];

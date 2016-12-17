@@ -77,7 +77,7 @@
     } else if (self.type == 3) {
         params.list = @"playoffs";
     }
-    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=99",page];
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=48",page];
     [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
         [self.shots removeAllObjects];
         [self.shots addObjectsFromArray:shotsArray];
