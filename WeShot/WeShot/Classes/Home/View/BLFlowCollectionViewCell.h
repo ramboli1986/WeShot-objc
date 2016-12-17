@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UIImageView *userAvatorImage;
+@property (weak, nonatomic) IBOutlet UILabel *isGif;
 
 @end

@@ -143,6 +143,7 @@
     NSString* shotImageURLString = shot.images.teaser;
     [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLString]
                  placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    cell.gifLabel.hidden = shot.animated?NO:YES;
     if (indexPath.row == self.shots.count-1) {
         [self loadMoreShot];
     }
@@ -180,7 +181,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
     [[SDWebImageManager sharedManager] cancelAll];
     [[SDWebImageManager sharedManager].imageCache clearMemory];
 }

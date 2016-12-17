@@ -22,16 +22,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="159" height="154"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gif" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWe-P8-ecb">
+                        <rect key="frame" x="129" y="134" width="26" height="16"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.1773492518" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="faA-Ke-lQo"/>
+                            <constraint firstAttribute="width" constant="26" id="i3r-zo-eni"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="sJK-8B-kOB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3HI-pP-bLh"/>
                 <constraint firstAttribute="bottom" secondItem="sJK-8B-kOB" secondAttribute="bottom" id="BRA-AN-NH6"/>
+                <constraint firstAttribute="bottom" secondItem="UWe-P8-ecb" secondAttribute="bottom" constant="4" id="EpB-po-mRX"/>
                 <constraint firstItem="sJK-8B-kOB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="a1h-EW-vFz"/>
+                <constraint firstAttribute="trailing" secondItem="UWe-P8-ecb" secondAttribute="trailing" constant="4" id="ftf-aW-fLo"/>
                 <constraint firstAttribute="trailing" secondItem="sJK-8B-kOB" secondAttribute="trailing" id="lL4-tu-kpR"/>
             </constraints>
             <size key="customSize" width="159" height="154"/>
             <connections>
+                <outlet property="gifLabel" destination="UWe-P8-ecb" id="phZ-Gn-jfe"/>
                 <outlet property="shotImage" destination="sJK-8B-kOB" id="kyX-GX-NxW"/>
             </connections>
             <point key="canvasLocation" x="88.5" y="106"/>

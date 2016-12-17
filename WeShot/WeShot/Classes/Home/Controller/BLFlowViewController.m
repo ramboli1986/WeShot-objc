@@ -156,7 +156,7 @@
     cell.shotDetail.text = shot.detailContent;
     cell.username.text = shot.user.username;
     cell.likeCount.text = [NSString stringWithFormat:@"%zd",shot.likes_count];
-    
+    cell.isGif.hidden = shot.animated?NO:YES;
     if (indexPath.row == self.shots.count - 1) {
         [self loadMoreShots];
     }

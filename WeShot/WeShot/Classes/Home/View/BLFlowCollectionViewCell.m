@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.isGif.layer.cornerRadius = 2.0f;
+    self.isGif.layer.masksToBounds = YES;
 }
 
 @end

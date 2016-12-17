@@ -10,5 +10,6 @@
 
 @interface BLGridCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
+@property (weak, nonatomic) IBOutlet UILabel *gifLabel;
 
 @end
