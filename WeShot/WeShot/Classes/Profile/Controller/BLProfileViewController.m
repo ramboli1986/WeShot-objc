@@ -195,7 +195,7 @@
         BLProfileHeaderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BLProfileHeaderCell" forIndexPath:indexPath];
         NSString* avatorURLStr = self.user.avatar_url;
         [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorURLStr] placeholderImage:nil];
-        cell.userName.text = self.user.username;
+        cell.userName.text = self.user.name;
         cell.shotsCount.text = [NSString stringWithFormat:@"%zd",self.user.shots_count];
         cell.followerCount.text = [NSString stringWithFormat:@"%zd",self.user.followers_count];
         cell.followingCount.text = [NSString stringWithFormat:@"%zd",self.user.followings_count];

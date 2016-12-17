@@ -23,6 +23,8 @@
 #define ScreenSize [UIScreen mainScreen].bounds.size
 #define BLAvatorHeight 23
 
+#define ACCESS_TOKEN_KEY @"accessToken"
+
 #endif /* PrefixHeader_pch */
 
 

@@ -11,6 +11,7 @@
 
 @interface BLLoginViewController ()
 - (IBAction)LoginBtn:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *LoginBtn;
 
 @end
 
@@ -18,9 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setLoginBtn];
 }
 
+- (void)setLoginBtn{
+    self.LoginBtn.layer.cornerRadius = 18;
+    self.LoginBtn.layer.masksToBounds = YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

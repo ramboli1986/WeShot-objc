@@ -11,6 +11,7 @@
 @interface BLUser : NSObject
 
 @property (nonatomic, assign, getter=uid) NSInteger id;
+@property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* username;
 @property (nonatomic, strong) NSString* bio;
 @property (nonatomic, strong) NSString* location;

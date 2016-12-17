@@ -25,6 +25,7 @@
     
     // OAuth View Controller
     if (![BLAcountTool access_Token]){
+        
         self.window.rootViewController = [[BLLoginViewController alloc]init];
         [self.window makeKeyAndVisible];
     }

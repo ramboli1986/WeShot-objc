@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BLLoginViewController">
             <connections>
+                <outlet property="LoginBtn" destination="r0j-M4-N28" id="hRc-fV-YdT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,17 +21,32 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0j-M4-N28">
-                    <rect key="frame" x="168.5" y="317" width="37" height="33"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="login"/>
+                    <rect key="frame" x="77.5" y="314.5" width="220" height="38"/>
+                    <color key="backgroundColor" red="1" green="0.12749893779999999" blue="0.20784262240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="220" id="piE-T9-fTQ"/>
+                        <constraint firstAttribute="height" constant="38" id="rTw-Hj-Ena"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Sign in With Dribbble">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="LoginBtn:" destination="-1" eventType="touchUpInside" id="faW-fy-Hu4"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure login via dribbble.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6N-hx-d6S">
+                    <rect key="frame" x="97.5" y="368.5" width="179.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="r0j-M4-N28" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RQV-9v-gqF"/>
+                <constraint firstItem="S6N-hx-d6S" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WCn-1f-gjE"/>
+                <constraint firstItem="S6N-hx-d6S" firstAttribute="top" secondItem="r0j-M4-N28" secondAttribute="bottom" constant="16" id="d8j-uS-9Op"/>
                 <constraint firstItem="r0j-M4-N28" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dbX-Yr-JCL"/>
             </constraints>
         </view>

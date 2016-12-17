@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B262848E60C37598B887D91D /* libPods-WeShot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 646A427CFF8464476CAEF240 /* libPods-WeShot.a */; };
+		FDB12C081E05BFF400B0D50F /* BLLikeShot.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12BFF1E05BFF400B0D50F /* BLLikeShot.m */; };
+		FDB12C091E05BFF400B0D50F /* BLShot.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C011E05BFF400B0D50F /* BLShot.m */; };
+		FDB12C0A1E05BFF400B0D50F /* BLShotComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C031E05BFF400B0D50F /* BLShotComment.m */; };
+		FDB12C0B1E05BFF400B0D50F /* BLShotPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C051E05BFF400B0D50F /* BLShotPicture.m */; };
+		FDB12C0C1E05BFF400B0D50F /* BLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C071E05BFF400B0D50F /* BLUser.m */; };
 		FDC6B3BD1E0068A100250AD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3BC1E0068A100250AD5 /* main.m */; };
 		FDC6B3C81E0068A100250AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B3C71E0068A100250AD5 /* Assets.xcassets */; };
 		FDC6B3CB1E0068A100250AD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B3C91E0068A100250AD5 /* LaunchScreen.storyboard */; };
@@ -39,12 +44,7 @@
 		FDD5307B1E020C5F00E0DD8D /* BLHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5307A1E020C5F00E0DD8D /* BLHttpTool.m */; };
 		FDD530851E02122B00E0DD8D /* BLShotsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530841E02122B00E0DD8D /* BLShotsTool.m */; };
 		FDD5308C1E0233B600E0DD8D /* BLShotsParams.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5308B1E0233B600E0DD8D /* BLShotsParams.m */; };
-		FDD5308F1E023B8000E0DD8D /* BLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5308E1E023B8000E0DD8D /* BLUser.m */; };
-		FDD530921E02400600E0DD8D /* BLShot.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530911E02400600E0DD8D /* BLShot.m */; };
-		FDD530951E0247D200E0DD8D /* BLShotPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530941E0247D200E0DD8D /* BLShotPicture.m */; };
 		FDD5309B1E02F3BC00E0DD8D /* NSString+BLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */; };
-		FDD5309E1E035F7700E0DD8D /* BLLikeShot.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5309D1E035F7700E0DD8D /* BLLikeShot.m */; };
-		FDD530A11E037B8600E0DD8D /* BLShotComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530A01E037B8600E0DD8D /* BLShotComment.m */; };
 		FDD530A81E03A4CB00E0DD8D /* BLOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530A71E03A4CB00E0DD8D /* BLOAuthViewController.m */; };
 		FDD530AC1E03A53800E0DD8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530AB1E03A53800E0DD8D /* AppDelegate.m */; };
 		FDD530B01E03A8A000E0DD8D /* BLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530AE1E03A8A000E0DD8D /* BLLoginViewController.m */; };
@@ -57,6 +57,16 @@
 		646A427CFF8464476CAEF240 /* libPods-WeShot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeShot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EE0C64C93ECB5A7CAD8F4A /* Pods-WeShot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeShot.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeShot/Pods-WeShot.release.xcconfig"; sourceTree = "<group>"; };
 		AC20ED00F4699213279E0F66 /* Pods-WeShot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeShot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeShot/Pods-WeShot.debug.xcconfig"; sourceTree = "<group>"; };
+		FDB12BFE1E05BFF400B0D50F /* BLLikeShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLikeShot.h; sourceTree = "<group>"; };
+		FDB12BFF1E05BFF400B0D50F /* BLLikeShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLLikeShot.m; sourceTree = "<group>"; };
+		FDB12C001E05BFF400B0D50F /* BLShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShot.h; sourceTree = "<group>"; };
+		FDB12C011E05BFF400B0D50F /* BLShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShot.m; sourceTree = "<group>"; };
+		FDB12C021E05BFF400B0D50F /* BLShotComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotComment.h; sourceTree = "<group>"; };
+		FDB12C031E05BFF400B0D50F /* BLShotComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotComment.m; sourceTree = "<group>"; };
+		FDB12C041E05BFF400B0D50F /* BLShotPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotPicture.h; sourceTree = "<group>"; };
+		FDB12C051E05BFF400B0D50F /* BLShotPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotPicture.m; sourceTree = "<group>"; };
+		FDB12C061E05BFF400B0D50F /* BLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUser.h; sourceTree = "<group>"; };
+		FDB12C071E05BFF400B0D50F /* BLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUser.m; sourceTree = "<group>"; };
 		FDC6B3B81E0068A100250AD5 /* WeShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC6B3BC1E0068A100250AD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDC6B3C71E0068A100250AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,25 +123,15 @@
 		FDD530891E021D3800E0DD8D /* BLDribbbleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLDribbbleAPI.h; sourceTree = "<group>"; };
 		FDD5308A1E0233B600E0DD8D /* BLShotsParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotsParams.h; sourceTree = "<group>"; };
 		FDD5308B1E0233B600E0DD8D /* BLShotsParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotsParams.m; sourceTree = "<group>"; };
-		FDD5308D1E023B8000E0DD8D /* BLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUser.h; sourceTree = "<group>"; };
-		FDD5308E1E023B8000E0DD8D /* BLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUser.m; sourceTree = "<group>"; };
-		FDD530901E02400600E0DD8D /* BLShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShot.h; sourceTree = "<group>"; };
-		FDD530911E02400600E0DD8D /* BLShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShot.m; sourceTree = "<group>"; };
-		FDD530931E0247D200E0DD8D /* BLShotPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotPicture.h; sourceTree = "<group>"; };
-		FDD530941E0247D200E0DD8D /* BLShotPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotPicture.m; sourceTree = "<group>"; };
 		FDD530991E02F3BC00E0DD8D /* NSString+BLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BLExtension.h"; sourceTree = "<group>"; };
 		FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BLExtension.m"; sourceTree = "<group>"; };
-		FDD5309C1E035F7700E0DD8D /* BLLikeShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLikeShot.h; sourceTree = "<group>"; };
-		FDD5309D1E035F7700E0DD8D /* BLLikeShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLLikeShot.m; sourceTree = "<group>"; };
-		FDD5309F1E037B8600E0DD8D /* BLShotComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotComment.h; sourceTree = "<group>"; };
-		FDD530A01E037B8600E0DD8D /* BLShotComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotComment.m; sourceTree = "<group>"; };
 		FDD530A61E03A4CB00E0DD8D /* BLOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLOAuthViewController.h; sourceTree = "<group>"; };
 		FDD530A71E03A4CB00E0DD8D /* BLOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLOAuthViewController.m; sourceTree = "<group>"; };
 		FDD530AA1E03A53800E0DD8D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FDD530AB1E03A53800E0DD8D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FDD530AD1E03A8A000E0DD8D /* BLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLoginViewController.h; sourceTree = "<group>"; };
 		FDD530AE1E03A8A000E0DD8D /* BLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLLoginViewController.m; sourceTree = "<group>"; };
-		FDD530AF1E03A8A000E0DD8D /* BLLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLLoginViewController.xib; sourceTree = "<group>"; };
+		FDD530AF1E03A8A000E0DD8D /* BLLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLLoginViewController.xib; path = ../Controller/BLLoginViewController.xib; sourceTree = "<group>"; };
 		FDD530B21E03B9B700E0DD8D /* BLOAuthorParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLOAuthorParam.h; sourceTree = "<group>"; };
 		FDD530B31E03B9B700E0DD8D /* BLOAuthorParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLOAuthorParam.m; sourceTree = "<group>"; };
 		FDD530B61E03C28700E0DD8D /* BLAcountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAcountTool.h; sourceTree = "<group>"; };
@@ -165,6 +165,23 @@
 				646A427CFF8464476CAEF240 /* libPods-WeShot.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDB12BFD1E05BFF400B0D50F /* Shot Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDB12BFE1E05BFF400B0D50F /* BLLikeShot.h */,
+				FDB12BFF1E05BFF400B0D50F /* BLLikeShot.m */,
+				FDB12C001E05BFF400B0D50F /* BLShot.h */,
+				FDB12C011E05BFF400B0D50F /* BLShot.m */,
+				FDB12C021E05BFF400B0D50F /* BLShotComment.h */,
+				FDB12C031E05BFF400B0D50F /* BLShotComment.m */,
+				FDB12C041E05BFF400B0D50F /* BLShotPicture.h */,
+				FDB12C051E05BFF400B0D50F /* BLShotPicture.m */,
+				FDB12C061E05BFF400B0D50F /* BLUser.h */,
+				FDB12C071E05BFF400B0D50F /* BLUser.m */,
+			);
+			path = "Shot Model";
 			sourceTree = "<group>";
 		};
 		FDC6B3AF1E0068A100250AD5 = {
@@ -210,6 +227,7 @@
 			children = (
 				FDD530A91E03A51900E0DD8D /* AppDelegate */,
 				FDD530771E020BA100E0DD8D /* Tools (bussiness Logic) */,
+				FDB12BFD1E05BFF400B0D50F /* Shot Model */,
 				FDC6B3DC1E0069B400250AD5 /* Main */,
 				FDC6B3D81E0069B400250AD5 /* Home */,
 				FDC6B3D31E0069B400250AD5 /* Explore */,
@@ -342,8 +360,6 @@
 		FDC6B3E21E0069B400250AD5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FDD5308D1E023B8000E0DD8D /* BLUser.h */,
-				FDD5308E1E023B8000E0DD8D /* BLUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,14 +417,6 @@
 		FDD530651E01E03F00E0DD8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FDD530901E02400600E0DD8D /* BLShot.h */,
-				FDD530911E02400600E0DD8D /* BLShot.m */,
-				FDD530931E0247D200E0DD8D /* BLShotPicture.h */,
-				FDD530941E0247D200E0DD8D /* BLShotPicture.m */,
-				FDD5309C1E035F7700E0DD8D /* BLLikeShot.h */,
-				FDD5309D1E035F7700E0DD8D /* BLLikeShot.m */,
-				FDD5309F1E037B8600E0DD8D /* BLShotComment.h */,
-				FDD530A01E037B8600E0DD8D /* BLShotComment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,7 +484,6 @@
 				FDD530A71E03A4CB00E0DD8D /* BLOAuthViewController.m */,
 				FDD530AD1E03A8A000E0DD8D /* BLLoginViewController.h */,
 				FDD530AE1E03A8A000E0DD8D /* BLLoginViewController.m */,
-				FDD530AF1E03A8A000E0DD8D /* BLLoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -493,6 +500,7 @@
 		FDD530A51E039DC100E0DD8D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FDD530AF1E03A8A000E0DD8D /* BLLoginViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -648,22 +656,24 @@
 			files = (
 				FDC6B4041E00977E00250AD5 /* UIBarButtonItem+BLExtension.m in Sources */,
 				FDD530B81E03C28700E0DD8D /* BLAcountTool.m in Sources */,
+				FDB12C0B1E05BFF400B0D50F /* BLShotPicture.m in Sources */,
 				FDC6B42D1E010D7000250AD5 /* BLCollectionReusableView.m in Sources */,
 				FDC6B4201E00F3BE00250AD5 /* BLProfileHeaderCell.m in Sources */,
 				FDD5309B1E02F3BC00E0DD8D /* NSString+BLExtension.m in Sources */,
-				FDD5309E1E035F7700E0DD8D /* BLLikeShot.m in Sources */,
 				FDD530851E02122B00E0DD8D /* BLShotsTool.m in Sources */,
+				FDB12C081E05BFF400B0D50F /* BLLikeShot.m in Sources */,
 				FDD5308C1E0233B600E0DD8D /* BLShotsParams.m in Sources */,
 				FDC6B40A1E00C31000250AD5 /* BLWaterFlowLayout.m in Sources */,
 				FDC6B41C1E00DC8400250AD5 /* BLProfileViewController.m in Sources */,
 				FDD5306F1E01E3B700E0DD8D /* BLDetailCommentCell.m in Sources */,
-				FDD530A11E037B8600E0DD8D /* BLShotComment.m in Sources */,
 				FDC6B3F71E007B4100250AD5 /* BLExploreViewController.m in Sources */,
 				FDD530B41E03B9B700E0DD8D /* BLOAuthorParam.m in Sources */,
 				FDC6B3BD1E0068A100250AD5 /* main.m in Sources */,
 				FDD530B01E03A8A000E0DD8D /* BLLoginViewController.m in Sources */,
+				FDB12C0C1E05BFF400B0D50F /* BLUser.m in Sources */,
 				FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */,
 				FDD530AC1E03A53800E0DD8D /* AppDelegate.m in Sources */,
+				FDB12C091E05BFF400B0D50F /* BLShot.m in Sources */,
 				FDC6B4321E010F9600250AD5 /* BLProfileShotCell.m in Sources */,
 				FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */,
 				FDC6B4181E00D3F000250AD5 /* BLGridCollectionViewCell.m in Sources */,
@@ -672,13 +682,11 @@
 				FDC6B4071E00A1F000250AD5 /* BLGridViewController.m in Sources */,
 				FDC6B3E81E007A6300250AD5 /* BLNavigationController.m in Sources */,
 				FDC6B3FE1E00835900250AD5 /* UIView+BLExtension.m in Sources */,
-				FDD530921E02400600E0DD8D /* BLShot.m in Sources */,
 				FDD5306A1E01E18100E0DD8D /* BLDetailContentCell.m in Sources */,
 				FDD5307B1E020C5F00E0DD8D /* BLHttpTool.m in Sources */,
 				FDD530A81E03A4CB00E0DD8D /* BLOAuthViewController.m in Sources */,
 				FDC6B40E1E00C80C00250AD5 /* BLFlowCollectionViewCell.m in Sources */,
-				FDD530951E0247D200E0DD8D /* BLShotPicture.m in Sources */,
-				FDD5308F1E023B8000E0DD8D /* BLUser.m in Sources */,
+				FDB12C0A1E05BFF400B0D50F /* BLShotComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
