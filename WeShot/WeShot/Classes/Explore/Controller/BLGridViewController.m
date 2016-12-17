@@ -119,7 +119,7 @@
     CGFloat bottom = self.tabBarController.tabBar.height;
     self.collectionView.contentInset = UIEdgeInsetsMake(64 + 44, 0, bottom, 0);
     self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
-    [self.collectionView registerNib:[UINib nibWithNibName:@"BLGridCollectionViewCell" bundle: [NSBundle mainBundle]] forCellWithReuseIdentifier:@"gridflowCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"BLGridCollectionViewCell" bundle: [NSBundle mainBundle]] forCellWithReuseIdentifier:@"BLGridCollectionViewCell"];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.collectionView];
 }
@@ -138,7 +138,7 @@
 }
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    BLGridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gridflowCell" forIndexPath:indexPath];
+    BLGridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BLGridCollectionViewCell" forIndexPath:indexPath];
     BLShot* shot = self.shots[indexPath.row];
     NSString* shotImageURLString = shot.images.teaser;
     [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLString]

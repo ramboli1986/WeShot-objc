@@ -35,8 +35,6 @@
 		FDC6B4211E00F3BE00250AD5 /* BLProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B41F1E00F3BE00250AD5 /* BLProfileHeaderCell.xib */; };
 		FDC6B42D1E010D7000250AD5 /* BLCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B42B1E010D7000250AD5 /* BLCollectionReusableView.m */; };
 		FDC6B42E1E010D7000250AD5 /* BLCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B42C1E010D7000250AD5 /* BLCollectionReusableView.xib */; };
-		FDC6B4321E010F9600250AD5 /* BLProfileShotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B4301E010F9600250AD5 /* BLProfileShotCell.m */; };
-		FDC6B4331E010F9600250AD5 /* BLProfileShotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B4311E010F9600250AD5 /* BLProfileShotCell.xib */; };
 		FDD5306A1E01E18100E0DD8D /* BLDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD530681E01E18100E0DD8D /* BLDetailContentCell.m */; };
 		FDD5306B1E01E18100E0DD8D /* BLDetailContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD530691E01E18100E0DD8D /* BLDetailContentCell.xib */; };
 		FDD5306F1E01E3B700E0DD8D /* BLDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD5306D1E01E3B700E0DD8D /* BLDetailCommentCell.m */; };
@@ -108,9 +106,6 @@
 		FDC6B42A1E010D7000250AD5 /* BLCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCollectionReusableView.h; sourceTree = "<group>"; };
 		FDC6B42B1E010D7000250AD5 /* BLCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCollectionReusableView.m; sourceTree = "<group>"; };
 		FDC6B42C1E010D7000250AD5 /* BLCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLCollectionReusableView.xib; sourceTree = "<group>"; };
-		FDC6B42F1E010F9600250AD5 /* BLProfileShotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLProfileShotCell.h; sourceTree = "<group>"; };
-		FDC6B4301E010F9600250AD5 /* BLProfileShotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLProfileShotCell.m; sourceTree = "<group>"; };
-		FDC6B4311E010F9600250AD5 /* BLProfileShotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLProfileShotCell.xib; sourceTree = "<group>"; };
 		FDD530671E01E18100E0DD8D /* BLDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailContentCell.h; sourceTree = "<group>"; };
 		FDD530681E01E18100E0DD8D /* BLDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailContentCell.m; sourceTree = "<group>"; };
 		FDD530691E01E18100E0DD8D /* BLDetailContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLDetailContentCell.xib; sourceTree = "<group>"; };
@@ -373,9 +368,6 @@
 				FDC6B41D1E00F3BE00250AD5 /* BLProfileHeaderCell.h */,
 				FDC6B41E1E00F3BE00250AD5 /* BLProfileHeaderCell.m */,
 				FDC6B41F1E00F3BE00250AD5 /* BLProfileHeaderCell.xib */,
-				FDC6B42F1E010F9600250AD5 /* BLProfileShotCell.h */,
-				FDC6B4301E010F9600250AD5 /* BLProfileShotCell.m */,
-				FDC6B4311E010F9600250AD5 /* BLProfileShotCell.xib */,
 				FDC6B42A1E010D7000250AD5 /* BLCollectionReusableView.h */,
 				FDC6B42B1E010D7000250AD5 /* BLCollectionReusableView.m */,
 				FDC6B42C1E010D7000250AD5 /* BLCollectionReusableView.xib */,
@@ -591,7 +583,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDC6B4331E010F9600250AD5 /* BLProfileShotCell.xib in Resources */,
 				FDC6B4191E00D3F000250AD5 /* BLGridCollectionViewCell.xib in Resources */,
 				FDC6B3CB1E0068A100250AD5 /* LaunchScreen.storyboard in Resources */,
 				FDC6B4211E00F3BE00250AD5 /* BLProfileHeaderCell.xib in Resources */,
@@ -680,7 +671,6 @@
 				FDD530AC1E03A53800E0DD8D /* AppDelegate.m in Sources */,
 				FDB12C0F1E05C5BC00B0D50F /* UIImageView+GIF.m in Sources */,
 				FDB12C091E05BFF400B0D50F /* BLShot.m in Sources */,
-				FDC6B4321E010F9600250AD5 /* BLProfileShotCell.m in Sources */,
 				FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */,
 				FDC6B4181E00D3F000250AD5 /* BLGridCollectionViewCell.m in Sources */,
 				FDD530731E01E4D500E0DD8D /* BLShotDetailTableViewController.m in Sources */,

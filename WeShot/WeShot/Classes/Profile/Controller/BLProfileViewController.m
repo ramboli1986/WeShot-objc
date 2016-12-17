@@ -8,7 +8,8 @@
 
 #import "BLProfileViewController.h"
 #import "BLProfileHeaderCell.h"
-#import "BLProfileShotCell.h"
+//#import "BLProfileShotCell.h"
+#import "BLGridCollectionViewCell.h"
 #import "BLCollectionReusableView.h"
 #import "BLShotDetailTableViewController.h"
 #import "BLUser.h"
@@ -184,7 +185,7 @@
     
     [_cv registerNib:[UINib nibWithNibName:@"BLCollectionReusableView" bundle: [NSBundle mainBundle]] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BLCollectionReusableView"];
     
-    [_cv registerNib:[UINib nibWithNibName:@"BLProfileShotCell" bundle: [NSBundle mainBundle]] forCellWithReuseIdentifier:@"BLProfileShotCell"];
+    [_cv registerNib:[UINib nibWithNibName:@"BLGridCollectionViewCell" bundle: [NSBundle mainBundle]] forCellWithReuseIdentifier:@"BLGridCollectionViewCell"];
     [_cv registerNib:[UINib nibWithNibName:@"BLProfileHeaderCell" bundle: [NSBundle mainBundle]] forCellWithReuseIdentifier:@"BLProfileHeaderCell"];
     
     [self.view addSubview:_cv];
@@ -204,15 +205,17 @@
         return cell;
     }
     else {
-        BLProfileShotCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BLProfileShotCell" forIndexPath:indexPath];
+        BLGridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BLGridCollectionViewCell" forIndexPath:indexPath];
         
         NSString* imageURLStr;
         if (self.isLike) {
             BLLikeShot* likeShot = self.likeShots[indexPath.row];
             imageURLStr = likeShot.shot.images.teaser;
+            cell.gifLabel.hidden = likeShot.shot.animated?NO:YES;
         } else {
             BLShot *shot = self.shots[indexPath.row];
             imageURLStr = shot.images.teaser;
+            cell.gifLabel.hidden = shot.animated?NO:YES;
         }
         
         [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:imageURLStr] placeholderImage:nil];
