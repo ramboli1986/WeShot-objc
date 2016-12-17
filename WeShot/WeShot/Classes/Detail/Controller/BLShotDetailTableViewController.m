@@ -21,6 +21,8 @@
 
 #import <DALabeledCircularProgressView.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <YLGIFImage.h>
+#import <YLImageView.h>
 
 @interface BLShotDetailTableViewController ()
 
@@ -90,20 +92,38 @@ static NSString* commentCellID = @"BLDetailCommentCell";
         NSString* locationTitle = self.shot.user.location ? self.shot.user.location : @"unknow";
         [cell.location setTitle:locationTitle forState:UIControlStateNormal];
         
-        
+        if (self.shot.animated) {
+            cell.shotImage.hidden = YES;
+            cell.GifImageView.hidden = NO;
+            cell.progressView.hidden = NO;
+            [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:shotImageURLStr] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                NSLog(@"receive size %zd",receivedSize);
+                [cell.progressView setProgress:1.0*receivedSize/expectedSize animated:YES];
+            } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                cell.progressView.hidden = YES;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.GifImageView.image = [YLGIFImage imageWithData:data];
+                });
+            }];
+            
+        } else {
+            cell.shotImage.hidden = NO;
+            cell.GifImageView.hidden = YES;
+            [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLStr] placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                cell.progressView.hidden = NO;
+                [cell.progressView setProgress:1.0*receivedSize/expectedSize animated:YES];
+            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                cell.progressView.hidden = YES;
+                
+            }];
+        }
         
         [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
                             placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
         cell.shotTitle.text = self.shot.title;
         cell.shotdetail.text = self.shot.detailContent;
         
-        [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLStr] placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            cell.progressView.hidden = NO;
-            [cell.progressView setProgress:1.0*receivedSize/expectedSize animated:YES];
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            cell.progressView.hidden = YES;
-            
-        }];
+        
         
         
         cell.shotInfo.text = [NSString stringWithFormat:@"%zd comments    %zd views    %zd likes",self.shot.comments_count, self.shot.views_count, self.shot.likes_count];

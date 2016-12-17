@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class DACircularProgressView;
-
+@class YLImageView;
 @interface BLDetailContentCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
 @property (weak, nonatomic) IBOutlet UIButton *headBtn;
+@property (weak, nonatomic) IBOutlet YLImageView *GifImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UIButton *location;

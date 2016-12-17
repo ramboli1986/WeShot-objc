@@ -92,6 +92,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lTI-gH-yb7" customClass="YLImageView">
+                        <rect key="frame" x="0.0" y="61" width="373" height="279"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y0K-1C-dvY" customClass="YLImageView">
                         <rect key="frame" x="0.0" y="61" width="373" height="279"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -117,10 +121,13 @@
                     <constraint firstItem="J0P-Jl-wYh" firstAttribute="leading" secondItem="Kz2-UV-wrI" secondAttribute="trailing" constant="5" id="BnR-Co-S3y"/>
                     <constraint firstItem="y0K-1C-dvY" firstAttribute="top" secondItem="J0P-Jl-wYh" secondAttribute="bottom" constant="8" id="Bz1-ij-fbP"/>
                     <constraint firstItem="ug9-qH-kHB" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="FsW-cQ-ohs"/>
+                    <constraint firstItem="lTI-gH-yb7" firstAttribute="leading" secondItem="y0K-1C-dvY" secondAttribute="leading" id="GeK-bd-cUD"/>
                     <constraint firstItem="zjn-Mv-TOK" firstAttribute="centerY" secondItem="Kz2-UV-wrI" secondAttribute="centerY" id="JA4-P0-5NT"/>
                     <constraint firstItem="p3e-Uw-6tS" firstAttribute="leading" secondItem="Kz2-UV-wrI" secondAttribute="leading" id="L3c-fL-bP5"/>
                     <constraint firstItem="J0P-Jl-wYh" firstAttribute="leading" secondItem="Kz2-UV-wrI" secondAttribute="trailing" constant="5" id="Lj1-Xb-jdk"/>
                     <constraint firstItem="H3h-r1-0Hv" firstAttribute="centerY" secondItem="y0K-1C-dvY" secondAttribute="centerY" id="OP1-Fq-Zy4"/>
+                    <constraint firstItem="lTI-gH-yb7" firstAttribute="top" secondItem="y0K-1C-dvY" secondAttribute="top" id="URh-JD-Zl4"/>
+                    <constraint firstItem="lTI-gH-yb7" firstAttribute="bottom" secondItem="y0K-1C-dvY" secondAttribute="bottom" id="Y8B-Kc-aGR"/>
                     <constraint firstItem="zjn-Mv-TOK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J0P-Jl-wYh" secondAttribute="trailing" constant="16" id="YTR-U2-ltC"/>
                     <constraint firstItem="J0P-Jl-wYh" firstAttribute="top" secondItem="sSn-RJ-mFG" secondAttribute="bottom" constant="2" id="gIB-xg-58W"/>
                     <constraint firstItem="ug9-qH-kHB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="gbi-jo-rUr"/>
@@ -133,6 +140,7 @@
                     <constraint firstAttribute="trailing" secondItem="XSA-7s-TrH" secondAttribute="trailing" id="rQ7-2h-yUc"/>
                     <constraint firstAttribute="trailing" secondItem="y0K-1C-dvY" secondAttribute="trailing" id="sYY-eB-vkP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zjn-Mv-TOK" secondAttribute="trailing" id="v8e-9s-2dR"/>
+                    <constraint firstItem="lTI-gH-yb7" firstAttribute="trailing" secondItem="y0K-1C-dvY" secondAttribute="trailing" id="xkB-j1-UZn"/>
                     <constraint firstItem="y0K-1C-dvY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="y13-jw-8Qg"/>
                     <constraint firstItem="sSn-RJ-mFG" firstAttribute="top" secondItem="Kz2-UV-wrI" secondAttribute="top" id="yQW-xc-p6A"/>
                     <constraint firstItem="XSA-7s-TrH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yhJ-1R-Fhp"/>
@@ -140,6 +148,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="GifImageView" destination="lTI-gH-yb7" id="QwD-1J-75o"/>
                 <outlet property="create_time_label" destination="zjn-Mv-TOK" id="JaK-bz-kfI"/>
                 <outlet property="headBtn" destination="p3e-Uw-6tS" id="x2W-eh-GS6"/>
                 <outlet property="headImgView" destination="Kz2-UV-wrI" id="5RC-jC-UZh"/>
