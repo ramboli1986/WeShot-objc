@@ -27,6 +27,6 @@ Third Party Libary used:
 - [x] Add Waterfall layout for the home View Controller
 - [ ] Parse html to text
 - [x] Support OAuthor OAuth2 and add Login page
-- [ ] Optimize Gif display
-- [ ] Optimize memory
+- [x] Optimize Gif display
+- [x] Optimize memory
 - [ ] Rewrite Swift Version
