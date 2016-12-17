@@ -26,7 +26,8 @@ Third Party Libary used:
 ####Todo List
 - [x] Add Waterfall layout for the home View Controller
 - [ ] Parse html to text
+- [ ] Implement 'LIKE' and 'FOLLOW' function 
 - [x] Support OAuthor OAuth2 and add Login page
-- [x] Optimize Gif display
-- [x] Optimize memory
-- [ ] Rewrite Swift Version
+- [x] Optimize Gif display and Optimize performance
+- [ ] unexcepted error handle (off networking, crash)
+- [ ] Rewrite Swift3.0 Version
