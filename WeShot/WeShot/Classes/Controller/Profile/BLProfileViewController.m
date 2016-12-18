@@ -35,11 +35,12 @@
 @property (nonatomic, strong) NSMutableArray* shots;
 @property (nonatomic, strong) NSMutableArray* likeShots;
 
-@property (nonatomic, weak) UIButton* likeBtn;
 @property (nonatomic, weak) UIButton* followBtn;
 
 @property (nonatomic, assign) BOOL isLike;
 @property (nonatomic, assign) BOOL isSelf;
+@property (nonatomic, assign) BOOL hasMoreLike;
+@property (nonatomic, assign) BOOL hasMoreShot;
 
 @end
 
@@ -67,13 +68,34 @@
 - (void)viewDidLoad {
     gap = 4.0;
     per_page = 27;
-    [super viewDidLoad];
     
-    [self setupCollectionView];
+    
+    [super viewDidLoad];
     [self setupNav];
+    [self setupCollectionView];
     [self setupRefresh];
 }
 
+
+- (void)setupNav{
+    if (!self.user) {
+        self.navigationItem.title = @"Profile";
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"Logout" target:self action:@selector(logout)];
+        self.isSelf = YES;
+        [self loadSelfUserObj];
+    } else {
+        self.navigationItem.title = @"Player";
+    }
+}
+
+- (void)loadSelfUserObj{
+    [BLShotsTool userWithSuccess:^(BLUser *user) {
+        self.user = user;
+        [self.cv reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"1.%@",error.localizedDescription);
+    }];
+}
 - (void)setupRefresh {
     // The drop-down refresh
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewShots)];
@@ -86,61 +108,41 @@
     self.cv.mj_header = header;
 }
 
-- (void)setupNav{
-    if (!self.user) {
-        self.navigationItem.title = @"Profile";
-        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"Logout" target:self action:@selector(logout)];
-        self.isSelf = YES;
-        [self loadUser];
-    } else {
-        self.navigationItem.title = @"Player";
-    }
-}
-
-- (void)loadUser{
-    BLShotsParams* params = [[BLShotsParams alloc]init];
-    params.access_token = [BLAcountTool access_Token];
-    [BLShotsTool userWithParams:params success:^(BLUser *user) {
-        self.user = user;
-        [self loadNewShots];
-        [self titleClick:self.likeBtn];
-        [self.cv reloadData];
-        
-    } failure:^(NSError *error) {
-        NSLog(@"%@",error.localizedDescription);
-    }];
-}
 
 - (void)loadNewShots {
+    if ([self.cv.mj_header isRefreshing]) {
+        //return;
+    }
+    self.hasMoreLike = YES;
+    self.hasMoreShot = YES;
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
     NSString* pageStr = @"page=1&per_page=21";
+    
+    
     //shot data
     [BLShotsTool shotWithURLStr:self.user.shots_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
         shotpage = 1;
         likepage = 1;
         [self.shots removeAllObjects];
         [self.shots addObjectsFromArray:shotsArray];
-        [self.cv reloadData];
-        [self.cv.mj_header endRefreshing];
+        //like shot data
+        [BLShotsTool likeshotWithURLStr:self.user.likes_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+            [self.likeShots removeAllObjects];
+            [self.likeShots addObjectsFromArray:shotsArray];
+            [self.cv reloadData];
+            [self.cv.mj_header endRefreshing];
+            
+        } failure:^(NSError *error) {
+            NSLog(@"2.error:%@",error.localizedDescription);
+            [self.cv.mj_header endRefreshing];
+        }];
     } failure:^(NSError *error) {
-        NSLog(@"error:%@",error.localizedDescription);
+        NSLog(@"3.error:%@",error.localizedDescription);
         [self.cv.mj_header endRefreshing];
     }];
-    //like shot data
-    [BLShotsTool likeshotWithURLStr:self.user.likes_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
-        [self.likeShots removeAllObjects];
-        //[self.likeShots addObjectsFromArray:shotsArray];
-        for (int i = 0; i < shotsArray.count; i++) {
-            BLLikeShot* likeshot = shotsArray[i];
-            [self.likeShots addObject:likeshot];
-        }
-        //[self.cv reloadData];
-        [self.cv.mj_header endRefreshing];
-    } failure:^(NSError *error) {
-        NSLog(@"error:%@",error.localizedDescription);
-        [self.cv.mj_header endRefreshing];
-    }];
+    
+    
 }
 
 - (void)loadMoreShots {
@@ -149,13 +151,15 @@
     NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",shotpage+1, per_page];
     //shot data
     [BLShotsTool shotWithURLStr:self.user.shots_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+        if (shotsArray.count == 0) {
+            _hasMoreLike = NO;
+            return;
+        }
         shotpage++;
         [self.shots addObjectsFromArray:shotsArray];
         [self.cv reloadData];
-        [self.cv.mj_footer endRefreshing];
     } failure:^(NSError *error) {
-        NSLog(@"error:%@",error.localizedDescription);
-        [self.cv.mj_footer endRefreshing];
+        NSLog(@"4.error:%@",error.localizedDescription);
     }];
 }
 
@@ -165,16 +169,18 @@
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
     NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",likepage+1, per_page];
     [BLShotsTool likeshotWithURLStr:self.user.likes_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+        if (shotsArray.count == 0) {
+            _hasMoreLike = NO;
+            return;
+        }
         likepage++;
         for (int i = 0; i < shotsArray.count; i++) {
             BLLikeShot* likeshot = shotsArray[i];
             [self.likeShots addObject:likeshot];
         }
         [self.cv reloadData];
-        [self.cv.mj_footer endRefreshing];
     } failure:^(NSError *error) {
-        NSLog(@"error:%@",error.localizedDescription);
-        [self.cv.mj_footer endRefreshing];
+        NSLog(@"5.error:%@",error.localizedDescription);
     }];
 }
 
@@ -227,11 +233,15 @@
         
         if (self.isLike) {
             if (indexPath.row == self.likeShots.count-1) {
-                [self loadMoreLikeShots];
+                if (_hasMoreLike) {
+                    [self loadMoreLikeShots];
+                }
             }
         } else {
             if (indexPath.row == self.shots.count-1) {
-                [self loadMoreShots];
+                if (_hasMoreShot) {
+                    [self loadMoreShots];
+                }
             }
         }
         return cell;
@@ -284,9 +294,6 @@
     }
     for (int i = 0; i < 2; i++) {
         UIButton *button = [[UIButton alloc]init];
-        if (i == 1) {
-            self.likeBtn = button;
-        }
         button.tag = i;
         button.height = height;
         button.width = width;

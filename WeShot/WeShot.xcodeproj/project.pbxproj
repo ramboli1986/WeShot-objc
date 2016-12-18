@@ -214,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD530A91E03A51900E0DD8D /* AppDelegate */,
-				FDD530771E020BA100E0DD8D /* Tools (bussiness Logic) */,
+				FDD530771E020BA100E0DD8D /* Tools */,
 				FDF5679B1E0697370086D187 /* MainWindow */,
 				FDF5678A1E0697370086D187 /* Controller */,
 				FDF567A01E0697370086D187 /* Model */,
@@ -249,14 +249,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		FDD530771E020BA100E0DD8D /* Tools (bussiness Logic) */ = {
+		FDD530771E020BA100E0DD8D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
 				FDD530781E020C2A00E0DD8D /* HttpTool */,
-				FDD530B51E03C27A00E0DD8D /* Account */,
-				FDD5307C1E020F3900E0DD8D /* Shots */,
+				FDD530B51E03C27A00E0DD8D /* AccountTool */,
+				FDD5307C1E020F3900E0DD8D /* ShotsTool */,
 			);
-			name = "Tools (bussiness Logic)";
 			path = Tools;
 			sourceTree = "<group>";
 		};
@@ -270,7 +269,7 @@
 			path = HTTP;
 			sourceTree = "<group>";
 		};
-		FDD5307C1E020F3900E0DD8D /* Shots */ = {
+		FDD5307C1E020F3900E0DD8D /* ShotsTool */ = {
 			isa = PBXGroup;
 			children = (
 				FDD5308A1E0233B600E0DD8D /* BLShotsParams.h */,
@@ -278,6 +277,7 @@
 				FDD530831E02122B00E0DD8D /* BLShotsTool.h */,
 				FDD530841E02122B00E0DD8D /* BLShotsTool.m */,
 			);
+			name = ShotsTool;
 			path = Shots;
 			sourceTree = "<group>";
 		};
@@ -290,12 +290,13 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		FDD530B51E03C27A00E0DD8D /* Account */ = {
+		FDD530B51E03C27A00E0DD8D /* AccountTool */ = {
 			isa = PBXGroup;
 			children = (
 				FDD530B61E03C28700E0DD8D /* BLAcountTool.h */,
 				FDD530B71E03C28700E0DD8D /* BLAcountTool.m */,
 			);
+			name = AccountTool;
 			path = Account;
 			sourceTree = "<group>";
 		};
@@ -394,10 +395,10 @@
 		FDF567B21E0697370086D187 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FDF567CA1E0697370086D187 /* Login */,
 				FDF567B31E0697370086D187 /* Detail */,
 				FDF567C01E0697370086D187 /* Explore */,
 				FDF567C41E0697370086D187 /* Home */,
-				FDF567CA1E0697370086D187 /* Login */,
 				FDF567CC1E0697370086D187 /* Profile */,
 			);
 			path = View;

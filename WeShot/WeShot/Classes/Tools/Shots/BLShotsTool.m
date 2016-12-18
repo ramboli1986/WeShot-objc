@@ -20,9 +20,11 @@
 
 @implementation BLShotsTool
 
-+ (void)userWithParams:(BLShotsParams*)params success:(void(^)(BLUser*))success failure:(void(^)(NSError* error))failure {
-    [BLHttpTool Get:DRIBBBLE_USER parameters:params success:^(id responseObject) {
-        success([BLUser mj_objectWithKeyValues:responseObject]);
++ (void)userWithSuccess:(void(^)(BLUser*))success failure:(void(^)(NSError* error))failure {
+    NSString* urlStr = [NSString stringWithFormat:@"%@?access_token=%@",DRIBBBLE_USER,[[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY]];
+    [BLHttpTool Get:urlStr parameters:nil success:^(id responseObject) {
+        BLUser* user = [BLUser mj_objectWithKeyValues:responseObject];
+        success(user);
     } failure:^(NSError *error) {
         failure(error);
     }];
@@ -130,8 +132,6 @@
 + (void)isfollowUserWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
-    
-    NSLog(@"%@",[NSString stringWithFormat:@"%@user/following/%@?access_token=%@",OAuth2_BASE_URL,[NSString stringWithFormat:@"%zd",uid], params.access_token]);
     [BLHttpTool Get:[NSString stringWithFormat:@"%@user/following/%@",OAuth2_BASE_URL,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
