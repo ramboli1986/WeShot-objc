@@ -44,6 +44,8 @@
 
 @end
 
+//fix
+
 @implementation BLProfileViewController {
     CGFloat gap;
     NSInteger shotpage;
