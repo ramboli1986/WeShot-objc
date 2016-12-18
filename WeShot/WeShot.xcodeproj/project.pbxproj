@@ -13,7 +13,6 @@
 		FDB12C0A1E05BFF400B0D50F /* BLShotComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C031E05BFF400B0D50F /* BLShotComment.m */; };
 		FDB12C0B1E05BFF400B0D50F /* BLShotPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C051E05BFF400B0D50F /* BLShotPicture.m */; };
 		FDB12C0C1E05BFF400B0D50F /* BLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C071E05BFF400B0D50F /* BLUser.m */; };
-		FDB12C0F1E05C5BC00B0D50F /* UIImageView+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C0E1E05C5BC00B0D50F /* UIImageView+GIF.m */; };
 		FDC6B3BD1E0068A100250AD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3BC1E0068A100250AD5 /* main.m */; };
 		FDC6B3C81E0068A100250AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B3C71E0068A100250AD5 /* Assets.xcassets */; };
 		FDC6B3CB1E0068A100250AD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B3C91E0068A100250AD5 /* LaunchScreen.storyboard */; };
@@ -66,8 +65,6 @@
 		FDB12C051E05BFF400B0D50F /* BLShotPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotPicture.m; sourceTree = "<group>"; };
 		FDB12C061E05BFF400B0D50F /* BLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUser.h; sourceTree = "<group>"; };
 		FDB12C071E05BFF400B0D50F /* BLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUser.m; sourceTree = "<group>"; };
-		FDB12C0D1E05C5BC00B0D50F /* UIImageView+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GIF.h"; sourceTree = "<group>"; };
-		FDB12C0E1E05C5BC00B0D50F /* UIImageView+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GIF.m"; sourceTree = "<group>"; };
 		FDC6B3B81E0068A100250AD5 /* WeShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC6B3BC1E0068A100250AD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDC6B3C71E0068A100250AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -384,8 +381,6 @@
 				FDC6B4031E00977E00250AD5 /* UIBarButtonItem+BLExtension.m */,
 				FDD530991E02F3BC00E0DD8D /* NSString+BLExtension.h */,
 				FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */,
-				FDB12C0D1E05C5BC00B0D50F /* UIImageView+GIF.h */,
-				FDB12C0E1E05C5BC00B0D50F /* UIImageView+GIF.m */,
 			);
 			name = Category;
 			path = Extension;
@@ -669,7 +664,6 @@
 				FDB12C0C1E05BFF400B0D50F /* BLUser.m in Sources */,
 				FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */,
 				FDD530AC1E03A53800E0DD8D /* AppDelegate.m in Sources */,
-				FDB12C0F1E05C5BC00B0D50F /* UIImageView+GIF.m in Sources */,
 				FDB12C091E05BFF400B0D50F /* BLShot.m in Sources */,
 				FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */,
 				FDC6B4181E00D3F000250AD5 /* BLGridCollectionViewCell.m in Sources */,

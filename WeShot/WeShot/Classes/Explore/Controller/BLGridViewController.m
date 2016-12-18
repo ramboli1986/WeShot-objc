@@ -144,7 +144,7 @@
     [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLString]
                  placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     cell.gifLabel.hidden = shot.animated?NO:YES;
-    if (indexPath.row == self.shots.count-1) {
+    if (indexPath.row == self.shots.count-1-3) {
         [self loadMoreShot];
     }
     return cell;
