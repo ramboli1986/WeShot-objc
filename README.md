@@ -1,6 +1,6 @@
-###Dribbble app built with React Native
+###Dribbble app built with Objective-C
 
-A [Dribbble](http://dribbble.com) app build with Objective-C.
+A [Dribbble](http://dribbble.com) app base on MVC
 
 ![dribbble_app_screenshot](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/WeShotGIF.gif)
 
