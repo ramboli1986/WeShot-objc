@@ -12,5 +12,6 @@
 
 + (void)Get:(NSString*)URLString parameters:(id)parameters success:(void(^)(id responseObject))sucess failure:(void(^)(NSError* error))failure;
 + (void)Post:(NSString*)URLString parameters:(id)parameters success:(void(^)(id responseObject))sucess failure:(void(^)(NSError* error))failure;
++ (void)Delete:(NSString*)URLString parameters:(id)parameters success:(void(^)(id responseObject))sucess failure:(void(^)(NSError* error))failure;
 
 @end

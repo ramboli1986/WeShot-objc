@@ -38,4 +38,18 @@
     }];
 }
 
++ (void)Delete:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))sucess failure:(void (^)(NSError *))failure {
+    AFHTTPSessionManager* mgr = [AFHTTPSessionManager manager];
+    
+    [mgr DELETE:URLString parameters:[parameters mj_keyValues] success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (sucess) {
+            sucess(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 @end

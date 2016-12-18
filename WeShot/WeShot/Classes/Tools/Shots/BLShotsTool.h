@@ -23,4 +23,11 @@
 + (void)userWithParams:(BLShotsParams*)params success:(void(^)(BLUser* user))success failure:(void(^)(NSError* error))failure;
 
 + (void)followShotWithParams:(BLShotsParams*)params pageStr:(NSString*)pageStr Success:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
+
++ (void)likeShotWithUserID:(NSInteger)uid success:(void(^)(id responseObject))success failure:(void(^)(NSError* error))failure;
+
++ (void)unlikeShotWithUserID:(NSInteger)uid success:(void(^)(id responseObject))success failure:(void(^)(NSError* error))failure;
+
++ (void)islikeShotWithUserID:(NSInteger)uid success:(void(^)(id responseObject))success failure:(void(^)(NSError* error))failure;
+
 @end

@@ -55,16 +55,16 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"view will Appear");
+    //NSLog(@"view will Appear");
 }
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    NSLog(@"view will layout");
+    //NSLog(@"view will layout");
 }
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    NSLog(@"lauout subview");
+    //NSLog(@"lauout subview");
     if (!isDrag) {
         self.scrollView.contentOffset = CGPointMake(0, -self.headerView.height - 80);
     }
@@ -75,11 +75,10 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     if (_scrollView == nil) {
         _scrollView = scrollView;
     }
-    NSLog(@"offset %f, %f", scrollView.contentOffset.y, self.headerView.height + 80);
+    //NSLog(@"offset %f, %f", scrollView.contentOffset.y, self.headerView.height + 80);
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    NSLog(@"begin drag");
     isDrag = YES;
 }
 
@@ -96,10 +95,21 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     
     headerView.frame = CGRectMake(0, -headerHeight-36, ScreenSize.width, headerHeight);
     [self.tableView addSubview:headerView];
+    
+    [self.headerView.likeBtn addTarget:self action:@selector(likeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [BLShotsTool islikeShotWithUserID:self.shot.sid success:^(id responseObject) {
+            [self.headerView.likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+        self.headerView.likeBtn.tag = 1;
+    } failure:^(NSError *error) {
+        [self.headerView.likeBtn setImage:[UIImage imageNamed:@"redunlike"] forState:UIControlStateNormal];
+        self.headerView.likeBtn.tag = 0;
+    }];
     //[self.tableView insertSubview:_headerView atIndex:0];
     self.tableView.contentInset = UIEdgeInsetsMake(headerHeight+36, 0, 0, 0);
     self.tableView.contentOffset = CGPointMake(0, 100);
 }
+
+
 
 - (CGFloat)headerHeight{
     UIFont *titleFont = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
@@ -226,6 +236,30 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)likeBtn:(UIButton*)sender{
+    if (sender.tag) {
+        sender.tag = 0;
+        [self.headerView.likeBtn setImage:[UIImage imageNamed:@"redunlike"] forState:UIControlStateNormal];
+        [BLShotsTool unlikeShotWithUserID:self.shot.sid success:^(id responseObject) {
+            
+        } failure:^(NSError *error) {
+            sender.tag = 1;
+            [self.headerView.likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+            NSLog(@"unlike btn fail:%@",error.localizedDescription);
+        }];
+    } else {
+        sender.tag = 1;
+        [self.headerView.likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+        [BLShotsTool likeShotWithUserID:self.shot.sid success:^(id responseObject) {
+            
+        } failure:^(NSError *error) {
+            sender.tag = 0;
+            [self.headerView.likeBtn setImage:[UIImage imageNamed:@"redunlike"] forState:UIControlStateNormal];
+            NSLog(@"like btn fail:%@",error.localizedDescription);
+        }];
+    }
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     [[SDImageCache sharedImageCache] clearMemory];

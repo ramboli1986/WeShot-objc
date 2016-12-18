@@ -77,6 +77,35 @@
     }];
 }
 
++ (void)likeShotWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
+    [BLHttpTool Post:[NSString stringWithFormat:@"%@/%@/like",DRIBBBLE_SHOT,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)unlikeShotWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
+    [BLHttpTool Delete:[NSString stringWithFormat:@"%@/%@/like",DRIBBBLE_SHOT,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)islikeShotWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
+    [BLHttpTool Get:[NSString stringWithFormat:@"%@/%@/like",DRIBBBLE_SHOT,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 
 
 @end
