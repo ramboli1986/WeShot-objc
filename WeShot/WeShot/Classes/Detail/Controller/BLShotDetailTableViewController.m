@@ -28,10 +28,13 @@
 
 @property (weak,nonatomic) BLDetailHeaderView *headerView;
 @property (nonatomic, strong) NSMutableArray* comments;
+@property (nonatomic, weak) UIScrollView* scrollView;
 
 @end
 
-@implementation BLShotDetailTableViewController
+@implementation BLShotDetailTableViewController{
+    BOOL isDrag;
+}
 
 static NSString* headerViewID = @"BLDetailHeaderView";
 static NSString* commentCellID = @"BLDetailCommentCell";
@@ -48,7 +51,36 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     [super viewDidLoad];
     [self setupTableView];
     [self loadAllComments];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"view will Appear");
+}
+
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    NSLog(@"view will layout");
+}
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    NSLog(@"lauout subview");
+    if (!isDrag) {
+        self.scrollView.contentOffset = CGPointMake(0, -self.headerView.height - 80);
+    }
+}
+
+#pragma mark Delegate Method
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (_scrollView == nil) {
+        _scrollView = scrollView;
+    }
+    NSLog(@"offset %f, %f", scrollView.contentOffset.y, self.headerView.height + 80);
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    NSLog(@"begin drag");
+    isDrag = YES;
 }
 
 - (void) setupTableView {
@@ -138,9 +170,7 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     }];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"offset %f, %f", scrollView.contentOffset.y, self.headerView.height + 80);
-}
+
 
 
 
