@@ -30,8 +30,9 @@
     }];
 }
 
-+ (void)likeshotWithURLStr:(NSString *)urlStr Params:(BLShotsParams *)params pageStr:(NSString *)pageStr Success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
-    
++ (void)likeshotWithURLStr:(NSString *)urlStr pageStr:(NSString *)pageStr Success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
     [BLHttpTool Get:[NSString stringWithFormat:@"%@?%@",urlStr,pageStr] parameters:params success:^(id responseObject) {
         NSArray* shotsArray = [BLLikeShot mj_objectArrayWithKeyValuesArray:responseObject];
         success(shotsArray);
@@ -70,7 +71,9 @@
 
 
 
-+ (void)shotWithURLStr:(NSString*)urlStr Params:(BLShotsParams*)params pageStr:(NSString*)pageStr Success:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure{
++ (void)shotWithURLStr:(NSString*)urlStr pageStr:(NSString*)pageStr Success:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
     [BLHttpTool Get:[NSString stringWithFormat:@"%@?%@",urlStr,pageStr] parameters:params success:^(id responseObject) {
         NSArray* shotsArray = [BLShot mj_objectArrayWithKeyValuesArray:responseObject];
         success(shotsArray);

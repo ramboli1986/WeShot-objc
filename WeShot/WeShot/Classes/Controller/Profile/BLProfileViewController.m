@@ -42,6 +42,9 @@
 @property (nonatomic, assign) BOOL hasMoreLike;
 @property (nonatomic, assign) BOOL hasMoreShot;
 
+@property (nonatomic, weak) UIButton* likeBtn;
+@property (nonatomic, weak) UIButton* shotBtn;
+
 @end
 
 //fix
@@ -117,19 +120,19 @@
     }
     self.hasMoreLike = YES;
     self.hasMoreShot = YES;
-    BLShotsParams* params = [[BLShotsParams alloc]init];
-    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
-    NSString* pageStr = @"page=1&per_page=21";
     
+    NSString* pageStr = @"page=1&per_page=27";
+    [self.shotBtn setTitle:[NSString stringWithFormat:@"Shots • %zd", self.user.shots_count] forState:UIControlStateNormal];
+    [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
     
     //shot data
-    [BLShotsTool shotWithURLStr:self.user.shots_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+    [BLShotsTool shotWithURLStr:self.user.shots_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         shotpage = 1;
         likepage = 1;
         [self.shots removeAllObjects];
         [self.shots addObjectsFromArray:shotsArray];
         //like shot data
-        [BLShotsTool likeshotWithURLStr:self.user.likes_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+        [BLShotsTool likeshotWithURLStr:self.user.likes_url pageStr:pageStr Success:^(NSArray *shotsArray) {
             [self.likeShots removeAllObjects];
             [self.likeShots addObjectsFromArray:shotsArray];
             [self.cv reloadData];
@@ -148,13 +151,12 @@
 }
 
 - (void)loadMoreShots {
-    BLShotsParams* params = [[BLShotsParams alloc]init];
-    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
+
     NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",shotpage+1, per_page];
     //shot data
-    [BLShotsTool shotWithURLStr:self.user.shots_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+    [BLShotsTool shotWithURLStr:self.user.shots_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         if (shotsArray.count == 0) {
-            _hasMoreLike = NO;
+            _hasMoreShot = NO;
             return;
         }
         shotpage++;
@@ -167,10 +169,8 @@
 
 - (void)loadMoreLikeShots{
     //like shot data
-    BLShotsParams* params = [[BLShotsParams alloc]init];
-    params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
     NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",likepage+1, per_page];
-    [BLShotsTool likeshotWithURLStr:self.user.likes_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
+    [BLShotsTool likeshotWithURLStr:self.user.likes_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         if (shotsArray.count == 0) {
             _hasMoreLike = NO;
             return;
@@ -300,6 +300,14 @@
         button.height = height;
         button.width = width;
         button.x = width*i;
+        NSString* btnTitle;
+        if (i == 0) {
+            self.shotBtn = button;
+            btnTitle = [NSString stringWithFormat:@"Shots • %zd", self.user.shots_count];
+        } else {
+            self.likeBtn = button;
+            btnTitle =[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count];
+        }
         [button setTitle:titles[i] forState:UIControlStateNormal];
         //UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0f];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -419,6 +427,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [[SDImageCache sharedImageCache] clearMemory];
+    [[SDImageCache sharedImageCache] clearDisk];
 }
 
 @end
