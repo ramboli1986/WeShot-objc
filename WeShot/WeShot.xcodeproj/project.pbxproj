@@ -233,7 +233,7 @@
 				FDD530A91E03A51900E0DD8D /* AppDelegate */,
 				FDD530771E020BA100E0DD8D /* Tools (bussiness Logic) */,
 				FDB12BFD1E05BFF400B0D50F /* Shot Model */,
-				FDC6B3DC1E0069B400250AD5 /* Main */,
+				FDC6B3DC1E0069B400250AD5 /* Main Window */,
 				FDC6B3D81E0069B400250AD5 /* Home */,
 				FDC6B3D31E0069B400250AD5 /* Explore */,
 				FDC6B3E01E0069B400250AD5 /* Profile */,
@@ -248,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				FDC6B3D41E0069B400250AD5 /* Controller */,
-				FDC6B3D51E0069B400250AD5 /* Model */,
 				FDC6B3D61E0069B400250AD5 /* View */,
 			);
 			path = Explore;
@@ -265,13 +264,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		FDC6B3D51E0069B400250AD5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		FDC6B3D61E0069B400250AD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				FDC6B3D91E0069B400250AD5 /* Controller */,
-				FDC6B3DA1E0069B400250AD5 /* Model */,
 				FDC6B3DB1E0069B400250AD5 /* View */,
 			);
 			path = Home;
@@ -303,13 +294,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		FDC6B3DA1E0069B400250AD5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		FDC6B3DB1E0069B400250AD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,7 +306,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		FDC6B3DC1E0069B400250AD5 /* Main */ = {
+		FDC6B3DC1E0069B400250AD5 /* Main Window */ = {
 			isa = PBXGroup;
 			children = (
 				FDC6B3E61E007A6300250AD5 /* BLNavigationController.h */,
@@ -330,6 +314,7 @@
 				FDC6B3E91E007A7A00250AD5 /* BLMainTabBarController.h */,
 				FDC6B3EA1E007A7A00250AD5 /* BLMainTabBarController.m */,
 			);
+			name = "Main Window";
 			path = Main;
 			sourceTree = "<group>";
 		};
@@ -347,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				FDC6B3E11E0069B400250AD5 /* Controller */,
-				FDC6B3E21E0069B400250AD5 /* Model */,
 				FDC6B3E31E0069B400250AD5 /* View */,
 			);
 			path = Profile;
@@ -360,13 +344,6 @@
 				FDC6B41B1E00DC8400250AD5 /* BLProfileViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		FDC6B3E21E0069B400250AD5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		FDC6B3E31E0069B400250AD5 /* View */ = {
@@ -400,7 +377,6 @@
 			isa = PBXGroup;
 			children = (
 				FDD530641E01E03F00E0DD8D /* Controller */,
-				FDD530651E01E03F00E0DD8D /* Model */,
 				FDD530661E01E03F00E0DD8D /* View */,
 			);
 			name = "Shot Detail";
@@ -414,13 +390,6 @@
 				FDD530721E01E4D500E0DD8D /* BLShotDetailTableViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		FDD530651E01E03F00E0DD8D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		FDD530661E01E03F00E0DD8D /* View */ = {

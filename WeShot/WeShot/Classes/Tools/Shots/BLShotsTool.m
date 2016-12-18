@@ -77,35 +77,66 @@
     }];
 }
 
-+ (void)likeShotWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
++ (void)likeShotWithUserID:(NSInteger)sid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
-    [BLHttpTool Post:[NSString stringWithFormat:@"%@/%@/like",DRIBBBLE_SHOT,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+    [BLHttpTool Post:[NSString stringWithFormat:@"%@/%@/like",DRIBBBLE_SHOT,[NSString stringWithFormat:@"%zd",sid]] parameters:params success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
     }];
 }
 
-+ (void)unlikeShotWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
++ (void)unlikeShotWithUserID:(NSInteger)sid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
-    [BLHttpTool Delete:[NSString stringWithFormat:@"%@/%@/like",DRIBBBLE_SHOT,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+    [BLHttpTool Delete:[NSString stringWithFormat:@"%@/%@/like",DRIBBBLE_SHOT,[NSString stringWithFormat:@"%zd",sid]] parameters:params success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
     }];
 }
 
-+ (void)islikeShotWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
++ (void)islikeShotWithUserID:(NSInteger)sid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
-    [BLHttpTool Get:[NSString stringWithFormat:@"%@/%@/like",DRIBBBLE_SHOT,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+    [BLHttpTool Get:[NSString stringWithFormat:@"%@/%@/like",DRIBBBLE_SHOT,[NSString stringWithFormat:@"%zd",sid]] parameters:params success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
     }];
 }
 
++ (void)followUserWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
+    [BLHttpTool Put:[NSString stringWithFormat:@"%@users/%@/follow",OAuth2_BASE_URL,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)unfollowUserWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
+    [BLHttpTool Delete:[NSString stringWithFormat:@"%@users/%@/follow",OAuth2_BASE_URL,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)isfollowUserWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    BLShotsParams* params = [[BLShotsParams alloc]init];
+    params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
+    
+    NSLog(@"%@",[NSString stringWithFormat:@"%@user/following/%@?access_token=%@",OAuth2_BASE_URL,[NSString stringWithFormat:@"%zd",uid], params.access_token]);
+    [BLHttpTool Get:[NSString stringWithFormat:@"%@user/following/%@",OAuth2_BASE_URL,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 
 @end

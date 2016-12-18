@@ -43,11 +43,10 @@
     [btn addTarget:self action:@selector(done) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:btn];
     
-    
     [self.view addSubview:view];
 }
 - (void)setupWKView{
-    NSString* urlStr = [NSString stringWithFormat:@"%@?client_id=%@&scope=public+write", OAuth2_AuthorizationUrl, OAuth2_CLIENT_ID];
+    NSString* urlStr = [NSString stringWithFormat:@"%@?client_id=%@&scope=public+write+comment+upload", OAuth2_AuthorizationUrl, OAuth2_CLIENT_ID];
     WKWebView *webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 64, ScreenSize.width, ScreenSize.height-64)];
     [self.view addSubview:webView];
     self.webView = webView;

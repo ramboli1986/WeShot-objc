@@ -8,7 +8,6 @@
 
 #import "BLProfileViewController.h"
 #import "BLProfileHeaderCell.h"
-//#import "BLProfileShotCell.h"
 #import "BLGridCollectionViewCell.h"
 #import "BLCollectionReusableView.h"
 #import "BLShotDetailTableViewController.h"
@@ -37,8 +36,10 @@
 @property (nonatomic, strong) NSMutableArray* likeShots;
 
 @property (nonatomic, weak) UIButton* likeBtn;
+@property (nonatomic, weak) UIButton* followBtn;
 
 @property (nonatomic, assign) BOOL isLike;
+@property (nonatomic, assign) BOOL isSelf;
 
 @end
 
@@ -67,8 +68,9 @@
     gap = 4.0;
     per_page = 27;
     [super viewDidLoad];
-    [self setupNav];
+    
     [self setupCollectionView];
+    [self setupNav];
     [self setupRefresh];
 }
 
@@ -88,6 +90,7 @@
     if (!self.user) {
         self.navigationItem.title = @"Profile";
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"Logout" target:self action:@selector(logout)];
+        self.isSelf = YES;
         [self loadUser];
     } else {
         self.navigationItem.title = @"Player";
@@ -202,6 +205,8 @@
         cell.followingCount.text = [NSString stringWithFormat:@"%zd",self.user.followings_count];
         [cell.userLocation setTitle:self.user.location forState:UIControlStateNormal];
         cell.userBIO.text = self.user.bio;
+        self.followBtn = cell.followBtn;
+        [self setupProfileBtn];
         return cell;
     }
     else {
@@ -346,6 +351,59 @@
 - (void)logout{
     NSLog(@"log out");
     [BLAcountTool logout];
+}
+
+- (void)setupProfileBtn{
+    if (self.isSelf) {
+        _followBtn.enabled = NO;
+        _followBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        [_followBtn setTitle:@"Profile" forState:UIControlStateNormal];
+        [_followBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        return;
+    } else {
+        [BLShotsTool isfollowUserWithUserID:self.user.uid success:^(id responseObject) {
+            [self followingStyle];
+        } failure:^(NSError *error) {
+            NSLog(@"not a following:%@",error.localizedDescription);
+            [self unfollowStyle];
+        }];
+    }
+    [_followBtn addTarget:self action:@selector(followUserBtn) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)followUserBtn{
+    //follow to unfollow
+    if (_followBtn.tag == 101) {
+        [self unfollowStyle];
+        [BLShotsTool unfollowUserWithUserID:self.user.uid success:^(id responseObject) {
+            ;
+        } failure:^(NSError *error) {
+            [self followingStyle];
+        }];
+    } else if (_followBtn.tag == 102){
+        
+        [self followingStyle];
+        [BLShotsTool followUserWithUserID:self.user.uid success:^(id responseObject) {
+            ;
+        } failure:^(NSError *error) {
+            [self unfollowStyle];
+        }];
+    }
+}
+
+- (void)followingStyle{
+    _followBtn.tag = 101;
+    _followBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [_followBtn setTitle:@"Following" forState:UIControlStateNormal];
+    [_followBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+
+}
+
+- (void)unfollowStyle{
+    _followBtn.tag = 102;
+    _followBtn.layer.borderColor = [UIColor redColor].CGColor;
+    [_followBtn setTitle:@"Follow" forState:UIControlStateNormal];
+    [_followBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 }
 
 
