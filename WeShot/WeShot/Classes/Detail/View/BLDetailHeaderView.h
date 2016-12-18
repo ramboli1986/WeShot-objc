@@ -1,15 +1,16 @@
 //
-//  BLDetailContentCell.h
+//  BLDetailHeaderView.h
 //  WeShot
 //
-//  Created by bo LI on 12/14/16.
+//  Created by bo LI on 12/17/16.
 //  Copyright © 2016 Bo LI. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 @class DACircularProgressView;
 @class YLImageView;
-@interface BLDetailContentCell : UITableViewCell
+
+@interface BLDetailHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
 @property (weak, nonatomic) IBOutlet UIButton *headBtn;
 @property (weak, nonatomic) IBOutlet YLImageView *GifImageView;
@@ -23,5 +24,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *shotInfo;
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet DACircularProgressView *progressView;
-
 @end

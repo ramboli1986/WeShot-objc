@@ -7,16 +7,16 @@
 //
 
 #import "BLShotDetailTableViewController.h"
-#import "BLDetailContentCell.h"
 #import "BLDetailCommentCell.h"
+#import "BLDetailNoCommentCell.h"
 #import "BLShot.h"
 #import "BLShotComment.h"
 #import "BLShotsTool.h"
 #import "BLShotsParams.h"
 #import "BLDribbbleAPI.h"
+#import "BLDetailHeaderView.h"
 
 #import "NSString+BLExtension.h"
-
 #import "BLProfileViewController.h"
 
 #import <DALabeledCircularProgressView.h>
@@ -26,14 +26,16 @@
 
 @interface BLShotDetailTableViewController ()
 
+@property (weak,nonatomic) BLDetailHeaderView *headerView;
 @property (nonatomic, strong) NSMutableArray* comments;
 
 @end
 
 @implementation BLShotDetailTableViewController
 
-static NSString* headercellID = @"BLDetailContentCell";
+static NSString* headerViewID = @"BLDetailHeaderView";
 static NSString* commentCellID = @"BLDetailCommentCell";
+static NSString* noCommentCellID = @"BLDetailNoCommentCell";
 
 - (NSMutableArray*)comments {
     if (_comments == nil) {
@@ -53,6 +55,74 @@ static NSString* commentCellID = @"BLDetailCommentCell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = BLGlobalBg;
     self.navigationItem.title = @"SHOT";
+    //add Header View
+    NSArray* nibView = [[NSBundle mainBundle] loadNibNamed:headerViewID owner:nil options:nil];
+    BLDetailHeaderView *headerView = [nibView firstObject];
+    _headerView = headerView;
+    [self setupheaderViewContent];
+    CGFloat headerHeight = [self headerHeight];
+    
+    headerView.frame = CGRectMake(0, -headerHeight-36, ScreenSize.width, headerHeight);
+    [self.tableView addSubview:headerView];
+    //[self.tableView insertSubview:_headerView atIndex:0];
+    self.tableView.contentInset = UIEdgeInsetsMake(headerHeight+36, 0, 0, 0);
+    self.tableView.contentOffset = CGPointMake(0, 100);
+}
+
+- (CGFloat)headerHeight{
+    UIFont *titleFont = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
+    UIFont *detailFont = [UIFont fontWithName:@"Kailasa" size:14.0f];
+    
+    CGFloat shotImageHeight = ScreenSize.width*3/4;
+    CGFloat titleHeight = [self.shot.title boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:INT_MAX];
+    CGFloat detailHeight = [self.shot.detailContent boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:INT_MAX];
+    
+    return 8 + 35 + 8 + shotImageHeight + 16 + titleHeight + 16 + detailHeight + 30 + 36;
+}
+- (void)setupheaderViewContent {
+    _headerView.username.text = self.shot.user.username;
+    NSString* shotImageURLStr = self.shot.images.hidpi?self.shot.images.hidpi:self.shot.images.normal;
+    NSString* avatorImageUrlStr = self.shot.user.avatar_url;
+    NSString* locationTitle = self.shot.user.location ? self.shot.user.location : @"unknow";
+    [_headerView.location setTitle:locationTitle forState:UIControlStateNormal];
+    
+    if (self.shot.animated) {
+        _headerView.shotImage.hidden = YES;
+        _headerView.GifImageView.hidden = NO;
+        _headerView.progressView.hidden = NO;
+        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:shotImageURLStr] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            //NSLog(@"receive size %zd",receivedSize);
+            [_headerView.progressView setProgress:1.0*receivedSize/expectedSize animated:YES];
+        } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _headerView.progressView.hidden = YES;
+                _headerView.GifImageView.image = [YLGIFImage imageWithData:data];
+            });
+        }];
+        
+    } else {
+        _headerView.shotImage.hidden = NO;
+        _headerView.GifImageView.hidden = YES;
+        [_headerView.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLStr] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            _headerView.progressView.hidden = NO;
+            [_headerView.progressView setProgress:1.0*receivedSize/expectedSize animated:YES];
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            _headerView.progressView.hidden = YES;
+            
+        }];
+    }
+    
+    [_headerView.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
+                        placeholderImage:nil];
+    _headerView.shotTitle.text = self.shot.title;
+    _headerView.shotdetail.text = self.shot.detailContent;
+    
+    
+    
+    
+    _headerView.shotInfo.text = [NSString stringWithFormat:@"%zd comments    %zd views    %zd likes",self.shot.comments_count, self.shot.views_count, self.shot.likes_count];
+    [_headerView.headBtn addTarget:self action:@selector(headerBtn) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) loadAllComments{
@@ -68,6 +138,9 @@ static NSString* commentCellID = @"BLDetailCommentCell";
     }];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"offset %f, %f", scrollView.contentOffset.y, self.headerView.height + 80);
+}
 
 
 
@@ -75,72 +148,27 @@ static NSString* commentCellID = @"BLDetailCommentCell";
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.comments.count + 1;
+    return self.comments.count ?: 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        BLDetailContentCell* cell = [tableView dequeueReusableCellWithIdentifier:headercellID];
-        if (cell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:headercellID owner:self options:nil];
-            cell = [nib objectAtIndex:0];
-        }
-        
-        cell.username.text = self.shot.user.username;
-        NSString* shotImageURLStr = self.shot.images.hidpi?self.shot.images.hidpi:self.shot.images.normal;
-        NSString* avatorImageUrlStr = self.shot.user.avatar_url;
-        NSString* locationTitle = self.shot.user.location ? self.shot.user.location : @"unknow";
-        [cell.location setTitle:locationTitle forState:UIControlStateNormal];
-        
-        if (self.shot.animated) {
-            cell.shotImage.hidden = YES;
-            cell.GifImageView.hidden = NO;
-            cell.progressView.hidden = NO;
-            [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:shotImageURLStr] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                NSLog(@"receive size %zd",receivedSize);
-                [cell.progressView setProgress:1.0*receivedSize/expectedSize animated:YES];
-            } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.progressView.hidden = YES;
-                    cell.GifImageView.image = [YLGIFImage imageWithData:data];
-                });
-            }];
-            
-        } else {
-            cell.shotImage.hidden = NO;
-            cell.GifImageView.hidden = YES;
-            [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLStr] placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                cell.progressView.hidden = NO;
-                [cell.progressView setProgress:1.0*receivedSize/expectedSize animated:YES];
-            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                cell.progressView.hidden = YES;
-                
-            }];
-        }
-        
-        [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
-                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
-        cell.shotTitle.text = self.shot.title;
-        cell.shotdetail.text = self.shot.detailContent;
-        
-        
-        
-        
-        cell.shotInfo.text = [NSString stringWithFormat:@"%zd comments    %zd views    %zd likes",self.shot.comments_count, self.shot.views_count, self.shot.likes_count];
-        [cell.headBtn addTarget:self action:@selector(headerBtn) forControlEvents:UIControlEventTouchUpInside];
-        
-        return cell;
-    }
     
     //Comment cell
+    if (self.comments.count == 0) {
+        BLDetailNoCommentCell* cell = [tableView dequeueReusableCellWithIdentifier:noCommentCellID];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:noCommentCellID owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        return cell;
+    }
     
     BLDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
     if (cell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:commentCellID owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    BLShotComment* comment = self.comments[indexPath.row-1];
+    BLShotComment* comment = self.comments[indexPath.row];
     [cell.userImage sd_setImageWithURL:[NSURL URLWithString:comment.user.avatar_url] placeholderImage:nil];
     cell.username.text = comment.user.username;
     cell.comment.text = comment.body;
@@ -154,10 +182,13 @@ static NSString* commentCellID = @"BLDetailCommentCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return self.shot.detailCellHeight;
+    //if (indexPath.row == 0) {
+      //  return self.shot.detailCellHeight;
+    //}
+    if (self.comments.count == 0) {
+        return 30;
     }
-    BLShotComment* shotComent = self.comments[indexPath.row-1];
+    BLShotComment* shotComent = self.comments[indexPath.row];
     return shotComent.height;
 }
 

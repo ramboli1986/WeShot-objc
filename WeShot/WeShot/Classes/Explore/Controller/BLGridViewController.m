@@ -142,7 +142,7 @@
     BLShot* shot = self.shots[indexPath.row];
     NSString* shotImageURLString = shot.images.teaser;
     [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLString]
-                 placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                 placeholderImage:nil];
     cell.gifLabel.hidden = shot.animated?NO:YES;
     if (indexPath.row == self.shots.count-1-3) {
         [self loadMoreShot];

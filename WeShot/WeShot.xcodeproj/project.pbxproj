@@ -13,6 +13,10 @@
 		FDB12C0A1E05BFF400B0D50F /* BLShotComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C031E05BFF400B0D50F /* BLShotComment.m */; };
 		FDB12C0B1E05BFF400B0D50F /* BLShotPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C051E05BFF400B0D50F /* BLShotPicture.m */; };
 		FDB12C0C1E05BFF400B0D50F /* BLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C071E05BFF400B0D50F /* BLUser.m */; };
+		FDB12C141E06136E00B0D50F /* BLDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C131E06136E00B0D50F /* BLDetailHeaderView.m */; };
+		FDB12C161E06138100B0D50F /* BLDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB12C151E06138100B0D50F /* BLDetailHeaderView.xib */; };
+		FDB12C1A1E06298F00B0D50F /* BLDetailNoCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB12C181E06298F00B0D50F /* BLDetailNoCommentCell.m */; };
+		FDB12C1B1E06298F00B0D50F /* BLDetailNoCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB12C191E06298F00B0D50F /* BLDetailNoCommentCell.xib */; };
 		FDC6B3BD1E0068A100250AD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC6B3BC1E0068A100250AD5 /* main.m */; };
 		FDC6B3C81E0068A100250AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B3C71E0068A100250AD5 /* Assets.xcassets */; };
 		FDC6B3CB1E0068A100250AD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDC6B3C91E0068A100250AD5 /* LaunchScreen.storyboard */; };
@@ -65,6 +69,12 @@
 		FDB12C051E05BFF400B0D50F /* BLShotPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotPicture.m; sourceTree = "<group>"; };
 		FDB12C061E05BFF400B0D50F /* BLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUser.h; sourceTree = "<group>"; };
 		FDB12C071E05BFF400B0D50F /* BLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUser.m; sourceTree = "<group>"; };
+		FDB12C121E06136E00B0D50F /* BLDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailHeaderView.h; sourceTree = "<group>"; };
+		FDB12C131E06136E00B0D50F /* BLDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailHeaderView.m; sourceTree = "<group>"; };
+		FDB12C151E06138100B0D50F /* BLDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLDetailHeaderView.xib; sourceTree = "<group>"; };
+		FDB12C171E06298F00B0D50F /* BLDetailNoCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailNoCommentCell.h; sourceTree = "<group>"; };
+		FDB12C181E06298F00B0D50F /* BLDetailNoCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailNoCommentCell.m; sourceTree = "<group>"; };
+		FDB12C191E06298F00B0D50F /* BLDetailNoCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLDetailNoCommentCell.xib; sourceTree = "<group>"; };
 		FDC6B3B81E0068A100250AD5 /* WeShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC6B3BC1E0068A100250AD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDC6B3C71E0068A100250AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -422,6 +432,12 @@
 				FDD5306C1E01E3B700E0DD8D /* BLDetailCommentCell.h */,
 				FDD5306D1E01E3B700E0DD8D /* BLDetailCommentCell.m */,
 				FDD5306E1E01E3B700E0DD8D /* BLDetailCommentCell.xib */,
+				FDB12C171E06298F00B0D50F /* BLDetailNoCommentCell.h */,
+				FDB12C181E06298F00B0D50F /* BLDetailNoCommentCell.m */,
+				FDB12C191E06298F00B0D50F /* BLDetailNoCommentCell.xib */,
+				FDB12C121E06136E00B0D50F /* BLDetailHeaderView.h */,
+				FDB12C131E06136E00B0D50F /* BLDetailHeaderView.m */,
+				FDB12C151E06138100B0D50F /* BLDetailHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -581,9 +597,11 @@
 				FDC6B4191E00D3F000250AD5 /* BLGridCollectionViewCell.xib in Resources */,
 				FDC6B3CB1E0068A100250AD5 /* LaunchScreen.storyboard in Resources */,
 				FDC6B4211E00F3BE00250AD5 /* BLProfileHeaderCell.xib in Resources */,
+				FDB12C1B1E06298F00B0D50F /* BLDetailNoCommentCell.xib in Resources */,
 				FDD5306B1E01E18100E0DD8D /* BLDetailContentCell.xib in Resources */,
 				FDC6B40F1E00C80C00250AD5 /* BLFlowCollectionViewCell.xib in Resources */,
 				FDD530701E01E3B700E0DD8D /* BLDetailCommentCell.xib in Resources */,
+				FDB12C161E06138100B0D50F /* BLDetailHeaderView.xib in Resources */,
 				FDC6B3C81E0068A100250AD5 /* Assets.xcassets in Resources */,
 				FDD530B11E03A8A000E0DD8D /* BLLoginViewController.xib in Resources */,
 				FDC6B42E1E010D7000250AD5 /* BLCollectionReusableView.xib in Resources */,
@@ -663,6 +681,8 @@
 				FDD530B01E03A8A000E0DD8D /* BLLoginViewController.m in Sources */,
 				FDB12C0C1E05BFF400B0D50F /* BLUser.m in Sources */,
 				FDC6B3F41E007B3800250AD5 /* BLHomeViewController.m in Sources */,
+				FDB12C141E06136E00B0D50F /* BLDetailHeaderView.m in Sources */,
+				FDB12C1A1E06298F00B0D50F /* BLDetailNoCommentCell.m in Sources */,
 				FDD530AC1E03A53800E0DD8D /* AppDelegate.m in Sources */,
 				FDB12C091E05BFF400B0D50F /* BLShot.m in Sources */,
 				FDC6B4011E008BE800250AD5 /* BLFlowViewController.m in Sources */,

@@ -147,9 +147,9 @@
     NSString* avatorImageUrlStr = shot.user.avatar_url;
     
     [cell.shotImage sd_setImageWithURL:[NSURL URLWithString:shotImageURLStr]
-                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                      placeholderImage:nil];
     [cell.userAvatorImage sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
-                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                      placeholderImage:nil];
     CGFloat shotImageHeight = cell.width*shot.height/shot.width;
     cell.shotImage.height = shotImageHeight;
     cell.shotTitle.text = shot.title;
