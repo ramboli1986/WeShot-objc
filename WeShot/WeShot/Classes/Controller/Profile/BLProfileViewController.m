@@ -115,9 +115,7 @@
 
 
 - (void)loadNewShots {
-    if ([self.cv.mj_header isRefreshing]) {
-        //return;
-    }
+
     self.hasMoreLike = YES;
     self.hasMoreShot = YES;
     
@@ -135,9 +133,21 @@
         [BLShotsTool likeshotWithURLStr:self.user.likes_url pageStr:pageStr Success:^(NSArray *shotsArray) {
             [self.likeShots removeAllObjects];
             [self.likeShots addObjectsFromArray:shotsArray];
-            [self.cv reloadData];
-            [self.cv.mj_header endRefreshing];
-            
+            if (self.isSelf) {
+                [BLShotsTool userWithSuccess:^(BLUser *user) {
+                    self.user = user;
+                    [self.shotBtn setTitle:[NSString stringWithFormat:@"Shots • %zd", self.user.shots_count] forState:UIControlStateNormal];
+                    [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
+                    [self.cv reloadData];
+                    [self.cv.mj_header endRefreshing];
+                } failure:^(NSError *error) {
+                    NSLog(@"1.%@",error.localizedDescription);
+                    [self.cv.mj_header endRefreshing];
+                }];
+            } else {
+                [self.cv reloadData];
+                [self.cv.mj_header endRefreshing];
+            }
         } failure:^(NSError *error) {
             NSLog(@"2.error:%@",error.localizedDescription);
             [self.cv.mj_header endRefreshing];

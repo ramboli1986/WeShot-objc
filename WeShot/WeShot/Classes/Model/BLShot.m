@@ -60,9 +60,15 @@
     if (!_detailEasyContent){
         NSString* res = [self.detailContent stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
         res = [res stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
-        res = [res stringByReplacingOccurrencesOfString:@"</ br>" withString:@""];
-        res = [res stringByReplacingOccurrencesOfString:@"</  br>" withString:@""];
-        _detailEasyContent = res;
+        res = [res stringByReplacingOccurrencesOfString:@"<br />" withString:@""];
+        res = [res stringByReplacingOccurrencesOfString:@"<br  />" withString:@""];
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<a href=.*?>(.*?)</a>" options:NSRegularExpressionCaseInsensitive error:nil];
+        if (res) {
+            NSString *finalRes = [regex stringByReplacingMatchesInString:res options:0 range:NSMakeRange(0, [res length]) withTemplate:@"$1"];
+            _detailEasyContent = finalRes;
+        }else {
+            _detailContent = res;
+        }
     }
     return _detailEasyContent;
 }

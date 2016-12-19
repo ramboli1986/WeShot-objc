@@ -24,8 +24,8 @@
 #import <YLGIFImage.h>
 #import <YLImageView.h>
 
-#define HTMLSTYLE @"<head><style>p{font-size: 14px;color: gray;}a{color:red; text-decoration: none;}</style></head>"
-#define HTMLSTYLE2 @"<head><style>p{font-size: 14px;color: gray; line-height:100%}a{color:red; text-decoration: none;}</style></head>"
+#define HTMLSTYLE @"<head><style>p{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
+#define HTMLSTYLE2 @"<head><style>p{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
 
 @interface BLShotDetailTableViewController ()
 
@@ -120,7 +120,7 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     
     CGFloat shotImageHeight = ScreenSize.width*3/4;
     CGFloat titleHeight = [self.shot.title boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:INT_MAX];
-    CGFloat detailHeight = [self.shot.detailContent boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:INT_MAX];
+    CGFloat detailHeight = [self.shot.detailEasyContent boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:INT_MAX];
     
     return 8 + 35 + 8 + shotImageHeight + 16 + titleHeight + 16 + detailHeight + 30 + 36;
 }
@@ -173,6 +173,7 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
         _headerView.shotdetail.attributedText = strAtt;
     }
     [_headerView.shotdetail setContentInset:UIEdgeInsetsMake(-10, -5, -15, -5)];
+    _headerView.shotdetail.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
     
     
     _headerView.shotInfo.text = [NSString stringWithFormat:@"%zd comments    %zd views    %zd likes",self.shot.comments_count, self.shot.views_count, self.shot.likes_count];

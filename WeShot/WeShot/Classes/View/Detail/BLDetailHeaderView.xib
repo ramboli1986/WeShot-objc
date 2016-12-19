@@ -48,10 +48,10 @@
                     <rect key="frame" x="0.0" y="478" width="373" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srf-AM-ca5">
-                            <rect key="frame" x="327" y="0.0" width="30" height="30"/>
+                            <rect key="frame" x="307" y="-10" width="50" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="1NV-8n-0i6"/>
-                                <constraint firstAttribute="width" constant="30" id="vWQ-F6-70u"/>
+                                <constraint firstAttribute="height" constant="50" id="1NV-8n-0i6"/>
+                                <constraint firstAttribute="width" constant="50" id="vWQ-F6-70u"/>
                             </constraints>
                             <state key="normal" image="redunlike"/>
                         </button>
@@ -103,7 +103,7 @@
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-Nl-gPL">
                     <rect key="frame" x="8" y="392" width="357" height="33"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
