@@ -153,7 +153,7 @@
     CGFloat shotImageHeight = cell.width*shot.height/shot.width;
     cell.shotImage.height = shotImageHeight;
     cell.shotTitle.text = shot.title;
-    cell.shotDetail.text = shot.detailContent;
+    cell.shotDetail.text = shot.detailEasyContent;
     cell.username.text = shot.user.username;
     cell.likeCount.text = [NSString stringWithFormat:@"%zd",shot.likes_count];
     cell.isGif.hidden = shot.animated?NO:YES;

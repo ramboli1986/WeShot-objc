@@ -29,4 +29,5 @@
 //additonal property
 @property (nonatomic, assign, readonly) CGFloat homeCellHeight;
 @property (nonatomic, assign, readonly) CGFloat detailCellHeight;
+@property (nonatomic, copy)NSString* detailEasyContent;
 @end

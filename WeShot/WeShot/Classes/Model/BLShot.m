@@ -12,6 +12,7 @@
 @implementation BLShot {
     CGFloat _homeCellHeight;
     CGFloat _detailCellHeight;
+    NSString* _detailEasyContent;
 }
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
@@ -31,12 +32,14 @@
         
         CGFloat shotImageHeight = cellWidth*self.height/self.width;
         CGFloat titleHeight = [self.title boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:2];
-        CGFloat detailHeight = [self.detailContent boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:3];
+        CGFloat detailHeight = [self.detailEasyContent boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:3];
         _homeCellHeight = 8 + BLAvatorHeight + 16 + detailHeight + 16 + titleHeight + 16 + shotImageHeight;
         //NSLog(@"%@,%f, %f",self.title, titleHeight, _homeCellHeight);
     }
     return _homeCellHeight;
 }
+
+
 
 - (CGFloat)detailCellHeight {
     if (!_detailCellHeight) {
@@ -45,11 +48,21 @@
         
         CGFloat shotImageHeight = ScreenSize.width*3/4;
         CGFloat titleHeight = [self.title boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:INT_MAX];
-        CGFloat detailHeight = [self.detailContent boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:INT_MAX];
+        CGFloat detailHeight = [self.detailEasyContent boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:INT_MAX];
         
         _detailCellHeight = 8 + 35 + 8 + shotImageHeight + 16 + titleHeight + 16 + detailHeight + 30 + 44;
         NSLog(@"%@,%f, %f",self.title, titleHeight, _homeCellHeight);
     }
     return _detailCellHeight;
+}
+
+- (NSString*)detailEasyContent{
+    if (!_detailEasyContent){
+        NSString* res = [self.detailContent stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
+        res = [res stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
+        res = [res stringByReplacingOccurrencesOfString:@"</ br>" withString:@""];
+        _detailEasyContent = res;
+    }
+    return _detailEasyContent;
 }
 @end
