@@ -53,7 +53,6 @@
     CGFloat gap;
     NSInteger shotpage;
     NSInteger likepage;
-    NSInteger per_page;
 }
 
 - (NSMutableArray*)shots {
@@ -71,10 +70,6 @@
 }
 
 - (void)viewDidLoad {
-    gap = 4.0;
-    per_page = 27;
-    
-    
     [super viewDidLoad];
     [self setupNav];
     [self setupCollectionView];
@@ -119,7 +114,7 @@
     self.hasMoreLike = YES;
     self.hasMoreShot = YES;
     
-    NSString* pageStr = @"page=1&per_page=27";
+    NSString* pageStr = [NSString stringWithFormat:@"page=1&per_page%zd",PER_PAGE];
     [self.shotBtn setTitle:[NSString stringWithFormat:@"Shots • %zd", self.user.shots_count] forState:UIControlStateNormal];
     [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
     
@@ -162,7 +157,7 @@
 
 - (void)loadMoreShots {
 
-    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",shotpage+1, per_page];
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",shotpage+1, PER_PAGE];
     //shot data
     [BLShotsTool shotWithURLStr:self.user.shots_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         if (shotsArray.count == 0) {
@@ -179,7 +174,7 @@
 
 - (void)loadMoreLikeShots{
     //like shot data
-    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",likepage+1, per_page];
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",likepage+1, PER_PAGE];
     [BLShotsTool likeshotWithURLStr:self.user.likes_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         if (shotsArray.count == 0) {
             _hasMoreLike = NO;
@@ -198,6 +193,7 @@
 
 
 - (void)setupCollectionView {
+    gap = 4.0;
     UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
     _cv = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:flowlayout];
     _cv.delegate = self;

@@ -65,9 +65,7 @@
     page = 1;
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
-    
-    //@{@"page":@(page), @"per_page":@100};
-    
+        
     if (self.type == 0) {
         params.sort = @"recent";
     } else if (self.type == 1) {
@@ -77,7 +75,7 @@
     } else if (self.type == 3) {
         params.list = @"playoffs";
     }
-    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=48",page];
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",page,PER_PAGE];
     [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
         [self.shots removeAllObjects];
         [self.shots addObjectsFromArray:shotsArray];
@@ -100,7 +98,7 @@
     } else if (self.type == 3) {
         params.list = @"debuts";
     }
-    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=99",++page];
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",++page,PER_PAGE];
     [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
         [self.shots addObjectsFromArray:shotsArray];
         [self.collectionView reloadData];

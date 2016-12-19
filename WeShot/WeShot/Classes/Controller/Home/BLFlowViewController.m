@@ -28,7 +28,6 @@
 
 @implementation BLFlowViewController {
     NSInteger page;
-    NSInteger per_page;
 }
 
 - (NSMutableArray*)shots {
@@ -61,9 +60,8 @@
 - (void)loadNewshots{
     
     page = 1;
-    per_page = 18;
     BLShotsParams* params = [[BLShotsParams alloc]init];
-    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",page, per_page];
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",page, PER_PAGE];
     if (self.type == 0) {
         params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
         [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray) {
@@ -100,7 +98,7 @@
     } else {
         params.access_token = [BLAcountTool access_Token];
     }
-    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",++page,per_page];
+    NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",++page,PER_PAGE];
     [BLShotsTool shotWithParams:params pageStr:pageStr Success:^(NSArray *shotsArray){
         [self.shots addObjectsFromArray:shotsArray];
         [self.collectionView reloadData];

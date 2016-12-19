@@ -24,6 +24,7 @@
 #define BLAvatorHeight 23
 
 #define ACCESS_TOKEN_KEY @"accessToken"
+#define PER_PAGE 66
 
 #endif /* PrefixHeader_pch */
 
