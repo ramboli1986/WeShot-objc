@@ -61,6 +61,7 @@
         NSString* res = [self.detailContent stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
         res = [res stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
         res = [res stringByReplacingOccurrencesOfString:@"</ br>" withString:@""];
+        res = [res stringByReplacingOccurrencesOfString:@"</  br>" withString:@""];
         _detailEasyContent = res;
     }
     return _detailEasyContent;

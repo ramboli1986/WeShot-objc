@@ -14,6 +14,8 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.comment.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.comment.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
 
 }
 

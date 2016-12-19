@@ -11,6 +11,6 @@
 @interface BLDetailCommentCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UILabel *username;
-@property (weak, nonatomic) IBOutlet UILabel *comment;
+@property (weak, nonatomic) IBOutlet UITextView *comment;
 
 @end

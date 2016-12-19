@@ -18,4 +18,12 @@
 }
 */
 
+- (UITextView*)shotdetail{
+    if (_shotdetail == nil){
+        _shotdetail.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        _shotdetail.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
+    }
+    return _shotdetail;
+}
+
 @end

@@ -24,6 +24,9 @@
 #import <YLGIFImage.h>
 #import <YLImageView.h>
 
+#define HTMLSTYLE @"<head><style>p{font-size: 14px;color: gray;}a{color:red; text-decoration: none;}</style></head>"
+#define HTMLSTYLE2 @"<head><style>p{font-size: 14px;color: gray; line-height:100%}a{color:red; text-decoration: none;}</style></head>"
+
 @interface BLShotDetailTableViewController ()
 
 @property (weak,nonatomic) BLDetailHeaderView *headerView;
@@ -113,7 +116,7 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
 
 - (CGFloat)headerHeight{
     UIFont *titleFont = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
-    UIFont *detailFont = [UIFont fontWithName:@"Kailasa" size:14.0f];
+    UIFont *detailFont = [UIFont systemFontOfSize:14];
     
     CGFloat shotImageHeight = ScreenSize.width*3/4;
     CGFloat titleHeight = [self.shot.title boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:INT_MAX];
@@ -158,9 +161,18 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     [_headerView.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
                         placeholderImage:nil];
     _headerView.shotTitle.text = self.shot.title;
-    _headerView.shotdetail.text = self.shot.detailContent;
-    
-    
+    //_headerView.shotdetail.text = self.shot.detailContent;
+    NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE2,self.shot.detailContent];
+    NSAttributedString * strAtt = [[NSAttributedString alloc]
+                                   initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding]
+                                   options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                   documentAttributes: nil
+                                   error: nil
+                                   ];
+    if (self.shot.detailContent){
+        _headerView.shotdetail.attributedText = strAtt;
+    }
+    [_headerView.shotdetail setContentInset:UIEdgeInsetsMake(-10, -5, -15, -5)];
     
     
     _headerView.shotInfo.text = [NSString stringWithFormat:@"%zd comments    %zd views    %zd likes",self.shot.comments_count, self.shot.views_count, self.shot.likes_count];
@@ -211,7 +223,14 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     BLShotComment* comment = self.comments[indexPath.row];
     [cell.userImage sd_setImageWithURL:[NSURL URLWithString:comment.user.avatar_url] placeholderImage:nil];
     cell.username.text = comment.user.username;
-    cell.comment.text = comment.body;
+    NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE,comment.body];
+    NSAttributedString * strAtt = [[NSAttributedString alloc]
+                                   initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding]
+                                   options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                   documentAttributes: nil
+                                   error: nil
+                                   ];
+    cell.comment.attributedText = strAtt;
     return cell;
 }
 

@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *create_time_label;
 //@property (weak, nonatomic) IBOutlet UIView *shotView;
 @property (weak, nonatomic) IBOutlet UILabel *shotTitle;
-@property (weak, nonatomic) IBOutlet UILabel *shotdetail;
+@property (weak, nonatomic) IBOutlet UITextView *shotdetail;
 @property (weak, nonatomic) IBOutlet UILabel *shotInfo;
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet DACircularProgressView *progressView;
