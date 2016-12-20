@@ -25,8 +25,6 @@
 		FDF567D61E0697370086D187 /* BLFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF567951E0697370086D187 /* BLFlowViewController.m */; };
 		FDF567D71E0697370086D187 /* BLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF567971E0697370086D187 /* BLHomeViewController.m */; };
 		FDF567D81E0697370086D187 /* BLProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5679A1E0697370086D187 /* BLProfileViewController.m */; };
-		FDF567D91E0697370086D187 /* BLMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5679D1E0697370086D187 /* BLMainTabBarController.m */; };
-		FDF567DA1E0697370086D187 /* BLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5679F1E0697370086D187 /* BLNavigationController.m */; };
 		FDF567DB1E0697370086D187 /* BLLikeShot.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF567A21E0697370086D187 /* BLLikeShot.m */; };
 		FDF567DC1E0697370086D187 /* BLOAuthorParam.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF567A41E0697370086D187 /* BLOAuthorParam.m */; };
 		FDF567DD1E0697370086D187 /* BLShot.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF567A61E0697370086D187 /* BLShot.m */; };
@@ -53,6 +51,8 @@
 		FDF567F31E0697370086D187 /* BLProfileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF567D11E0697370086D187 /* BLProfileHeaderCell.m */; };
 		FDF567F41E0697370086D187 /* BLProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDF567D21E0697370086D187 /* BLProfileHeaderCell.xib */; };
 		FDF567F81E0698310086D187 /* BLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF567F71E0698310086D187 /* BLLoginViewController.m */; };
+		FDF5682A1E09C9550086D187 /* BLMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF568271E09C9550086D187 /* BLMainTabBarController.m */; };
+		FDF5682B1E09C9550086D187 /* BLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF568291E09C9550086D187 /* BLNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,10 +94,6 @@
 		FDF567971E0697370086D187 /* BLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHomeViewController.m; sourceTree = "<group>"; };
 		FDF567991E0697370086D187 /* BLProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLProfileViewController.h; sourceTree = "<group>"; };
 		FDF5679A1E0697370086D187 /* BLProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLProfileViewController.m; sourceTree = "<group>"; };
-		FDF5679C1E0697370086D187 /* BLMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMainTabBarController.h; sourceTree = "<group>"; };
-		FDF5679D1E0697370086D187 /* BLMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainTabBarController.m; sourceTree = "<group>"; };
-		FDF5679E1E0697370086D187 /* BLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNavigationController.h; sourceTree = "<group>"; };
-		FDF5679F1E0697370086D187 /* BLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNavigationController.m; sourceTree = "<group>"; };
 		FDF567A11E0697370086D187 /* BLLikeShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLikeShot.h; sourceTree = "<group>"; };
 		FDF567A21E0697370086D187 /* BLLikeShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLLikeShot.m; sourceTree = "<group>"; };
 		FDF567A31E0697370086D187 /* BLOAuthorParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLOAuthorParam.h; sourceTree = "<group>"; };
@@ -141,6 +137,10 @@
 		FDF567D21E0697370086D187 /* BLProfileHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLProfileHeaderCell.xib; sourceTree = "<group>"; };
 		FDF567F61E0698310086D187 /* BLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLoginViewController.h; sourceTree = "<group>"; };
 		FDF567F71E0698310086D187 /* BLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLLoginViewController.m; sourceTree = "<group>"; };
+		FDF568261E09C9550086D187 /* BLMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMainTabBarController.h; sourceTree = "<group>"; };
+		FDF568271E09C9550086D187 /* BLMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainTabBarController.m; sourceTree = "<group>"; };
+		FDF568281E09C9550086D187 /* BLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNavigationController.h; sourceTree = "<group>"; };
+		FDF568291E09C9550086D187 /* BLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +215,6 @@
 			children = (
 				FDD530A91E03A51900E0DD8D /* AppDelegate */,
 				FDD530771E020BA100E0DD8D /* Tools */,
-				FDF5679B1E0697370086D187 /* MainWindow */,
 				FDF567A01E0697370086D187 /* Model */,
 				FDF5678A1E0697370086D187 /* Controller */,
 				FDF567B21E0697370086D187 /* View */,
@@ -303,6 +302,7 @@
 		FDF5678A1E0697370086D187 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FDF568251E09C9550086D187 /* MainWindow */,
 				FDF567931E0697370086D187 /* Home */,
 				FDF5678E1E0697370086D187 /* Explore */,
 				FDF567981E0697370086D187 /* Profile */,
@@ -352,24 +352,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		FDF5679B1E0697370086D187 /* MainWindow */ = {
-			isa = PBXGroup;
-			children = (
-				FDF5679C1E0697370086D187 /* BLMainTabBarController.h */,
-				FDF5679D1E0697370086D187 /* BLMainTabBarController.m */,
-				FDF5679E1E0697370086D187 /* BLNavigationController.h */,
-				FDF5679F1E0697370086D187 /* BLNavigationController.m */,
-			);
-			path = MainWindow;
-			sourceTree = "<group>";
-		};
 		FDF567A01E0697370086D187 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FDF567A11E0697370086D187 /* BLLikeShot.h */,
-				FDF567A21E0697370086D187 /* BLLikeShot.m */,
 				FDF567A31E0697370086D187 /* BLOAuthorParam.h */,
 				FDF567A41E0697370086D187 /* BLOAuthorParam.m */,
+				FDF567A11E0697370086D187 /* BLLikeShot.h */,
+				FDF567A21E0697370086D187 /* BLLikeShot.m */,
 				FDF567A51E0697370086D187 /* BLShot.h */,
 				FDF567A61E0697370086D187 /* BLShot.m */,
 				FDF567A71E0697370086D187 /* BLShotComment.h */,
@@ -473,6 +462,17 @@
 				FDF567F71E0698310086D187 /* BLLoginViewController.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		FDF568251E09C9550086D187 /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				FDF568261E09C9550086D187 /* BLMainTabBarController.h */,
+				FDF568271E09C9550086D187 /* BLMainTabBarController.m */,
+				FDF568281E09C9550086D187 /* BLNavigationController.h */,
+				FDF568291E09C9550086D187 /* BLNavigationController.m */,
+			);
+			path = MainWindow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -614,6 +614,7 @@
 				FDD530B81E03C28700E0DD8D /* BLAcountTool.m in Sources */,
 				FDF567D81E0697370086D187 /* BLProfileViewController.m in Sources */,
 				FDF567D31E0697370086D187 /* BLShotDetailTableViewController.m in Sources */,
+				FDF5682B1E09C9550086D187 /* BLNavigationController.m in Sources */,
 				FDF567DB1E0697370086D187 /* BLLikeShot.m in Sources */,
 				FDF567E21E0697370086D187 /* BLOAuthViewController.m in Sources */,
 				FDD5309B1E02F3BC00E0DD8D /* NSString+BLExtension.m in Sources */,
@@ -621,11 +622,10 @@
 				FDF567DC1E0697370086D187 /* BLOAuthorParam.m in Sources */,
 				FDF567E91E0697370086D187 /* BLDetailNoCommentCell.m in Sources */,
 				FDF567F11E0697370086D187 /* BLCollectionReusableView.m in Sources */,
-				FDF567D91E0697370086D187 /* BLMainTabBarController.m in Sources */,
 				FDF567E71E0697370086D187 /* BLDetailHeaderView.m in Sources */,
-				FDF567DA1E0697370086D187 /* BLNavigationController.m in Sources */,
 				FDD530851E02122B00E0DD8D /* BLShotsTool.m in Sources */,
 				FDF567D41E0697370086D187 /* BLExploreViewController.m in Sources */,
+				FDF5682A1E09C9550086D187 /* BLMainTabBarController.m in Sources */,
 				FDD5308C1E0233B600E0DD8D /* BLShotsParams.m in Sources */,
 				FDF567F81E0698310086D187 /* BLLoginViewController.m in Sources */,
 				FDC6B3BD1E0068A100250AD5 /* main.m in Sources */,

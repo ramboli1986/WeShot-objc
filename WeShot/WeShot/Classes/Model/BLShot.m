@@ -51,24 +51,14 @@
         CGFloat detailHeight = [self.detailEasyContent boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:INT_MAX];
         
         _detailCellHeight = 8 + 35 + 8 + shotImageHeight + 16 + titleHeight + 16 + detailHeight + 30 + 44;
-        NSLog(@"%@,%f, %f",self.title, titleHeight, _homeCellHeight);
+        //NSLog(@"%@,%f, %f",self.title, titleHeight, _homeCellHeight);
     }
     return _detailCellHeight;
 }
 
 - (NSString*)detailEasyContent{
     if (!_detailEasyContent){
-        NSString* res = [self.detailContent stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
-        res = [res stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
-        res = [res stringByReplacingOccurrencesOfString:@"<br />" withString:@""];
-        res = [res stringByReplacingOccurrencesOfString:@"<br  />" withString:@""];
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<a href=.*?>(.*?)</a>" options:NSRegularExpressionCaseInsensitive error:nil];
-        if (res) {
-            NSString *finalRes = [regex stringByReplacingMatchesInString:res options:0 range:NSMakeRange(0, [res length]) withTemplate:@"$1"];
-            _detailEasyContent = finalRes;
-        }else {
-            _detailContent = res;
-        }
+        _detailEasyContent = [self.detailContent removeURLTag];
     }
     return _detailEasyContent;
 }

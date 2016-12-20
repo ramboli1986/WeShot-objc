@@ -95,7 +95,18 @@
     }
 }
 
-
+- (instancetype)removeURLTag{
+    NSString* res = [self stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
+    res = [res stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
+    res = [res stringByReplacingOccurrencesOfString:@"<br />" withString:@""];
+    res = [res stringByReplacingOccurrencesOfString:@"<br  />" withString:@""];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<a href=.*?>(.*?)</a>" options:NSRegularExpressionCaseInsensitive error:nil];
+    if (res) {
+        return  [regex stringByReplacingMatchesInString:res options:0 range:NSMakeRange(0, [res length]) withTemplate:@"$1"];
+    }else {
+        return  res;
+    }
+}
 
 //判断是否包含中文
 - (BOOL)containChinese:(NSString *)str {

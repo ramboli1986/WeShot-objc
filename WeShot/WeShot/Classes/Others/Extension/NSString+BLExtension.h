@@ -28,4 +28,5 @@
  */
 - (BOOL)isMoreThanOneLineWithSize:(CGSize)size font:(UIFont *)font lineSpaceing:(CGFloat)lineSpacing;
 
+- (instancetype)removeURLTag;
 @end
