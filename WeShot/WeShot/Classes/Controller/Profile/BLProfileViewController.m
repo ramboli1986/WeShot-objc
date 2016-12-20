@@ -16,7 +16,6 @@
 #import "BLShotsTool.h"
 #import "BLShot.h"
 #import "BLLikeShot.h"
-#import "BLShotsParams.h"
 #import "BLDribbbleAPI.h"
 #import "BLHttpTool.h"
 
@@ -47,8 +46,6 @@
 
 @end
 
-//fix
-
 @implementation BLProfileViewController {
     CGFloat gap;
     NSInteger shotpage;
@@ -70,6 +67,7 @@
 }
 
 - (void)viewDidLoad {
+    gap = 4.0;
     [super viewDidLoad];
     [self setupNav];
     [self setupCollectionView];
@@ -110,14 +108,14 @@
 
 
 - (void)loadNewShots {
-
+    
     self.hasMoreLike = YES;
     self.hasMoreShot = YES;
     
-    NSString* pageStr = [NSString stringWithFormat:@"page=1&per_page%zd",PER_PAGE];
     [self.shotBtn setTitle:[NSString stringWithFormat:@"Shots • %zd", self.user.shots_count] forState:UIControlStateNormal];
     [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
     
+    NSString* pageStr = [NSString stringWithFormat:@"page=1&per_page=%zd",PER_PAGE];
     //shot data
     [BLShotsTool shotWithURLStr:self.user.shots_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         shotpage = 1;
@@ -128,21 +126,8 @@
         [BLShotsTool likeshotWithURLStr:self.user.likes_url pageStr:pageStr Success:^(NSArray *shotsArray) {
             [self.likeShots removeAllObjects];
             [self.likeShots addObjectsFromArray:shotsArray];
-            if (self.isSelf) {
-                [BLShotsTool userWithSuccess:^(BLUser *user) {
-                    self.user = user;
-                    [self.shotBtn setTitle:[NSString stringWithFormat:@"Shots • %zd", self.user.shots_count] forState:UIControlStateNormal];
-                    [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
-                    [self.cv reloadData];
-                    [self.cv.mj_header endRefreshing];
-                } failure:^(NSError *error) {
-                    NSLog(@"1.%@",error.localizedDescription);
-                    [self.cv.mj_header endRefreshing];
-                }];
-            } else {
-                [self.cv reloadData];
-                [self.cv.mj_header endRefreshing];
-            }
+            [self.cv.mj_header endRefreshing];
+            [self.cv reloadData];
         } failure:^(NSError *error) {
             NSLog(@"2.error:%@",error.localizedDescription);
             [self.cv.mj_header endRefreshing];
@@ -156,12 +141,11 @@
 }
 
 - (void)loadMoreShots {
-
     NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",shotpage+1, PER_PAGE];
     //shot data
     [BLShotsTool shotWithURLStr:self.user.shots_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         if (shotsArray.count == 0) {
-            _hasMoreShot = NO;
+            _hasMoreLike = NO;
             return;
         }
         shotpage++;
@@ -175,6 +159,7 @@
 - (void)loadMoreLikeShots{
     //like shot data
     NSString *pageStr = [NSString stringWithFormat:@"page=%zd&per_page=%zd",likepage+1, PER_PAGE];
+    
     [BLShotsTool likeshotWithURLStr:self.user.likes_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         if (shotsArray.count == 0) {
             _hasMoreLike = NO;
@@ -193,7 +178,6 @@
 
 
 - (void)setupCollectionView {
-    gap = 4.0;
     UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
     _cv = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:flowlayout];
     _cv.delegate = self;
@@ -306,14 +290,6 @@
         button.height = height;
         button.width = width;
         button.x = width*i;
-        NSString* btnTitle;
-        if (i == 0) {
-            self.shotBtn = button;
-            btnTitle = [NSString stringWithFormat:@"Shots • %zd", self.user.shots_count];
-        } else {
-            self.likeBtn = button;
-            btnTitle =[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count];
-        }
         [button setTitle:titles[i] forState:UIControlStateNormal];
         //UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0f];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -323,8 +299,11 @@
         [button addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:button];
         if (i == 0) {
+            self.shotBtn = button;
             button.enabled = NO;
             self.selectButton = button;
+        } else {
+            self.likeBtn = button;
         }
     }
     return headerView;
@@ -419,7 +398,7 @@
     _followBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [_followBtn setTitle:@"Following" forState:UIControlStateNormal];
     [_followBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-
+    
 }
 
 - (void)unfollowStyle{
@@ -433,8 +412,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    [[SDImageCache sharedImageCache] clearMemory];
-    [[SDImageCache sharedImageCache] clearDisk];
 }
 
 @end
