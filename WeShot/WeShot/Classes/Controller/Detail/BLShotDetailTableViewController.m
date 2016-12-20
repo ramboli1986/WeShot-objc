@@ -25,7 +25,7 @@
 #import <YLImageView.h>
 
 #define HTMLSTYLE @"<head><style>p{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
-#define HTMLSTYLE2 @"<head><style>p{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
+#define HTMLSTYLE2 @"<head><style>p{font-size: 15px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
 
 @interface BLShotDetailTableViewController ()
 
@@ -163,14 +163,20 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     _headerView.shotTitle.text = self.shot.title;
     //_headerView.shotdetail.text = self.shot.detailContent;
     NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE2,self.shot.detailContent];
-    NSAttributedString * strAtt = [[NSAttributedString alloc]
-                                   initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding]
-                                   options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
-                                   documentAttributes: nil
-                                   error: nil
-                                   ];
     if (self.shot.detailContent){
-        _headerView.shotdetail.attributedText = strAtt;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSAttributedString * strAtt = [[NSAttributedString alloc]
+                                           initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding]
+                                           options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                           documentAttributes: nil
+                                           error: nil
+                                           ];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _headerView.shotdetail.attributedText = strAtt;
+            });
+            
+        });
+        
     }
     [_headerView.shotdetail setContentInset:UIEdgeInsetsMake(-10, -5, -15, -5)];
     _headerView.shotdetail.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
@@ -183,7 +189,7 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
 - (void) loadAllComments{
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = OAuth2_CLIENT_ACCESS_TOKEN;
-    NSString* pageStr = @"page=1&per_page=99";
+    NSString* pageStr = [NSString stringWithFormat:@"page=1&per_page=%zd",PER_PAGE];
     
     [BLShotsTool commentWithURLStr:self.shot.comments_url Params:params pageStr:pageStr Success:^(NSArray *shotsArray) {
         [self.comments addObjectsFromArray:shotsArray];
@@ -225,13 +231,19 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     [cell.userImage sd_setImageWithURL:[NSURL URLWithString:comment.user.avatar_url] placeholderImage:nil];
     cell.username.text = comment.user.username;
     NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE,comment.body];
-    NSAttributedString * strAtt = [[NSAttributedString alloc]
-                                   initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding]
-                                   options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
-                                   documentAttributes: nil
-                                   error: nil
-                                   ];
-    cell.comment.attributedText = strAtt;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSAttributedString * strAtt = [[NSAttributedString alloc]
+                                           initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding]
+                                           options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                           documentAttributes: nil
+                                           error: nil
+                                           ];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.comment.attributedText = strAtt;
+            });
+            
+        });
+        
     return cell;
 }
 
