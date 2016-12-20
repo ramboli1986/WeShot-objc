@@ -60,6 +60,13 @@
                     <rect key="frame" x="0.0" y="61" width="373" height="279"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NDc-n2-qqt" customClass="YLImageView">
+                    <rect key="frame" x="0.0" y="61" width="373" height="279"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="NDc-n2-qqt" secondAttribute="height" multiplier="373:279" id="EAH-OZ-Q2o"/>
+                    </constraints>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUI-Xu-dmS" customClass="DACircularProgressView">
                     <rect key="frame" x="137" y="151" width="100" height="100"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -68,13 +75,6 @@
                         <constraint firstAttribute="width" constant="100" id="KQs-C1-BM8"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NDc-n2-qqt" customClass="YLImageView">
-                    <rect key="frame" x="0.0" y="61" width="373" height="279"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="NDc-n2-qqt" secondAttribute="height" multiplier="373:279" id="EAH-OZ-Q2o"/>
-                    </constraints>
-                </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-Nl-gPL">
                     <rect key="frame" x="8" y="392" width="357" height="33"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
