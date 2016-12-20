@@ -16,4 +16,6 @@
 @property (nonatomic, copy) NSString* created_at;
 
 @property (nonatomic, assign) CGFloat height;
+@property (nonatomic, copy)NSString* bodyEasyContent;
+
 @end
