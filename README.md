@@ -1,6 +1,6 @@
-###Dribbble iOS app built with MVC
+###Dribbble iOS app built with Objective-C.
 
-A [Dribbble](http://dribbble.com) app build with Objective-C.
+A [Dribbble](http://dribbble.com) app build base on MVC.
 
 ![dribbble_app_screenshot](https://github.com/ramboli1986/WeShot-objc/blob/master/Screenshot/WeShotGIF.gif)
 
@@ -25,7 +25,7 @@ Third Party Libary used:
 
 ####Todo List
 - [x] Add Waterfall layout for the home View Controller
-- [ ] Parse html to text
+- [x] Parse html to text
 - [x] Implement 'LIKE Shot' and 'FOLLOW Player' function 
 - [x] Support Dribbble OAuth2 Login
 - [x] Optimize Gif display and Optimize performance
