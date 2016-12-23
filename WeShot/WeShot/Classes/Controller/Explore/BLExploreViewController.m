@@ -35,13 +35,13 @@
     recentVC.type = BLGridVCTypeRecent;
     [self addChildViewController:recentVC];
     
-    BLGridViewController* teamsVC = [[BLGridViewController alloc]init];
-    teamsVC.type = BLGridVCTypeTeams;
-    [self addChildViewController:teamsVC];
-    
     BLGridViewController* debutsVC = [[BLGridViewController alloc]init];
     debutsVC.type = BLGridVCTypeDebuts;
     [self addChildViewController:debutsVC];
+    
+    BLGridViewController* teamsVC = [[BLGridViewController alloc]init];
+    teamsVC.type = BLGridVCTypeTeams;
+    [self addChildViewController:teamsVC];
     
     BLGridViewController* playoffVC = [[BLGridViewController alloc]init];
     playoffVC.type = BLGridVCTypePlayoffs;
@@ -68,7 +68,7 @@
     indicatorView.y = titleView.height - indicatorView.height - 1;
     self.indicatorView = indicatorView;
     
-    NSArray *titles = @[@"Recent", @"Teams", @"Debuts", @"Playoffs"];
+    NSArray *titles = @[@"Recent", @"Debuts", @"Teams", @"Playoffs"];
     CGFloat width = ScreenSize.width/4;
     CGFloat height = titleView.height;
     for (NSInteger i = 0; i < titles.count; i++) {

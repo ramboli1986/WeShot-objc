@@ -30,12 +30,13 @@
 }
 
 - (void)setupChildView {
-    BLFlowViewController* popularVC = [[BLFlowViewController alloc]init];
-    popularVC.type = BLFlowVCTypePopular;
-    [self addChildViewController:popularVC];
     BLFlowViewController* followVC = [[BLFlowViewController alloc]init];
     followVC.type = BLFlowVCTypeFollow;
     [self addChildViewController:followVC];
+    
+    BLFlowViewController* popularVC = [[BLFlowViewController alloc]init];
+    popularVC.type = BLFlowVCTypePopular;
+    [self addChildViewController:popularVC];
 }
 
 
@@ -59,7 +60,7 @@
     indicatorView.y = titleView.height - indicatorView.height + 4;
     self.indicatorView = indicatorView;
     
-    NSArray *titles = @[@"Popular", @"Following"];
+    NSArray *titles = @[@"Following", @"Popular"];
     CGFloat width = ScreenSize.width/4;
     CGFloat height = titleView.height;
     for (NSInteger i = 0; i < titles.count; i++) {
