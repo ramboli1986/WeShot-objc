@@ -36,6 +36,7 @@
 @property (nonatomic, strong) NSMutableArray* likeShots;
 
 @property (nonatomic, weak) UIButton* followBtn;
+@property (nonatomic, weak) UIActivityIndicatorView* activeIndicator;
 
 @property (nonatomic, assign) BOOL isLike;
 @property (nonatomic, assign) BOOL isSelf;
@@ -44,6 +45,7 @@
 
 @property (nonatomic, weak) UIButton* likeBtn;
 @property (nonatomic, weak) UIButton* shotBtn;
+
 
 @end
 
@@ -112,17 +114,18 @@
     [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %@", [NSString stringWithIntger:self.user.likes_count]] forState:UIControlStateNormal];
     
     dispatch_group_t group = dispatch_group_create();
-//    if (self.isSelf) {
-//        dispatch_group_enter(group);
-//        [BLShotsTool userWithSuccess:^(BLUser *user) {
-//            self.user = user;
-//            [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
-//            dispatch_group_leave(group);
-//        } failure:^(NSError *error) {
-//            NSLog(@"%@",error);
-//            dispatch_group_leave(group);
-//        }];
-//    }
+    // update account number of self likes and shots
+    if (self.isSelf) {
+        dispatch_group_enter(group);
+        [BLShotsTool userWithSuccess:^(BLUser *user) {
+            self.user = user;
+            [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
+            dispatch_group_leave(group);
+        } failure:^(NSError *error) {
+            NSLog(@"%@",error);
+            dispatch_group_leave(group);
+        }];
+    }
     dispatch_group_enter(group);
     NSString* pageStr = [NSString stringWithFormat:@"page=1&per_page=%zd",PER_PAGE];
     //shot data
@@ -221,6 +224,7 @@
         [cell.userLocation setTitle:self.user.location forState:UIControlStateNormal];
         cell.userBIO.text = self.user.bio;
         self.followBtn = cell.followBtn;
+        self.activeIndicator = cell.activeIndicator;
         [self setupProfileBtn];
         return cell;
     }
@@ -374,17 +378,24 @@
 
 - (void)setupProfileBtn{
     if (self.isSelf) {
-        _followBtn.enabled = NO;
-        _followBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        [_followBtn setTitle:@"Profile" forState:UIControlStateNormal];
-        [_followBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.activeIndicator stopAnimating];
+        [self.activeIndicator setHidden:YES];
+        self.followBtn.enabled = NO;
+        self.followBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        [self.followBtn setTitle:@"Profile" forState:UIControlStateNormal];
+        [self.followBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         return;
     } else {
         [BLShotsTool isfollowUserWithUserID:self.user.uid success:^(id responseObject) {
             [self followingStyle];
+            [self.activeIndicator stopAnimating];
+            [self.activeIndicator setHidden:YES];
         } failure:^(NSError *error) {
             NSLog(@"not a following:%@",error.localizedDescription);
             [self unfollowStyle];
+            [self.activeIndicator stopAnimating];
+            [self.activeIndicator setHidden:YES];
+
         }];
     }
     [_followBtn addTarget:self action:@selector(followUserBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -416,12 +427,13 @@
     [_followBtn setTitle:@"Following" forState:UIControlStateNormal];
     [_followBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     
+    
 }
 
 - (void)unfollowStyle{
     _followBtn.tag = 102;
     _followBtn.layer.borderColor = [UIColor redColor].CGColor;
-    [_followBtn setTitle:@"Follow" forState:UIControlStateNormal];
+    [_followBtn setTitle:@"+Follow" forState:UIControlStateNormal];
     [_followBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 }
 

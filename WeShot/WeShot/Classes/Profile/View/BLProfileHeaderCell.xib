@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -130,10 +130,13 @@
                                     <constraint firstAttribute="height" constant="25" id="zjA-ND-wR7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <state key="normal" title="+Follow">
+                                <state key="normal">
                                     <color key="titleColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.86998521959999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Rnq-wY-TKq">
+                                <rect key="frame" x="99.5" y="57" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0JG-JW-MwS" secondAttribute="trailing" id="0lL-L9-4ZD"/>
@@ -144,10 +147,12 @@
                             <constraint firstItem="0JG-JW-MwS" firstAttribute="top" secondItem="XDB-eX-2hf" secondAttribute="top" id="LHE-th-LJr"/>
                             <constraint firstItem="6i0-oT-Ujx" firstAttribute="width" secondItem="f8V-Ph-nfO" secondAttribute="width" id="Ln8-lN-NDE"/>
                             <constraint firstItem="DTi-OJ-bgH" firstAttribute="top" secondItem="f8V-Ph-nfO" secondAttribute="bottom" constant="8" id="X3D-kS-W6b"/>
+                            <constraint firstItem="Rnq-wY-TKq" firstAttribute="centerY" secondItem="DTi-OJ-bgH" secondAttribute="centerY" id="eeP-I5-jgu"/>
                             <constraint firstItem="f8V-Ph-nfO" firstAttribute="leading" secondItem="6i0-oT-Ujx" secondAttribute="trailing" id="jez-7d-tFo"/>
                             <constraint firstAttribute="height" constant="80" id="mQD-LI-GGj"/>
                             <constraint firstItem="0JG-JW-MwS" firstAttribute="leading" secondItem="f8V-Ph-nfO" secondAttribute="trailing" id="q2D-MR-3Bl"/>
                             <constraint firstAttribute="trailing" secondItem="DTi-OJ-bgH" secondAttribute="trailing" constant="8" id="qBW-HP-Imd"/>
+                            <constraint firstItem="Rnq-wY-TKq" firstAttribute="centerX" secondItem="XDB-eX-2hf" secondAttribute="centerX" id="u7X-yl-Rtf"/>
                             <constraint firstItem="6i0-oT-Ujx" firstAttribute="top" secondItem="XDB-eX-2hf" secondAttribute="top" id="zAM-cJ-BG0"/>
                         </constraints>
                     </view>
@@ -199,6 +204,7 @@
             </constraints>
             <size key="customSize" width="323" height="268"/>
             <connections>
+                <outlet property="activeIndicator" destination="Rnq-wY-TKq" id="wdI-2O-IG7"/>
                 <outlet property="followBtn" destination="DTi-OJ-bgH" id="xUA-Ao-KFR"/>
                 <outlet property="followerCount" destination="z0G-l3-p1g" id="spm-Ci-JoA"/>
                 <outlet property="followingCount" destination="ep7-Ya-FlQ" id="ghl-6y-KZc"/>

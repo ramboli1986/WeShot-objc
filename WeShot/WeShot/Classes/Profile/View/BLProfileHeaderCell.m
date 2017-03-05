@@ -16,10 +16,12 @@
     [self setCircleImage:self.headImgView];
     _followBtn.layer.cornerRadius = 4;
     _followBtn.layer.masksToBounds = YES;
-    UIColor *color = [UIColor colorWithRed:1 green:0.2 blue:0 alpha:1];
+    //UIColor *color = [UIColor colorWithRed:1 green:0.2 blue:0 alpha:1];
+    UIColor *color = [UIColor lightGrayColor];
     _followBtn.layer.borderColor = color.CGColor;
     _followBtn.layer.borderWidth = 1.0f;
     [self setCircleImage:self.headImgView];
+    [_activeIndicator startAnimating];
     
 }
 
