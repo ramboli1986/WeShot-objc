@@ -11,8 +11,6 @@
 		FDAA48AF1E6BF5B10048E869 /* BLShotDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA48651E6BF5B10048E869 /* BLShotDetailTableViewController.m */; };
 		FDAA48B01E6BF5B10048E869 /* BLDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA48691E6BF5B10048E869 /* BLDetailCommentCell.m */; };
 		FDAA48B11E6BF5B10048E869 /* BLDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDAA486A1E6BF5B10048E869 /* BLDetailCommentCell.xib */; };
-		FDAA48B21E6BF5B10048E869 /* BLDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA486C1E6BF5B10048E869 /* BLDetailContentCell.m */; };
-		FDAA48B31E6BF5B10048E869 /* BLDetailContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDAA486D1E6BF5B10048E869 /* BLDetailContentCell.xib */; };
 		FDAA48B41E6BF5B10048E869 /* BLDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA486F1E6BF5B10048E869 /* BLDetailHeaderView.m */; };
 		FDAA48B51E6BF5B10048E869 /* BLDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDAA48701E6BF5B10048E869 /* BLDetailHeaderView.xib */; };
 		FDAA48B61E6BF5B10048E869 /* BLDetailNoCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA48721E6BF5B10048E869 /* BLDetailNoCommentCell.m */; };
@@ -64,9 +62,6 @@
 		FDAA48681E6BF5B10048E869 /* BLDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailCommentCell.h; sourceTree = "<group>"; };
 		FDAA48691E6BF5B10048E869 /* BLDetailCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailCommentCell.m; sourceTree = "<group>"; };
 		FDAA486A1E6BF5B10048E869 /* BLDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLDetailCommentCell.xib; sourceTree = "<group>"; };
-		FDAA486B1E6BF5B10048E869 /* BLDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailContentCell.h; sourceTree = "<group>"; };
-		FDAA486C1E6BF5B10048E869 /* BLDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailContentCell.m; sourceTree = "<group>"; };
-		FDAA486D1E6BF5B10048E869 /* BLDetailContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLDetailContentCell.xib; sourceTree = "<group>"; };
 		FDAA486E1E6BF5B10048E869 /* BLDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailHeaderView.h; sourceTree = "<group>"; };
 		FDAA486F1E6BF5B10048E869 /* BLDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailHeaderView.m; sourceTree = "<group>"; };
 		FDAA48701E6BF5B10048E869 /* BLDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLDetailHeaderView.xib; sourceTree = "<group>"; };
@@ -204,9 +199,6 @@
 				FDAA48681E6BF5B10048E869 /* BLDetailCommentCell.h */,
 				FDAA48691E6BF5B10048E869 /* BLDetailCommentCell.m */,
 				FDAA486A1E6BF5B10048E869 /* BLDetailCommentCell.xib */,
-				FDAA486B1E6BF5B10048E869 /* BLDetailContentCell.h */,
-				FDAA486C1E6BF5B10048E869 /* BLDetailContentCell.m */,
-				FDAA486D1E6BF5B10048E869 /* BLDetailContentCell.xib */,
 				FDAA486E1E6BF5B10048E869 /* BLDetailHeaderView.h */,
 				FDAA486F1E6BF5B10048E869 /* BLDetailHeaderView.m */,
 				FDAA48701E6BF5B10048E869 /* BLDetailHeaderView.xib */,
@@ -579,7 +571,6 @@
 			files = (
 				FDAA48CB1E6BF5B10048E869 /* BLCollectionReusableView.xib in Resources */,
 				FDAA48C21E6BF5B10048E869 /* BLLoginViewController.xib in Resources */,
-				FDAA48B31E6BF5B10048E869 /* BLDetailContentCell.xib in Resources */,
 				FDAA48CD1E6BF5B10048E869 /* BLProfileHeaderCell.xib in Resources */,
 				FDAA48B51E6BF5B10048E869 /* BLDetailHeaderView.xib in Resources */,
 				FDAA48BF1E6BF5B10048E869 /* BLFlowCollectionViewCell.xib in Resources */,
@@ -661,7 +652,6 @@
 				FDAA48C01E6BF5B10048E869 /* BLWaterFlowLayout.m in Sources */,
 				FDAA48BA1E6BF5B10048E869 /* BLGridCollectionViewCell.m in Sources */,
 				FDAA48B91E6BF5B10048E869 /* BLGridViewController.m in Sources */,
-				FDAA48B21E6BF5B10048E869 /* BLDetailContentCell.m in Sources */,
 				FDAA48AF1E6BF5B10048E869 /* BLShotDetailTableViewController.m in Sources */,
 				FDC6B3BD1E0068A100250AD5 /* main.m in Sources */,
 				FDAA48B01E6BF5B10048E869 /* BLDetailCommentCell.m in Sources */,

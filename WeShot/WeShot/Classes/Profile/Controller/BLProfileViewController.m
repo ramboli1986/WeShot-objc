@@ -69,9 +69,9 @@
 - (void)viewDidLoad {
     gap = 4.0;
     [super viewDidLoad];
-    [self setupNav];
     [self setupCollectionView];
     [self setupRefresh];
+    [self setupNav];
 }
 
 
@@ -82,23 +82,22 @@
         self.isSelf = YES;
         [BLShotsTool userWithSuccess:^(BLUser *user) {
             self.user = user;
+            [self.cv.mj_header beginRefreshing];
         } failure:^(NSError *error) {
             NSLog(@"%@",error);
         }];
     } else {
         self.navigationItem.title = @"Player";
+        [self.cv.mj_header beginRefreshing];
     }
 }
 
 - (void)setupRefresh {
     // The drop-down refresh
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewShots)];
-    
     header.automaticallyChangeAlpha = YES;
     header.lastUpdatedTimeLabel.hidden = YES;
     header.stateLabel.hidden = YES;
-    [header beginRefreshing];
-    
     self.cv.mj_header = header;
 }
 
@@ -112,20 +111,21 @@
     [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
     
     dispatch_group_t group = dispatch_group_create();
-    if (self.isSelf) {
-        dispatch_group_enter(group);
-        [BLShotsTool userWithSuccess:^(BLUser *user) {
-            self.user = user;
-            [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
-            dispatch_group_leave(group);
-        } failure:^(NSError *error) {
-            NSLog(@"%@",error);
-            dispatch_group_leave(group);
-        }];
-    }
+//    if (self.isSelf) {
+//        dispatch_group_enter(group);
+//        [BLShotsTool userWithSuccess:^(BLUser *user) {
+//            self.user = user;
+//            [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
+//            dispatch_group_leave(group);
+//        } failure:^(NSError *error) {
+//            NSLog(@"%@",error);
+//            dispatch_group_leave(group);
+//        }];
+//    }
     dispatch_group_enter(group);
     NSString* pageStr = [NSString stringWithFormat:@"page=1&per_page=%zd",PER_PAGE];
     //shot data
+    NSLog(@"Shots URL %@",[NSString stringWithFormat:@"%@?%@",self.user.shots_url,pageStr]);
     [BLShotsTool shotWithURLStr:self.user.shots_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         shotpage = 1;
         likepage = 1;
@@ -138,6 +138,7 @@
     }];
     dispatch_group_enter(group);
     //like shot data
+    NSLog(@"like shots URL: %@",[NSString stringWithFormat:@"%@?%@",self.user.shots_url,pageStr]);
     [BLShotsTool likeshotWithURLStr:self.user.likes_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         NSLog(@"likes======");
         [self.likeShots removeAllObjects];

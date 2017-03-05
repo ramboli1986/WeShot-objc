@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -85,7 +85,7 @@
                     <rect key="frame" x="0.0" y="478" width="373" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srf-AM-ca5">
-                            <rect key="frame" x="307" y="-10" width="50" height="50"/>
+                            <rect key="frame" x="323" y="-10" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="1NV-8n-0i6"/>
                                 <constraint firstAttribute="width" constant="50" id="vWQ-F6-70u"/>
@@ -102,7 +102,7 @@
                     <constraints>
                         <constraint firstItem="ruu-47-QqL" firstAttribute="leading" secondItem="9LN-j6-vha" secondAttribute="leading" constant="8" id="JSB-Wc-38j"/>
                         <constraint firstItem="srf-AM-ca5" firstAttribute="centerY" secondItem="9LN-j6-vha" secondAttribute="centerY" id="L15-l0-gQL"/>
-                        <constraint firstAttribute="trailing" secondItem="srf-AM-ca5" secondAttribute="trailing" constant="16" id="ZZD-v1-njH"/>
+                        <constraint firstAttribute="trailing" secondItem="srf-AM-ca5" secondAttribute="trailing" id="ZZD-v1-njH"/>
                         <constraint firstItem="ruu-47-QqL" firstAttribute="centerY" secondItem="9LN-j6-vha" secondAttribute="centerY" id="plJ-sL-LyA"/>
                         <constraint firstAttribute="height" constant="30" id="t04-tX-iiT"/>
                     </constraints>
