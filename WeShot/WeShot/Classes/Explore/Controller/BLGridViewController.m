@@ -30,6 +30,7 @@
 @implementation BLGridViewController {
     CGFloat gap;
     NSInteger page;
+    NSDate* lastupDate;
 }
 
 - (NSMutableArray*)shots {
@@ -46,6 +47,7 @@
     [self setupCollectionView];
     [self setupRefresh];
 }
+
 
 - (void)setupRefresh {
     // The drop-down refresh
@@ -176,6 +178,18 @@
     return UIEdgeInsetsMake(gap, gap, gap, gap);
 }
 
+- (void)refreshView{
+    if (!lastupDate) {
+        lastupDate = [NSDate date];
+    }
+    NSTimeInterval distanceBetweenDates = [[NSDate date] timeIntervalSinceDate:lastupDate];
+    if (distanceBetweenDates > 60){
+        [self.collectionView.mj_header beginRefreshing];
+    } else {
+        NSLog(@"interval %f",distanceBetweenDates);
+    }
+    lastupDate = [NSDate date];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

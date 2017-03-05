@@ -29,6 +29,7 @@
 
 @implementation BLFlowViewController {
     NSInteger page;
+    NSDate* lastupDate;
 }
 
 - (NSMutableArray*)shots {
@@ -186,6 +187,20 @@
 - (UIEdgeInsets)edgeInsetsInWaterflowLayout:(BLWaterFlowLayout *)waterflowLayout
 {
     return UIEdgeInsetsMake(8, 8, 8, 8);
+}
+
+- (void)refreshView{
+    if (!lastupDate) {
+        lastupDate = [NSDate date];
+    }
+    NSTimeInterval distanceBetweenDates = [[NSDate date] timeIntervalSinceDate:lastupDate];
+    if (distanceBetweenDates > 60){
+        NSLog(@"need refresh");
+        [self.collectionView.mj_header beginRefreshing];
+    } else {
+        NSLog(@"interval %f",distanceBetweenDates);
+    }
+    lastupDate = [NSDate date];
 }
 
 - (void)didReceiveMemoryWarning {

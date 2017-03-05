@@ -246,10 +246,10 @@
 		FDAA48801E6BF5B10048E869 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FDAA48811E6BF5B10048E869 /* BLFlowViewController.h */,
-				FDAA48821E6BF5B10048E869 /* BLFlowViewController.m */,
 				FDAA48831E6BF5B10048E869 /* BLHomeViewController.h */,
 				FDAA48841E6BF5B10048E869 /* BLHomeViewController.m */,
+				FDAA48811E6BF5B10048E869 /* BLFlowViewController.h */,
+				FDAA48821E6BF5B10048E869 /* BLFlowViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

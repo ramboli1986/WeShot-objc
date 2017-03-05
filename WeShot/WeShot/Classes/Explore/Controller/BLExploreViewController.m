@@ -136,6 +136,7 @@
     vc.view.y = 0;
     vc.view.height = scrollView.height;
     [scrollView addSubview:vc.view];
+    [vc refreshView];
 }
 
 - (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

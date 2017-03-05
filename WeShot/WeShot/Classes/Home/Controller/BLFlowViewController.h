@@ -17,4 +17,5 @@ typedef enum {
 
 @property (nonatomic, assign) BLWaterType type;
 
+- (void)refreshView;
 @end

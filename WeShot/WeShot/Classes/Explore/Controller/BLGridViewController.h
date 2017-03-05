@@ -17,4 +17,6 @@ typedef enum {
 
 @property (nonatomic, assign) BLGridVCType type;
 
+- (void)refreshView;
+
 @end

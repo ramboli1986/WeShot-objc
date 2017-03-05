@@ -129,6 +129,7 @@
     //vc.cv.contentInset = UIEdgeInsetsMake(64, 0, bottom, 0);
     //vc.cv.scrollIndicatorInsets = vc.cv.contentInset;
     [scrollView addSubview:vc.view];
+    [vc refreshView];
 }
 
 - (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
