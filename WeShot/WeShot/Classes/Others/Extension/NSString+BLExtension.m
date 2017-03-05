@@ -9,6 +9,33 @@
 #import "NSString+BLExtension.h"
 
 @implementation NSString (BLExtension)
+
++ (instancetype)stringWithDate:(NSString *)dateString{
+    NSDateFormatter* format = [[NSDateFormatter alloc]init];
+    format.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+    [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    NSDate* createDate = [format dateFromString:dateString];
+    NSDate* now = [NSDate date];
+    
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSCalendarUnit unit = NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDateComponents* components = [calendar components:unit fromDate:createDate toDate:now options:0];
+    
+    if (components.year) {
+        return [NSString stringWithFormat:@"%zd years ago", components.year];
+    } else if (components.month) {
+        return [NSString stringWithFormat:@"%zd months ago", components.month];
+    } else if (components.day) {
+        return [NSString stringWithFormat:@"%zd days ago", components.day];
+    } else if (components.minute) {
+        return [NSString stringWithFormat:@"%zd minutes ago", components.minute];
+    } else {
+        return [NSString stringWithFormat:@"%zd seconds ago", components.second];
+    }
+}
+
+
 /**
  * 计算文字高度，可以处理计算带行间距的
  */

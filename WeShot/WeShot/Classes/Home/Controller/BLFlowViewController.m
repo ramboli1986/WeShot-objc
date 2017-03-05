@@ -15,6 +15,7 @@
 #import "BLShotsParams.h"
 #import "BLDribbbleAPI.h"
 
+#import "NSString+BLNumber.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDImageCache.h>
 #import <MJRefresh.h>
@@ -153,7 +154,7 @@
     cell.shotTitle.text = shot.title;
     cell.shotDetail.text = shot.detailEasyContent;
     cell.username.text = shot.user.username;
-    cell.likeCount.text = [NSString stringWithFormat:@"%zd",shot.likes_count];
+    cell.likeCount.text = [NSString stringWithFormat:@"%@",[NSString stringWithIntger:shot.likes_count]];
     cell.isGif.hidden = shot.animated?NO:YES;
     if (indexPath.row == self.shots.count - 1) {
         [self loadMoreShots];

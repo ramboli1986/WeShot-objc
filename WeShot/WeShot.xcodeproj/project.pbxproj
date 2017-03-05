@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B262848E60C37598B887D91D /* libPods-WeShot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 646A427CFF8464476CAEF240 /* libPods-WeShot.a */; };
+		FD43C35E1E6C8A7B00DF9ECC /* NSString+BLNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = FD43C35D1E6C8A7B00DF9ECC /* NSString+BLNumber.m */; };
 		FDAA48AF1E6BF5B10048E869 /* BLShotDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA48651E6BF5B10048E869 /* BLShotDetailTableViewController.m */; };
 		FDAA48B01E6BF5B10048E869 /* BLDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA48691E6BF5B10048E869 /* BLDetailCommentCell.m */; };
 		FDAA48B11E6BF5B10048E869 /* BLDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDAA486A1E6BF5B10048E869 /* BLDetailCommentCell.xib */; };
@@ -57,6 +58,8 @@
 		646A427CFF8464476CAEF240 /* libPods-WeShot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeShot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EE0C64C93ECB5A7CAD8F4A /* Pods-WeShot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeShot.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeShot/Pods-WeShot.release.xcconfig"; sourceTree = "<group>"; };
 		AC20ED00F4699213279E0F66 /* Pods-WeShot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeShot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeShot/Pods-WeShot.debug.xcconfig"; sourceTree = "<group>"; };
+		FD43C35C1E6C8A7B00DF9ECC /* NSString+BLNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BLNumber.h"; sourceTree = "<group>"; };
+		FD43C35D1E6C8A7B00DF9ECC /* NSString+BLNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BLNumber.m"; sourceTree = "<group>"; };
 		FDAA48641E6BF5B10048E869 /* BLShotDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotDetailTableViewController.h; sourceTree = "<group>"; };
 		FDAA48651E6BF5B10048E869 /* BLShotDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotDetailTableViewController.m; sourceTree = "<group>"; };
 		FDAA48681E6BF5B10048E869 /* BLDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailCommentCell.h; sourceTree = "<group>"; };
@@ -171,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				FDAA48631E6BF5B10048E869 /* Controller */,
-				FDAA48661E6BF5B10048E869 /* Model */,
 				FDAA48671E6BF5B10048E869 /* View */,
 			);
 			path = Detail;
@@ -184,13 +186,6 @@
 				FDAA48651E6BF5B10048E869 /* BLShotDetailTableViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		FDAA48661E6BF5B10048E869 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		FDAA48671E6BF5B10048E869 /* View */ = {
@@ -431,6 +426,8 @@
 				FDC6B4031E00977E00250AD5 /* UIBarButtonItem+BLExtension.m */,
 				FDD530991E02F3BC00E0DD8D /* NSString+BLExtension.h */,
 				FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */,
+				FD43C35C1E6C8A7B00DF9ECC /* NSString+BLNumber.h */,
+				FD43C35D1E6C8A7B00DF9ECC /* NSString+BLNumber.m */,
 			);
 			name = Category;
 			path = Extension;
@@ -647,6 +644,7 @@
 				FDF567DB1E0697370086D187 /* BLLikeShot.m in Sources */,
 				FDD5309B1E02F3BC00E0DD8D /* NSString+BLExtension.m in Sources */,
 				FDF567DC1E0697370086D187 /* BLOAuthorParam.m in Sources */,
+				FD43C35E1E6C8A7B00DF9ECC /* NSString+BLNumber.m in Sources */,
 				FDD530851E02122B00E0DD8D /* BLShotsTool.m in Sources */,
 				FDD5308C1E0233B600E0DD8D /* BLShotsParams.m in Sources */,
 				FDAA48C01E6BF5B10048E869 /* BLWaterFlowLayout.m in Sources */,

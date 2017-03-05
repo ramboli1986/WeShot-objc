@@ -20,6 +20,7 @@
 #import "BLHttpTool.h"
 
 #import "NSString+BLExtension.h"
+#import "NSString+BLNumber.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDImageCache.h>
@@ -107,8 +108,8 @@
     self.hasMoreLike = YES;
     self.hasMoreShot = YES;
     
-    [self.shotBtn setTitle:[NSString stringWithFormat:@"Shots • %zd", self.user.shots_count] forState:UIControlStateNormal];
-    [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %zd", self.user.likes_count] forState:UIControlStateNormal];
+    [self.shotBtn setTitle:[NSString stringWithFormat:@"Shots • %@", [NSString stringWithIntger:self.user.shots_count]] forState:UIControlStateNormal];
+    [self.likeBtn setTitle:[NSString stringWithFormat:@"Likes • %@", [NSString stringWithIntger:self.user.likes_count]] forState:UIControlStateNormal];
     
     dispatch_group_t group = dispatch_group_create();
 //    if (self.isSelf) {
@@ -214,9 +215,9 @@
         NSString* avatorURLStr = self.user.avatar_url;
         [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorURLStr] placeholderImage:nil];
         cell.userName.text = self.user.name;
-        cell.shotsCount.text = [NSString stringWithFormat:@"%zd",self.user.shots_count];
-        cell.followerCount.text = [NSString stringWithFormat:@"%zd",self.user.followers_count];
-        cell.followingCount.text = [NSString stringWithFormat:@"%zd",self.user.followings_count];
+        cell.shotsCount.text = [NSString stringWithFormat:@"%@",[NSString stringWithIntger:self.user.shots_count]];
+        cell.followerCount.text = [NSString stringWithFormat:@"%@",[NSString stringWithIntger:self.user.followers_count]];
+        cell.followingCount.text = [NSString stringWithFormat:@"%@",[NSString stringWithIntger:self.user.followings_count]];
         [cell.userLocation setTitle:self.user.location forState:UIControlStateNormal];
         cell.userBIO.text = self.user.bio;
         self.followBtn = cell.followBtn;

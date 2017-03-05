@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UIButton *location;
 @property (weak, nonatomic) IBOutlet UILabel *create_time_label;
-//@property (weak, nonatomic) IBOutlet UIView *shotView;
 @property (weak, nonatomic) IBOutlet UILabel *shotTitle;
 @property (weak, nonatomic) IBOutlet UITextView *shotdetail;
 @property (weak, nonatomic) IBOutlet UILabel *shotInfo;

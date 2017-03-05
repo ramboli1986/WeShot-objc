@@ -17,6 +17,7 @@
 #import "BLDetailHeaderView.h"
 
 #import "NSString+BLExtension.h"
+#import "NSString+BLNumber.h"
 #import "BLProfileViewController.h"
 
 #import <DALabeledCircularProgressView.h>
@@ -181,8 +182,9 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     [_headerView.shotdetail setContentInset:UIEdgeInsetsMake(-10, -5, -15, -5)];
     _headerView.shotdetail.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
     
+    _headerView.create_time_label.text = [NSString stringWithDate:self.shot.created_at];
     
-    _headerView.shotInfo.text = [NSString stringWithFormat:@"%zd comments    %zd views    %zd likes",self.shot.comments_count, self.shot.views_count, self.shot.likes_count];
+    _headerView.shotInfo.text = [NSString stringWithFormat:@"%@ comments    %@ views    %@ likes",[NSString stringWithIntger:self.shot.comments_count], [NSString stringWithIntger:self.shot.views_count], [NSString stringWithIntger:self.shot.likes_count]];
     [_headerView.headBtn addTarget:self action:@selector(headerBtn) forControlEvents:UIControlEventTouchUpInside];
 }
 
