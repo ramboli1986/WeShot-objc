@@ -12,10 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BLProfileHeaderCell" id="gTV-IL-0wX" customClass="BLProfileHeaderCell">
-            <rect key="frame" x="0.0" y="0.0" width="323" height="268"/>
+            <rect key="frame" x="0.0" y="0.0" width="323" height="241"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="323" height="268"/>
+                <rect key="frame" x="0.0" y="0.0" width="323" height="241"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head" translatesAutoresizingMaskIntoConstraints="NO" id="GJf-gX-gCA">
@@ -135,7 +135,7 @@
                                 </state>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Rnq-wY-TKq">
-                                <rect key="frame" x="99.5" y="57" width="20" height="20"/>
+                                <rect key="frame" x="100" y="57" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <constraints>
@@ -166,13 +166,6 @@
                             <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhg-cv-7eK">
-                        <rect key="frame" x="13" y="167" width="297" height="83.5"/>
-                        <string key="text">When Alice Klieg wins the Mega-Millions lottery, she. Photos.When Alice Klieg wins the Mega-Millions lottery, she. Photos.When Alice Klieg wins the Mega-Millions lottery, she. Photos.</string>
-                        <fontDescription key="fontDescription" name="KannadaSangamMN" family="Kannada Sangam MN" pointSize="14"/>
-                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rambo Li" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIr-2z-xfh">
                         <rect key="frame" x="10" y="112" width="303" height="21"/>
                         <constraints>
@@ -182,17 +175,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-Iv-BWr">
+                        <rect key="frame" x="16" y="171" width="291" height="54"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="wX5-Iv-BWr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="99V-KQ-txT"/>
                 <constraint firstAttribute="trailing" secondItem="XDB-eX-2hf" secondAttribute="trailing" constant="8" id="9HJ-Qg-s0k"/>
                 <constraint firstAttribute="trailing" secondItem="oIr-2z-xfh" secondAttribute="trailing" constant="10" id="9cV-U0-rHH"/>
-                <constraint firstAttribute="trailing" secondItem="qhg-cv-7eK" secondAttribute="trailing" constant="13" id="DMG-B5-Jx4"/>
-                <constraint firstItem="qhg-cv-7eK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="13" id="LhK-3M-AIO"/>
                 <constraint firstAttribute="trailing" secondItem="vC0-ry-au0" secondAttribute="trailing" constant="8" id="M92-9N-Plz"/>
-                <constraint firstItem="qhg-cv-7eK" firstAttribute="top" secondItem="vC0-ry-au0" secondAttribute="bottom" constant="12" id="Wj4-Rt-nTg"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qhg-cv-7eK" secondAttribute="bottom" constant="16" id="Zin-2Z-MbY"/>
+                <constraint firstAttribute="bottom" secondItem="wX5-Iv-BWr" secondAttribute="bottom" constant="16" id="Wz9-3f-4Cg"/>
                 <constraint firstItem="GJf-gX-gCA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="cvn-zH-yb9"/>
                 <constraint firstItem="oIr-2z-xfh" firstAttribute="top" secondItem="XDB-eX-2hf" secondAttribute="bottom" constant="16" id="dUg-Xg-M3s"/>
                 <constraint firstItem="XDB-eX-2hf" firstAttribute="leading" secondItem="GJf-gX-gCA" secondAttribute="trailing" constant="8" id="eM5-k6-IuZ"/>
@@ -201,8 +198,10 @@
                 <constraint firstItem="XDB-eX-2hf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="hKs-X7-ECL"/>
                 <constraint firstItem="vC0-ry-au0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="hYM-TE-RVz"/>
                 <constraint firstItem="oIr-2z-xfh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="mfQ-Px-bR1"/>
+                <constraint firstItem="wX5-Iv-BWr" firstAttribute="top" secondItem="vC0-ry-au0" secondAttribute="bottom" constant="16" id="rDE-zf-3t2"/>
+                <constraint firstAttribute="trailing" secondItem="wX5-Iv-BWr" secondAttribute="trailing" constant="16" id="vOk-2b-op6"/>
             </constraints>
-            <size key="customSize" width="323" height="268"/>
+            <size key="customSize" width="323" height="241"/>
             <connections>
                 <outlet property="activeIndicator" destination="Rnq-wY-TKq" id="wdI-2O-IG7"/>
                 <outlet property="followBtn" destination="DTi-OJ-bgH" id="xUA-Ao-KFR"/>
@@ -210,11 +209,11 @@
                 <outlet property="followingCount" destination="ep7-Ya-FlQ" id="ghl-6y-KZc"/>
                 <outlet property="headImgView" destination="GJf-gX-gCA" id="FpM-YB-phZ"/>
                 <outlet property="shotsCount" destination="jAg-pQ-mvW" id="X7c-th-AZG"/>
-                <outlet property="userBIO" destination="qhg-cv-7eK" id="6cl-fM-MH3"/>
+                <outlet property="userBIO" destination="wX5-Iv-BWr" id="QGW-Yk-vZv"/>
                 <outlet property="userLocation" destination="vC0-ry-au0" id="Lwr-KF-ath"/>
                 <outlet property="userName" destination="oIr-2z-xfh" id="yY8-gX-pNA"/>
             </connections>
-            <point key="canvasLocation" x="106.5" y="86"/>
+            <point key="canvasLocation" x="106.5" y="72.5"/>
         </collectionViewCell>
     </objects>
     <resources>

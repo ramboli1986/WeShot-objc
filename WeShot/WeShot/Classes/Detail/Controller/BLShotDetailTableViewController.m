@@ -79,7 +79,6 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     if (_scrollView == nil) {
         _scrollView = scrollView;
     }
-    //NSLog(@"offset %f, %f", scrollView.contentOffset.y, self.headerView.height + 80);
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -162,7 +161,6 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     [_headerView.headImgView sd_setImageWithURL:[NSURL URLWithString:avatorImageUrlStr]
                         placeholderImage:nil];
     _headerView.shotTitle.text = self.shot.title;
-    //_headerView.shotdetail.text = self.shot.detailContent;
     NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE2,self.shot.detailContent];
     if (self.shot.detailContent){
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -232,6 +230,9 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     BLShotComment* comment = self.comments[indexPath.row];
     [cell.userImage sd_setImageWithURL:[NSURL URLWithString:comment.user.avatar_url] placeholderImage:nil];
     cell.username.text = comment.user.username;
+    cell.headerBtn.tag = indexPath.row;
+    [cell.headerBtn addTarget:self action:@selector(commentheaderBtn:) forControlEvents:UIControlEventTouchUpInside];
+
     NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE,comment.body];
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSAttributedString * strAtt = [[NSAttributedString alloc]
@@ -252,6 +253,13 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
 - (void)headerBtn{
     BLProfileViewController* vc = [[BLProfileViewController alloc]init];
     vc.user = self.shot.user;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)commentheaderBtn:(UIButton*)sender {
+    BLProfileViewController* vc = [[BLProfileViewController alloc]init];
+    BLShotComment* comment = self.comments[sender.tag];
+    vc.user = comment.user;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

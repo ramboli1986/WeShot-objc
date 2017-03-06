@@ -27,6 +27,9 @@
 #import <MJRefresh.h>
 #import <MJExtension.h>
 
+#define HTMLSTYLE @"<head><style>p{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
+#define HTMLSTYLE2 @"<head><style>p{font-size: 15px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
+
 @interface BLProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView* cv;
@@ -222,7 +225,29 @@
         cell.followerCount.text = [NSString stringWithFormat:@"%@",[NSString stringWithIntger:self.user.followers_count]];
         cell.followingCount.text = [NSString stringWithFormat:@"%@",[NSString stringWithIntger:self.user.followings_count]];
         [cell.userLocation setTitle:self.user.location forState:UIControlStateNormal];
-        cell.userBIO.text = self.user.bio;
+        
+        NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE2,self.user.bio];
+        if (self.user.bio){
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSAttributedString * strAtt = [[NSAttributedString alloc]
+                                               initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding]
+                                               options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                               documentAttributes: nil
+                                               error: nil
+                                               ];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.userBIO.attributedText = strAtt;
+                });
+                
+            });
+            
+        }
+        [cell.userBIO setContentInset:UIEdgeInsetsMake(-10, -5, -15, -5)];
+        cell.userBIO.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
+
+        
+        
+        
         self.followBtn = cell.followBtn;
         self.activeIndicator = cell.activeIndicator;
         [self setupProfileBtn];
@@ -276,11 +301,21 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        CGFloat cellWidth = ScreenSize.width;
-        UIFont* bioFont = [UIFont fontWithName:@"Kannada Sangam MN" size:14.0f];
-        CGFloat bioWidth = [self.user.bio boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:bioFont lineSpacing:0 maxLines:100];
-        CGFloat cellHeight = 16 + 80 + 16 + 43 + 16 + bioWidth + 16;
-        return CGSizeMake(cellWidth, cellHeight);
+        
+        CGFloat bioHeight = 0;
+        NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE2,self.user.bio];
+        if (self.user.bio) {
+            NSAttributedString * strAtt = [[NSAttributedString alloc]
+                                           initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding]
+                                           options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                           documentAttributes: nil
+                                           error: nil
+                                           ];
+            bioHeight = [strAtt boundingRectWithSize:CGSizeMake(ScreenSize.width-32, 0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil].size.height;
+        }
+        
+        CGFloat cellHeight = 16 + 80 + 16 + 43 + 16 + bioHeight*1.8 + 16;
+        return CGSizeMake(ScreenSize.width, cellHeight);
     } else {
         CGFloat cellWidth = (ScreenSize.width - (3+1)*gap)/3;
         return CGSizeMake(cellWidth, 3*cellWidth/4);

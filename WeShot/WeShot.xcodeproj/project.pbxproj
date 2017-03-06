@@ -341,12 +341,12 @@
 		FDAA48A81E6BF5B10048E869 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FDAA48A91E6BF5B10048E869 /* BLCollectionReusableView.h */,
-				FDAA48AA1E6BF5B10048E869 /* BLCollectionReusableView.m */,
-				FDAA48AB1E6BF5B10048E869 /* BLCollectionReusableView.xib */,
 				FDAA48AC1E6BF5B10048E869 /* BLProfileHeaderCell.h */,
 				FDAA48AD1E6BF5B10048E869 /* BLProfileHeaderCell.m */,
 				FDAA48AE1E6BF5B10048E869 /* BLProfileHeaderCell.xib */,
+				FDAA48A91E6BF5B10048E869 /* BLCollectionReusableView.h */,
+				FDAA48AA1E6BF5B10048E869 /* BLCollectionReusableView.m */,
+				FDAA48AB1E6BF5B10048E869 /* BLCollectionReusableView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

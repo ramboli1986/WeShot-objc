@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *followingCount;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UIButton *userLocation;
-@property (weak, nonatomic) IBOutlet UILabel *userBIO;
+@property (weak, nonatomic) IBOutlet UITextView *userBIO;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activeIndicator;
 
 @end

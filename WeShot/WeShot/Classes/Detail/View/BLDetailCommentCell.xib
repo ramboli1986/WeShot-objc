@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,21 +38,30 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                     </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-Lf-tjt">
+                        <rect key="frame" x="8" y="16" width="28" height="28"/>
+                        <state key="normal" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ehK-Lf-tjt" firstAttribute="leading" secondItem="1cg-ja-aHs" secondAttribute="leading" id="2de-gM-1gs"/>
                     <constraint firstItem="1cg-ja-aHs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="8d2-Fo-gtm"/>
+                    <constraint firstItem="ehK-Lf-tjt" firstAttribute="bottom" secondItem="1cg-ja-aHs" secondAttribute="bottom" id="CJN-DJ-H8m"/>
                     <constraint firstItem="rBf-xD-Mfj" firstAttribute="leading" secondItem="Xf7-7E-f7r" secondAttribute="leading" id="DLw-kM-2tV"/>
                     <constraint firstAttribute="trailing" secondItem="rBf-xD-Mfj" secondAttribute="trailing" constant="16" id="Hxy-YT-cNk"/>
+                    <constraint firstItem="ehK-Lf-tjt" firstAttribute="trailing" secondItem="1cg-ja-aHs" secondAttribute="trailing" id="IMG-0T-YXE"/>
                     <constraint firstAttribute="bottom" secondItem="rBf-xD-Mfj" secondAttribute="bottom" constant="8" id="QWU-1f-KOT"/>
                     <constraint firstItem="Xf7-7E-f7r" firstAttribute="leading" secondItem="1cg-ja-aHs" secondAttribute="trailing" constant="8" id="RcP-O6-P6G"/>
                     <constraint firstItem="Xf7-7E-f7r" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="eCw-TQ-f6g"/>
                     <constraint firstItem="Xf7-7E-f7r" firstAttribute="centerY" secondItem="1cg-ja-aHs" secondAttribute="centerY" id="hth-LQ-kWi"/>
                     <constraint firstItem="1cg-ja-aHs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="jL1-Un-IN0"/>
                     <constraint firstItem="rBf-xD-Mfj" firstAttribute="top" secondItem="Xf7-7E-f7r" secondAttribute="bottom" constant="8" id="s6I-Vk-eBn"/>
+                    <constraint firstItem="ehK-Lf-tjt" firstAttribute="top" secondItem="1cg-ja-aHs" secondAttribute="top" id="yIo-iu-Rdo"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="comment" destination="rBf-xD-Mfj" id="wX8-xa-mRt"/>
+                <outlet property="headerBtn" destination="ehK-Lf-tjt" id="9hC-9P-1Q3"/>
                 <outlet property="userImage" destination="1cg-ja-aHs" id="zna-Lq-Wzo"/>
                 <outlet property="username" destination="Xf7-7E-f7r" id="7h0-id-IjS"/>
             </connections>
