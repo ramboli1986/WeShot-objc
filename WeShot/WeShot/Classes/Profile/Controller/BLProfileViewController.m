@@ -303,9 +303,9 @@
     if (indexPath.section == 0) {
         CGFloat bioHeight = 0;
         if (self.user.bio) {
-            bioHeight = [self.user.bio boundingRectWithSize:CGSizeMake(ScreenSize.width-32, 0) fontSize:15];
+            bioHeight = [self.user.bio boundingRectWithSize:CGSizeMake(ScreenSize.width-16, 0) fontSize:15];
         }
-        CGFloat cellHeight = 16 + 80 + 16 + 43 + 16 + bioHeight*1.8 + 16;
+        CGFloat cellHeight = 16 + 80 + 16 + 43 + 16 + bioHeight + 32;
         return CGSizeMake(ScreenSize.width, cellHeight);
     }
     

@@ -36,10 +36,10 @@
 }
 
 - (CGFloat)boundingRectWithSize:(CGSize)size fontSize:(NSInteger)fontSize{
-    NSString* HTMLSTYLE1 = @"<head><style>p{font-size: 16px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>";
+    NSString* HTMLSTYLE1 = @"<head><style>*{font-size: 15px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>";
     NSString* HTMLSTYLE2 = @"<head><style>p{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>";
     NSString* HTMLSTYLE;
-    if (fontSize == 16) {
+    if (fontSize == 15) {
         HTMLSTYLE = HTMLSTYLE1;
     } else {
         HTMLSTYLE = HTMLSTYLE2;
