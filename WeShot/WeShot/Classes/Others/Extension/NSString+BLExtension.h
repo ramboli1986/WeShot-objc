@@ -13,6 +13,8 @@
 
 + (instancetype)stringWithDate:(NSString*)dateString;
 
+- (CGFloat)boundingRectWithSize:(CGSize)size fontSize:(NSInteger)fontSize;
+
 /**
  * 计算文字高度，可以处理计算带行间距的等属性
  */

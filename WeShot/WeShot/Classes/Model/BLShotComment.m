@@ -16,10 +16,8 @@
 - (CGFloat)height{
     if (!_height) {
         CGFloat cellWidth = ScreenSize.width - 52;
-        UIFont* font = [UIFont systemFontOfSize:14.0f];
-        CGFloat bodyHeight = [self.bodyEasyContent boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) font:font lineSpacing:0 maxLines:100];
-        //NSLog(@"body easy content:%@",self.bodyEasyContent);
-        _height = 16 + 28 + 8 + bodyHeight + 32;
+        CGFloat bodyHeight = [self.body boundingRectWithSize:CGSizeMake(cellWidth-16, MAXFLOAT) fontSize:14];
+        _height = 16 + 28 + 8 + bodyHeight + 8;
     }
     return _height;
 }

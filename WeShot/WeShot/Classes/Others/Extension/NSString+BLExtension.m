@@ -35,6 +35,23 @@
     }
 }
 
+- (CGFloat)boundingRectWithSize:(CGSize)size fontSize:(NSInteger)fontSize{
+    NSString* HTMLSTYLE1 = @"<head><style>p{font-size: 16px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>";
+    NSString* HTMLSTYLE2 = @"<head><style>p{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>";
+    NSString* HTMLSTYLE;
+    if (fontSize == 16) {
+        HTMLSTYLE = HTMLSTYLE1;
+    } else {
+        HTMLSTYLE = HTMLSTYLE2;
+    }
+    NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE,self];
+    if (self) {
+        NSAttributedString * strAtt = [[NSAttributedString alloc] initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding] options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }documentAttributes: nil error: nil];
+        return [strAtt boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil].size.height;
+    } else {
+        return 0;
+    }
+}
 
 /**
  * 计算文字高度，可以处理计算带行间距的

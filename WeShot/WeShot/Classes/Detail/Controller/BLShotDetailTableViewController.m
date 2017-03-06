@@ -36,10 +36,7 @@
 
 @end
 
-@implementation BLShotDetailTableViewController{
-    BOOL isDrag;
-}
-
+@implementation BLShotDetailTableViewController
 static NSString* headerViewID = @"BLDetailHeaderView";
 static NSString* commentCellID = @"BLDetailCommentCell";
 static NSString* noCommentCellID = @"BLDetailNoCommentCell";
@@ -53,36 +50,13 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupTableView];
     [self loadAllComments];
+    [self setupTableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //NSLog(@"view will Appear");
-}
-
-- (void)viewWillLayoutSubviews{
-    [super viewWillLayoutSubviews];
-    //NSLog(@"view will layout");
-}
-- (void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
-    //NSLog(@"lauout subview");
-    if (!isDrag) {
-        self.scrollView.contentOffset = CGPointMake(0, -self.headerView.height - 80);
-    }
-}
-
-#pragma mark Delegate Method
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (_scrollView == nil) {
-        _scrollView = scrollView;
-    }
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    isDrag = YES;
 }
 
 - (void) setupTableView {
@@ -92,38 +66,20 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     //add Header View
     NSArray* nibView = [[NSBundle mainBundle] loadNibNamed:headerViewID owner:nil options:nil];
     BLDetailHeaderView *headerView = [nibView firstObject];
-    _headerView = headerView;
+    self.tableView.tableHeaderView = headerView;
+    self.headerView = headerView;
+    
     [self setupheaderViewContent];
-    CGFloat headerHeight = [self headerHeight];
-    
-    headerView.frame = CGRectMake(0, -headerHeight-36, ScreenSize.width, headerHeight);
-    [self.tableView addSubview:headerView];
-    
-    [self.headerView.likeBtn addTarget:self action:@selector(likeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [headerView.likeBtn addTarget:self action:@selector(likeBtn:) forControlEvents:UIControlEventTouchUpInside];
     [BLShotsTool islikeShotWithUserID:self.shot.sid success:^(id responseObject) {
-            [self.headerView.likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
-        self.headerView.likeBtn.tag = 1;
+            [headerView.likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+        headerView.likeBtn.tag = 1;
     } failure:^(NSError *error) {
-        [self.headerView.likeBtn setImage:[UIImage imageNamed:@"redunlike"] forState:UIControlStateNormal];
-        self.headerView.likeBtn.tag = 0;
+        [headerView.likeBtn setImage:[UIImage imageNamed:@"redunlike"] forState:UIControlStateNormal];
+        headerView.likeBtn.tag = 0;
     }];
-    //[self.tableView insertSubview:_headerView atIndex:0];
-    self.tableView.contentInset = UIEdgeInsetsMake(headerHeight+36, 0, 0, 0);
-    self.tableView.contentOffset = CGPointMake(0, 100);
 }
 
-
-
-- (CGFloat)headerHeight{
-    UIFont *titleFont = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
-    UIFont *detailFont = [UIFont systemFontOfSize:14];
-    
-    CGFloat shotImageHeight = ScreenSize.width*3/4;
-    CGFloat titleHeight = [self.shot.title boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:titleFont lineSpacing:0 maxLines:INT_MAX];
-    CGFloat detailHeight = [self.shot.detailEasyContent boundingRectWithSize:CGSizeMake(ScreenSize.width-16, MAXFLOAT) font:detailFont lineSpacing:0 maxLines:INT_MAX];
-    
-    return 8 + 35 + 8 + shotImageHeight + 16 + titleHeight + 16 + detailHeight + 30 + 36;
-}
 - (void)setupheaderViewContent {
     _headerView.username.text = self.shot.user.username;
     NSString* shotImageURLStr = self.shot.images.hidpi?self.shot.images.hidpi:self.shot.images.normal;
@@ -171,14 +127,18 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
                                            error: nil
                                            ];
             dispatch_async(dispatch_get_main_queue(), ^{
+                [_headerView.shotdetail setContentInset:UIEdgeInsetsMake(-10, -5, -15, -5)];
+                _headerView.shotdetail.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
+                
+                self.tableView.tableHeaderView.height = 140 + 3*ScreenSize.width/4 +[strAtt boundingRectWithSize:CGSizeMake(ScreenSize.width-32, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil].size.height;
                 _headerView.shotdetail.attributedText = strAtt;
+                [self.tableView.tableHeaderView layoutIfNeeded];
             });
             
         });
         
     }
-    [_headerView.shotdetail setContentInset:UIEdgeInsetsMake(-10, -5, -15, -5)];
-    _headerView.shotdetail.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
+    
     
     _headerView.create_time_label.text = [NSString stringWithDate:self.shot.created_at];
     

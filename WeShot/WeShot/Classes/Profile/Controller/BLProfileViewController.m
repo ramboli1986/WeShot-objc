@@ -27,8 +27,8 @@
 #import <MJRefresh.h>
 #import <MJExtension.h>
 
-#define HTMLSTYLE @"<head><style>p{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
-#define HTMLSTYLE2 @"<head><style>p{font-size: 15px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
+#define HTMLSTYLE @"<head><style>*{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
+#define HTMLSTYLE2 @"<head><style>*{font-size: 15px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
 
 @interface BLProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -157,7 +157,7 @@
     }];
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"finish======");
-
+        
         [self.cv reloadData];
         [self.cv.mj_header endRefreshing];
     });
@@ -244,7 +244,7 @@
         }
         [cell.userBIO setContentInset:UIEdgeInsetsMake(-10, -5, -15, -5)];
         cell.userBIO.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
-
+        
         
         
         
@@ -301,25 +301,17 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        
         CGFloat bioHeight = 0;
-        NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE2,self.user.bio];
         if (self.user.bio) {
-            NSAttributedString * strAtt = [[NSAttributedString alloc]
-                                           initWithData: [commentHTMLStr dataUsingEncoding:NSUnicodeStringEncoding]
-                                           options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
-                                           documentAttributes: nil
-                                           error: nil
-                                           ];
-            bioHeight = [strAtt boundingRectWithSize:CGSizeMake(ScreenSize.width-32, 0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil].size.height;
+            bioHeight = [self.user.bio boundingRectWithSize:CGSizeMake(ScreenSize.width-32, 0) fontSize:15];
         }
-        
         CGFloat cellHeight = 16 + 80 + 16 + 43 + 16 + bioHeight*1.8 + 16;
         return CGSizeMake(ScreenSize.width, cellHeight);
-    } else {
-        CGFloat cellWidth = (ScreenSize.width - (3+1)*gap)/3;
-        return CGSizeMake(cellWidth, 3*cellWidth/4);
     }
+    
+    CGFloat cellWidth = (ScreenSize.width - (3+1)*gap)/3;
+    return CGSizeMake(cellWidth, 3*cellWidth/4);
+    
 }
 
 - (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -430,7 +422,7 @@
             [self unfollowStyle];
             [self.activeIndicator stopAnimating];
             [self.activeIndicator setHidden:YES];
-
+            
         }];
     }
     [_followBtn addTarget:self action:@selector(followUserBtn) forControlEvents:UIControlEventTouchUpInside];
