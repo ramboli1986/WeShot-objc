@@ -176,7 +176,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-Iv-BWr">
-                        <rect key="frame" x="16" y="171" width="291" height="54"/>
+                        <rect key="frame" x="16" y="171" width="291" height="34"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -189,7 +189,6 @@
                 <constraint firstAttribute="trailing" secondItem="XDB-eX-2hf" secondAttribute="trailing" constant="8" id="9HJ-Qg-s0k"/>
                 <constraint firstAttribute="trailing" secondItem="oIr-2z-xfh" secondAttribute="trailing" constant="10" id="9cV-U0-rHH"/>
                 <constraint firstAttribute="trailing" secondItem="vC0-ry-au0" secondAttribute="trailing" constant="8" id="M92-9N-Plz"/>
-                <constraint firstAttribute="bottom" secondItem="wX5-Iv-BWr" secondAttribute="bottom" constant="16" id="Wz9-3f-4Cg"/>
                 <constraint firstItem="GJf-gX-gCA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="cvn-zH-yb9"/>
                 <constraint firstItem="oIr-2z-xfh" firstAttribute="top" secondItem="XDB-eX-2hf" secondAttribute="bottom" constant="16" id="dUg-Xg-M3s"/>
                 <constraint firstItem="XDB-eX-2hf" firstAttribute="leading" secondItem="GJf-gX-gCA" secondAttribute="trailing" constant="8" id="eM5-k6-IuZ"/>
