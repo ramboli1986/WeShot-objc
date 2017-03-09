@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B262848E60C37598B887D91D /* libPods-WeShot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 646A427CFF8464476CAEF240 /* libPods-WeShot.a */; };
 		FD43C35E1E6C8A7B00DF9ECC /* NSString+BLNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = FD43C35D1E6C8A7B00DF9ECC /* NSString+BLNumber.m */; };
+		FDA4B1221E70F0FE0064BB6C /* BLAboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA4B1211E70F0FE0064BB6C /* BLAboutMeViewController.m */; };
 		FDAA48AF1E6BF5B10048E869 /* BLShotDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA48651E6BF5B10048E869 /* BLShotDetailTableViewController.m */; };
 		FDAA48B01E6BF5B10048E869 /* BLDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA48691E6BF5B10048E869 /* BLDetailCommentCell.m */; };
 		FDAA48B11E6BF5B10048E869 /* BLDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDAA486A1E6BF5B10048E869 /* BLDetailCommentCell.xib */; };
@@ -60,6 +61,8 @@
 		AC20ED00F4699213279E0F66 /* Pods-WeShot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeShot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeShot/Pods-WeShot.debug.xcconfig"; sourceTree = "<group>"; };
 		FD43C35C1E6C8A7B00DF9ECC /* NSString+BLNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BLNumber.h"; sourceTree = "<group>"; };
 		FD43C35D1E6C8A7B00DF9ECC /* NSString+BLNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BLNumber.m"; sourceTree = "<group>"; };
+		FDA4B1201E70F0FE0064BB6C /* BLAboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAboutMeViewController.h; sourceTree = "<group>"; };
+		FDA4B1211E70F0FE0064BB6C /* BLAboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAboutMeViewController.m; sourceTree = "<group>"; };
 		FDAA48641E6BF5B10048E869 /* BLShotDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotDetailTableViewController.h; sourceTree = "<group>"; };
 		FDAA48651E6BF5B10048E869 /* BLShotDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotDetailTableViewController.m; sourceTree = "<group>"; };
 		FDAA48681E6BF5B10048E869 /* BLDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailCommentCell.h; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 			children = (
 				FDAA48831E6BF5B10048E869 /* BLHomeViewController.h */,
 				FDAA48841E6BF5B10048E869 /* BLHomeViewController.m */,
+				FDA4B1201E70F0FE0064BB6C /* BLAboutMeViewController.h */,
+				FDA4B1211E70F0FE0064BB6C /* BLAboutMeViewController.m */,
 				FDAA48811E6BF5B10048E869 /* BLFlowViewController.h */,
 				FDAA48821E6BF5B10048E869 /* BLFlowViewController.m */,
 			);
@@ -609,7 +614,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9CC710F1A3C619275ACF641F /* [CP] Copy Pods Resources */ = {
@@ -656,6 +661,7 @@
 				FDF567DF1E0697370086D187 /* BLShotPicture.m in Sources */,
 				FDD530AC1E03A53800E0DD8D /* AppDelegate.m in Sources */,
 				FDAA48B61E6BF5B10048E869 /* BLDetailNoCommentCell.m in Sources */,
+				FDA4B1221E70F0FE0064BB6C /* BLAboutMeViewController.m in Sources */,
 				FDAA48BC1E6BF5B10048E869 /* BLFlowViewController.m in Sources */,
 				FDAA48CA1E6BF5B10048E869 /* BLCollectionReusableView.m in Sources */,
 				FDAA48CC1E6BF5B10048E869 /* BLProfileHeaderCell.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "BLHomeViewController.h"
 #import "BLFlowViewController.h"
+#import "BLAboutMeViewController.h"
 
 @interface BLHomeViewController () <UIScrollViewDelegate>
 
@@ -145,7 +146,8 @@
 }
 
 - (void)rightClick {
-    NSLog(@"right button");
+    BLAboutMeViewController* aboutMeVC = [BLAboutMeViewController new];
+    [self presentViewController:aboutMeVC animated:YES completion:nil];
 }
 
 

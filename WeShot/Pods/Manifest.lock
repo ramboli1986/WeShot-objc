@@ -17,6 +17,7 @@ PODS:
   - DACircularProgress (2.3.1)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
+  - PureLayout (3.0.2)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - DACircularProgress
   - MJExtension
   - MJRefresh
+  - PureLayout
   - SDWebImage (~> 3.8)
   - SVProgressHUD
   - YLGIFImage
@@ -37,10 +39,11 @@ SPEC CHECKSUMS:
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   YLGIFImage: c0ae132fe80e5282b2762a97d14e23ba71a748ae
 
-PODFILE CHECKSUM: 084470bd307addabb47508b51d25411b4b8b9405
+PODFILE CHECKSUM: aa9315f96e75f0eb7b7b45a466a298a31e202b3f
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0
