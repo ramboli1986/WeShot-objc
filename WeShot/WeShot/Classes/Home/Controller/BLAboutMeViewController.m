@@ -149,7 +149,6 @@
 }
 
 - (void)followDribbble {
-    [self dismissPage];
     UINavigationController* presentingVC = self.presentingViewController.childViewControllers[0];
     [self dismissViewControllerAnimated:YES completion:^{
         BLProfileViewController *vc = [BLProfileViewController new];
