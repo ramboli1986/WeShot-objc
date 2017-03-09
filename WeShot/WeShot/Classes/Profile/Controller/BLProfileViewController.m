@@ -132,7 +132,6 @@
     dispatch_group_enter(group);
     NSString* pageStr = [NSString stringWithFormat:@"page=1&per_page=%zd",PER_PAGE];
     //shot data
-    NSLog(@"Shots URL %@",[NSString stringWithFormat:@"%@?%@",self.user.shots_url,pageStr]);
     [BLShotsTool shotWithURLStr:self.user.shots_url pageStr:pageStr Success:^(NSArray *shotsArray) {
         shotpage = 1;
         likepage = 1;
@@ -145,9 +144,7 @@
     }];
     dispatch_group_enter(group);
     //like shot data
-    NSLog(@"like shots URL: %@",[NSString stringWithFormat:@"%@?%@",self.user.shots_url,pageStr]);
     [BLShotsTool likeshotWithURLStr:self.user.likes_url pageStr:pageStr Success:^(NSArray *shotsArray) {
-        NSLog(@"likes======");
         [self.likeShots removeAllObjects];
         [self.likeShots addObjectsFromArray:shotsArray];
         dispatch_group_leave(group);
@@ -156,8 +153,6 @@
         dispatch_group_leave(group);
     }];
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        NSLog(@"finish======");
-        
         [self.cv reloadData];
         [self.cv.mj_header endRefreshing];
     });
@@ -399,7 +394,6 @@
 }
 
 - (void)logout{
-    NSLog(@"log out");
     [BLAcountTool logout];
 }
 
@@ -418,7 +412,6 @@
             [self.activeIndicator stopAnimating];
             [self.activeIndicator setHidden:YES];
         } failure:^(NSError *error) {
-            NSLog(@"not a following:%@",error.localizedDescription);
             [self unfollowStyle];
             [self.activeIndicator stopAnimating];
             [self.activeIndicator setHidden:YES];

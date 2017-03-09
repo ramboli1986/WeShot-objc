@@ -22,6 +22,9 @@
 
 + (void)userWithSuccess:(void(^)(BLUser* user))success failure:(void(^)(NSError* error))failure;
 
++ (void)userOfBoliWithSuccess:(void(^)(BLUser*))success failure:(void(^)(NSError* error))failure;
+
+
 + (void)followShotWithParams:(BLShotsParams*)params pageStr:(NSString*)pageStr Success:(void(^)(NSArray* shotsArray))success failure:(void(^)(NSError* error))failure;
 
 + (void)likeShotWithUserID:(NSInteger)sid success:(void(^)(id responseObject))success failure:(void(^)(NSError* error))failure;

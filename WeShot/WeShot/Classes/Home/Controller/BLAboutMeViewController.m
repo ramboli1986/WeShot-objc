@@ -8,6 +8,9 @@
 
 #import "BLAboutMeViewController.h"
 #import "BLProfileViewController.h"
+#import "BLUser.h"
+#import "BLShotsTool.h"
+
 #import <PureLayout.h>
 
 @interface BLAboutMeViewController ()
@@ -22,6 +25,8 @@
 @property (nonatomic, strong) UIButton* linkedinButton;
 @property (nonatomic, strong) UIButton* dribbbleButton;
 
+@property (nonatomic, strong) BLUser* boliUser;
+
 
 @end
 
@@ -30,10 +35,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self getBoli];
     [self addSubViews];
     [self setupSubViewsLayout];
     
     
+}
+
+- (void)getBoli {
+    [BLShotsTool userWithSuccess:^(BLUser *user) {
+        self.boliUser = user;
+    } failure:^(NSError *error) {
+        NSLog(@"get Bo Li user obj failed:%@",error.localizedDescription);
+    }];
 }
 
 - (void)addSubViews {
@@ -152,8 +166,17 @@
     UINavigationController* presentingVC = self.presentingViewController.childViewControllers[0];
     [self dismissViewControllerAnimated:YES completion:^{
         BLProfileViewController *vc = [BLProfileViewController new];
-        [presentingVC pushViewController:vc animated:YES];
-        NSLog(@"%@",presentingVC);
+        if (!self.boliUser) {
+            [BLShotsTool userWithSuccess:^(BLUser *user) {
+                self.boliUser = user;
+                [presentingVC pushViewController:vc animated:YES];
+            } failure:^(NSError *error) {
+                NSLog(@"get Bo Li user obj failed:%@",error.localizedDescription);
+            }];
+        } else {
+            vc.user = self.boliUser;
+            [presentingVC pushViewController:vc animated:YES];
+        }
     }];
 }
 
@@ -161,6 +184,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
