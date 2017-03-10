@@ -30,7 +30,7 @@
 #define HTMLSTYLE @"<head><style>*{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
 #define HTMLSTYLE2 @"<head><style>*{font-size: 15px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
 
-@interface BLProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface BLProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextViewDelegate>
 
 @property (nonatomic, strong) UICollectionView* cv;
 @property (nonatomic, weak) UIButton *selectButton;
@@ -220,7 +220,7 @@
         cell.followerCount.text = [NSString stringWithFormat:@"%@",[NSString stringWithIntger:self.user.followers_count]];
         cell.followingCount.text = [NSString stringWithFormat:@"%@",[NSString stringWithIntger:self.user.followings_count]];
         [cell.userLocation setTitle:self.user.location forState:UIControlStateNormal];
-        
+        cell.userBIO.delegate = self;
         NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE2,self.user.bio];
         if (self.user.bio){
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -457,6 +457,21 @@
     [_followBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 }
 
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction {
+    if ([[URL host] isEqualToString:@"dribbble.com"]) {
+        NSString* userID = [[[URL absoluteString] componentsSeparatedByString:@"/"] lastObject];
+        BLProfileViewController *vc = [BLProfileViewController new];
+        [BLShotsTool userWithUserId:userID Success:^(BLUser *user) {
+            vc.user = user;
+            [self.navigationController pushViewController:vc animated:YES];
+        } failure:^(NSError *error) {
+            NSLog(@"error:%@",error.localizedDescription);
+        }];
+        return NO;
+    } else {
+        return YES;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
