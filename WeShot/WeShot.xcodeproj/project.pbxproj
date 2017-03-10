@@ -10,6 +10,7 @@
 		B262848E60C37598B887D91D /* libPods-WeShot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 646A427CFF8464476CAEF240 /* libPods-WeShot.a */; };
 		FD43C35E1E6C8A7B00DF9ECC /* NSString+BLNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = FD43C35D1E6C8A7B00DF9ECC /* NSString+BLNumber.m */; };
 		FDA4B1221E70F0FE0064BB6C /* BLAboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA4B1211E70F0FE0064BB6C /* BLAboutMeViewController.m */; };
+		FDA4B1251E7299240064BB6C /* UITextView+NoFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA4B1241E7299240064BB6C /* UITextView+NoFirstResponder.m */; };
 		FDAA48AF1E6BF5B10048E869 /* BLShotDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA48651E6BF5B10048E869 /* BLShotDetailTableViewController.m */; };
 		FDAA48B01E6BF5B10048E869 /* BLDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAA48691E6BF5B10048E869 /* BLDetailCommentCell.m */; };
 		FDAA48B11E6BF5B10048E869 /* BLDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDAA486A1E6BF5B10048E869 /* BLDetailCommentCell.xib */; };
@@ -63,6 +64,8 @@
 		FD43C35D1E6C8A7B00DF9ECC /* NSString+BLNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BLNumber.m"; sourceTree = "<group>"; };
 		FDA4B1201E70F0FE0064BB6C /* BLAboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAboutMeViewController.h; sourceTree = "<group>"; };
 		FDA4B1211E70F0FE0064BB6C /* BLAboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAboutMeViewController.m; sourceTree = "<group>"; };
+		FDA4B1231E7299240064BB6C /* UITextView+NoFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+NoFirstResponder.h"; sourceTree = "<group>"; };
+		FDA4B1241E7299240064BB6C /* UITextView+NoFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+NoFirstResponder.m"; sourceTree = "<group>"; };
 		FDAA48641E6BF5B10048E869 /* BLShotDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShotDetailTableViewController.h; sourceTree = "<group>"; };
 		FDAA48651E6BF5B10048E869 /* BLShotDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShotDetailTableViewController.m; sourceTree = "<group>"; };
 		FDAA48681E6BF5B10048E869 /* BLDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailCommentCell.h; sourceTree = "<group>"; };
@@ -433,6 +436,8 @@
 				FDD5309A1E02F3BC00E0DD8D /* NSString+BLExtension.m */,
 				FD43C35C1E6C8A7B00DF9ECC /* NSString+BLNumber.h */,
 				FD43C35D1E6C8A7B00DF9ECC /* NSString+BLNumber.m */,
+				FDA4B1231E7299240064BB6C /* UITextView+NoFirstResponder.h */,
+				FDA4B1241E7299240064BB6C /* UITextView+NoFirstResponder.m */,
 			);
 			name = Category;
 			path = Extension;
@@ -543,7 +548,7 @@
 				TargetAttributes = {
 					FDC6B3B71E0068A100250AD5 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = LU2EVD6YHG;
+						DevelopmentTeam = 8V7W97W599;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -647,6 +652,7 @@
 				FDAA48C11E6BF5B10048E869 /* BLLoginViewController.m in Sources */,
 				FDD530B81E03C28700E0DD8D /* BLAcountTool.m in Sources */,
 				FDF567DB1E0697370086D187 /* BLLikeShot.m in Sources */,
+				FDA4B1251E7299240064BB6C /* UITextView+NoFirstResponder.m in Sources */,
 				FDD5309B1E02F3BC00E0DD8D /* NSString+BLExtension.m in Sources */,
 				FDF567DC1E0697370086D187 /* BLOAuthorParam.m in Sources */,
 				FD43C35E1E6C8A7B00DF9ECC /* NSString+BLNumber.m in Sources */,
@@ -788,12 +794,14 @@
 			baseConfigurationReference = AC20ED00F4699213279E0F66 /* Pods-WeShot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LU2EVD6YHG;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8V7W97W599;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WeShot/Classes/Others/PrefixHeader.pch;
 				INFOPLIST_FILE = WeShot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Clemson.WeShot;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.rambo-li.WeShot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -803,12 +811,14 @@
 			baseConfigurationReference = 90EE0C64C93ECB5A7CAD8F4A /* Pods-WeShot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LU2EVD6YHG;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8V7W97W599;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WeShot/Classes/Others/PrefixHeader.pch;
 				INFOPLIST_FILE = WeShot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Clemson.WeShot;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.rambo-li.WeShot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

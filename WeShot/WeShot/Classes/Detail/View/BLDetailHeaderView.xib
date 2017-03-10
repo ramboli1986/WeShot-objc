@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BLDetailHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="373" height="452"/>
+            <rect key="frame" x="0.0" y="0.0" width="373" height="492"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Kp-3d-XcF">
@@ -75,14 +75,15 @@
                         <constraint firstAttribute="width" constant="100" id="KQs-C1-BM8"/>
                     </constraints>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-Nl-gPL">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-Nl-gPL">
                     <rect key="frame" x="8" y="392" width="357" height="33"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9LN-j6-vha">
-                    <rect key="frame" x="0.0" y="406" width="373" height="30"/>
+                    <rect key="frame" x="0.0" y="446" width="373" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srf-AM-ca5">
                             <rect key="frame" x="323" y="-10" width="50" height="50"/>
@@ -108,7 +109,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXe-NS-22X">
-                    <rect key="frame" x="0.0" y="444" width="373" height="8"/>
+                    <rect key="frame" x="0.0" y="484" width="373" height="8"/>
                     <color key="backgroundColor" red="0.95677906274795532" green="0.95691639184951782" blue="0.95674902200698853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="8" id="YJW-gm-s2p"/>
@@ -171,7 +172,7 @@
                 <outlet property="shotdetail" destination="cwZ-Nl-gPL" id="cQe-Y9-xvM"/>
                 <outlet property="username" destination="WUF-63-Z07" id="RZa-7O-32h"/>
             </connections>
-            <point key="canvasLocation" x="-24.5" y="-328"/>
+            <point key="canvasLocation" x="-24.5" y="-308"/>
         </view>
     </objects>
     <resources>

@@ -25,30 +25,16 @@
 @property (nonatomic, strong) UIButton* linkedinButton;
 @property (nonatomic, strong) UIButton* dribbbleButton;
 
-@property (nonatomic, strong) BLUser* boliUser;
-
-
 @end
 
 @implementation BLAboutMeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self getBoli];
     [self addSubViews];
     [self setupSubViewsLayout];
-    
-    
 }
 
-- (void)getBoli {
-    [BLShotsTool userWithSuccess:^(BLUser *user) {
-        self.boliUser = user;
-    } failure:^(NSError *error) {
-        NSLog(@"get Bo Li user obj failed:%@",error.localizedDescription);
-    }];
-}
 
 - (void)addSubViews {
     self.imageView = [UIImageView new];
@@ -166,17 +152,12 @@
     UINavigationController* presentingVC = self.presentingViewController.childViewControllers[0];
     [self dismissViewControllerAnimated:YES completion:^{
         BLProfileViewController *vc = [BLProfileViewController new];
-        if (!self.boliUser) {
-            [BLShotsTool userWithSuccess:^(BLUser *user) {
-                self.boliUser = user;
+            [BLShotsTool userWithUserId:@"763360" Success:^(BLUser *user) {
+                vc.user = user;
                 [presentingVC pushViewController:vc animated:YES];
             } failure:^(NSError *error) {
                 NSLog(@"get Bo Li user obj failed:%@",error.localizedDescription);
             }];
-        } else {
-            vc.user = self.boliUser;
-            [presentingVC pushViewController:vc animated:YES];
-        }
     }];
 }
 

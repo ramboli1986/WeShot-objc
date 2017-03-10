@@ -28,7 +28,7 @@
 #define HTMLSTYLE @"<head><style>p{font-size: 14px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
 #define HTMLSTYLE2 @"<head><style>p{font-size: 15px;color: gray; line-height:130%}a{color:red; text-decoration: none;}</style></head>"
 
-@interface BLShotDetailTableViewController ()
+@interface BLShotDetailTableViewController ()<UITextViewDelegate>
 
 @property (weak,nonatomic) BLDetailHeaderView *headerView;
 @property (nonatomic, strong) NSMutableArray* comments;
@@ -129,7 +129,7 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_headerView.shotdetail setContentInset:UIEdgeInsetsMake(-10, -5, -15, -5)];
                 _headerView.shotdetail.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
-                
+                _headerView.shotdetail.delegate = self;
                 self.tableView.tableHeaderView.height = 140 + 3*ScreenSize.width/4 +[strAtt boundingRectWithSize:CGSizeMake(ScreenSize.width-32, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil].size.height;
                 _headerView.shotdetail.attributedText = strAtt;
                 [self.tableView.tableHeaderView layoutIfNeeded];
@@ -193,6 +193,7 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     cell.headerBtn.tag = indexPath.row;
     [cell.headerBtn addTarget:self action:@selector(commentheaderBtn:) forControlEvents:UIControlEventTouchUpInside];
 
+    cell.comment.delegate = self;
     NSString* commentHTMLStr = [NSString stringWithFormat:@"%@%@",HTMLSTYLE,comment.body];
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSAttributedString * strAtt = [[NSAttributedString alloc]
@@ -262,6 +263,23 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     }
     
 }
+
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction {
+    if ([[URL host] isEqualToString:@"dribbble.com"]) {
+        NSString* userID = [[[URL absoluteString] componentsSeparatedByString:@"/"] lastObject];
+        BLProfileViewController *vc = [BLProfileViewController new];
+        [BLShotsTool userWithUserId:userID Success:^(BLUser *user) {
+            vc.user = user;
+            [self.navigationController pushViewController:vc animated:YES];
+        } failure:^(NSError *error) {
+            NSLog(@"error:%@",error.localizedDescription);
+        }];
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     [[SDImageCache sharedImageCache] clearMemory];

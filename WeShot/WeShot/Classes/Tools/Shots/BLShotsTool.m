@@ -30,8 +30,8 @@
     }];
 }
 
-+ (void)userOfBoliWithSuccess:(void(^)(BLUser*))success failure:(void(^)(NSError* error))failure {
-    NSString* urlStr = [NSString stringWithFormat:@"%@/bli2?access_token=%@",DRIBBBLE_USER,[[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY]];
++ (void)userWithUserId:(NSString*)userId Success:(void(^)(BLUser*))success failure:(void(^)(NSError* error))failure {
+    NSString* urlStr = [NSString stringWithFormat:@"%@/%@?access_token=%@",DRIBBBLE_USERS,userId,[[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY]];
     [BLHttpTool Get:urlStr parameters:nil success:^(id responseObject) {
         BLUser* user = [BLUser mj_objectWithKeyValues:responseObject];
         success(user);

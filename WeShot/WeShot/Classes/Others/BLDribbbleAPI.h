@@ -20,6 +20,7 @@
 #define OAuth2_RedirectUrl @"http://www.google.com/"
 #define DRIBBBLE_SHOT @"https://api.dribbble.com/v1/shots"
 #define DRIBBBLE_USER @"https://api.dribbble.com/v1/user"
+#define DRIBBBLE_USERS @"https://api.dribbble.com/v1/users"
 #define DRIBBBLE_FOLLOW_SHOT @"https://api.dribbble.com/v1/user/following/shots"
 
 #endif /* BLDribbbleAPI_h */
