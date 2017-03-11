@@ -49,6 +49,7 @@
 @property (nonatomic, weak) UIButton* likeBtn;
 @property (nonatomic, weak) UIButton* shotBtn;
 
+@property (nonatomic, strong)BLUser* user;
 
 @end
 
@@ -72,6 +73,7 @@
     return _likeShots;
 }
 
+
 - (void)viewDidLoad {
     gap = 4.0;
     [super viewDidLoad];
@@ -82,7 +84,7 @@
 
 
 - (void)setupNav{
-    if (!self.user) {
+    if (!self.userid) {
         self.navigationItem.title = @"Profile";
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"Logout" target:self action:@selector(logout)];
         self.isSelf = YES;
@@ -94,6 +96,12 @@
         }];
     } else {
         self.navigationItem.title = @"Player";
+        [BLShotsTool userWithUserId:self.userid Success:^(BLUser *user) {
+            self.user = user;
+            [self.cv.mj_header beginRefreshing];
+        } failure:^(NSError *error) {
+            NSLog(@"error:%@",error.localizedDescription);
+        }];
         [self.cv.mj_header beginRefreshing];
     }
 }

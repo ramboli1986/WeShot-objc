@@ -12,6 +12,6 @@
 
 @interface BLProfileViewController : UIViewController
 
-@property (nonatomic, strong) BLUser* user;
+@property (nonatomic, strong) NSString* userid;
 
 @end

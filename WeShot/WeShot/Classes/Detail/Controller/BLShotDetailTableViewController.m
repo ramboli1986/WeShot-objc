@@ -213,14 +213,14 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
 
 - (void)headerBtn{
     BLProfileViewController* vc = [[BLProfileViewController alloc]init];
-    vc.user = self.shot.user;
+    vc.userid = [NSString stringWithFormat:@"%ld",self.shot.user.uid];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)commentheaderBtn:(UIButton*)sender {
     BLProfileViewController* vc = [[BLProfileViewController alloc]init];
     BLShotComment* comment = self.comments[sender.tag];
-    vc.user = comment.user;
+    vc.userid = [NSString stringWithFormat:@"%ld",comment.user.uid];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -268,12 +268,8 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
     if ([[URL host] isEqualToString:@"dribbble.com"]) {
         NSString* userID = [[[URL absoluteString] componentsSeparatedByString:@"/"] lastObject];
         BLProfileViewController *vc = [BLProfileViewController new];
-        [BLShotsTool userWithUserId:userID Success:^(BLUser *user) {
-            vc.user = user;
-            [self.navigationController pushViewController:vc animated:YES];
-        } failure:^(NSError *error) {
-            NSLog(@"error:%@",error.localizedDescription);
-        }];
+        vc.userid = userID;
+        [self.navigationController pushViewController:vc animated:YES];
         return NO;
     } else {
         return YES;

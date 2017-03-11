@@ -152,12 +152,9 @@
     UINavigationController* presentingVC = self.presentingViewController.childViewControllers[0];
     [self dismissViewControllerAnimated:YES completion:^{
         BLProfileViewController *vc = [BLProfileViewController new];
-            [BLShotsTool userWithUserId:@"763360" Success:^(BLUser *user) {
-                vc.user = user;
-                [presentingVC pushViewController:vc animated:YES];
-            } failure:^(NSError *error) {
-                NSLog(@"get Bo Li user obj failed:%@",error.localizedDescription);
-            }];
+        vc.userid = @"763360";
+        [presentingVC pushViewController:vc animated:YES];
+
     }];
 }
 
