@@ -40,7 +40,11 @@
     self.indicatorView.height = indicatorH;
     self.indicatorView.y = self.tabBar.height-indicatorH;
     self.indicatorView.backgroundColor = BLTintColor;
-    self.indicatorView.centerX = ScreenSize.width/6.0;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.indicatorView.centerX = ScreenSize.width/6.0;
+    } else {
+        self.indicatorView.x = ScreenSize.width/3 + 6;
+    }
     [self.tabBar addSubview:_indicatorView];
 }
 - (void)setupTabBarBackground{
@@ -79,7 +83,17 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     NSInteger index = [tabBar.items indexOfObject:item];
-    self.indicatorView.centerX = ScreenSize.width/6 + ScreenSize.width*index/3;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.indicatorView.centerX = ScreenSize.width/6 + ScreenSize.width*index/3;
+    } else {
+        if (index == 1) {
+            self.indicatorView.centerX = ScreenSize.width/2;
+        } else if (index == 0) {
+            self.indicatorView.x = ScreenSize.width/3 + 6;
+        } else {
+            self.indicatorView.x = ScreenSize.width*2/3 - indicatorW - 6;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

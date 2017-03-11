@@ -194,7 +194,7 @@
         lastupDate = [NSDate date];
     }
     NSTimeInterval distanceBetweenDates = [[NSDate date] timeIntervalSinceDate:lastupDate];
-    if (distanceBetweenDates > 60){
+    if (distanceBetweenDates > 3600){
         NSLog(@"need refresh");
         [self.collectionView.mj_header beginRefreshing];
     } else {

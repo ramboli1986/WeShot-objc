@@ -213,14 +213,14 @@ static NSString* noCommentCellID = @"BLDetailNoCommentCell";
 
 - (void)headerBtn{
     BLProfileViewController* vc = [[BLProfileViewController alloc]init];
-    vc.userid = [NSString stringWithFormat:@"%ld",self.shot.user.uid];
+    vc.userid = [NSString stringWithFormat:@"%ld",(long)self.shot.user.uid];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)commentheaderBtn:(UIButton*)sender {
     BLProfileViewController* vc = [[BLProfileViewController alloc]init];
     BLShotComment* comment = self.comments[sender.tag];
-    vc.userid = [NSString stringWithFormat:@"%ld",comment.user.uid];
+    vc.userid = [NSString stringWithFormat:@"%ld",(long)comment.user.uid];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

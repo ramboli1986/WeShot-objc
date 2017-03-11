@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:WeShot.xcodeproj">
+      location = "group:/Users/Rambo-Li/Desktop/iOS/WeShot-objc/WeShot/WeShots.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

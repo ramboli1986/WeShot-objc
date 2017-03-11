@@ -153,10 +153,7 @@
 #pragma mark - <MSPWaterflowLayoutDelegate>
 - (CGFloat)waterflowLayout:(BLWaterFlowLayout *)waterflowLayout heightForItemAtIndex:(NSUInteger)index itemWidth:(CGFloat)itemWidth
 {
-    
     return (ScreenSize.width)/4;
-    
-    
 }
 
 - (CGFloat)columnMarginInWaterflowLayout:(BLWaterFlowLayout *)waterflowLayout {
@@ -183,7 +180,7 @@
         lastupDate = [NSDate date];
     }
     NSTimeInterval distanceBetweenDates = [[NSDate date] timeIntervalSinceDate:lastupDate];
-    if (distanceBetweenDates > 60){
+    if (distanceBetweenDates > 300){
         [self.collectionView.mj_header beginRefreshing];
     } else {
         NSLog(@"interval %f",distanceBetweenDates);

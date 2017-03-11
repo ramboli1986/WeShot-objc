@@ -33,9 +33,9 @@
         [BLAcountTool homeRootViewController:self.window];
     }
     
+    [NSThread sleepForTimeInterval:2];
     return YES;
 }
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

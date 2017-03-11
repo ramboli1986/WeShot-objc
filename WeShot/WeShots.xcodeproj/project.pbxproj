@@ -110,7 +110,7 @@
 		FDAA48AC1E6BF5B10048E869 /* BLProfileHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLProfileHeaderCell.h; sourceTree = "<group>"; };
 		FDAA48AD1E6BF5B10048E869 /* BLProfileHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLProfileHeaderCell.m; sourceTree = "<group>"; };
 		FDAA48AE1E6BF5B10048E869 /* BLProfileHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLProfileHeaderCell.xib; sourceTree = "<group>"; };
-		FDC6B3B81E0068A100250AD5 /* WeShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDC6B3B81E0068A100250AD5 /* WeShots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeShots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC6B3BC1E0068A100250AD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDC6B3C71E0068A100250AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDC6B3CA1E0068A100250AD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -372,7 +372,7 @@
 		FDC6B3B91E0068A100250AD5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FDC6B3B81E0068A100250AD5 /* WeShot.app */,
+				FDC6B3B81E0068A100250AD5 /* WeShots.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -516,9 +516,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FDC6B3B71E0068A100250AD5 /* WeShot */ = {
+		FDC6B3B71E0068A100250AD5 /* WeShots */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FDC6B3CF1E0068A100250AD5 /* Build configuration list for PBXNativeTarget "WeShot" */;
+			buildConfigurationList = FDC6B3CF1E0068A100250AD5 /* Build configuration list for PBXNativeTarget "WeShots" */;
 			buildPhases = (
 				449A20CDD4C301E79BFA8C31 /* [CP] Check Pods Manifest.lock */,
 				FDC6B3B41E0068A100250AD5 /* Sources */,
@@ -531,9 +531,9 @@
 			);
 			dependencies = (
 			);
-			name = WeShot;
+			name = WeShots;
 			productName = WeShot;
-			productReference = FDC6B3B81E0068A100250AD5 /* WeShot.app */;
+			productReference = FDC6B3B81E0068A100250AD5 /* WeShots.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -553,7 +553,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FDC6B3B31E0068A100250AD5 /* Build configuration list for PBXProject "WeShot" */;
+			buildConfigurationList = FDC6B3B31E0068A100250AD5 /* Build configuration list for PBXProject "WeShots" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -566,7 +566,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FDC6B3B71E0068A100250AD5 /* WeShot */,
+				FDC6B3B71E0068A100250AD5 /* WeShots */,
 			);
 		};
 /* End PBXProject section */
@@ -801,7 +801,7 @@
 				INFOPLIST_FILE = WeShot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.rambo-li.WeShot";
+				PRODUCT_BUNDLE_IDENTIFIER = me.ramboli.weshot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -818,7 +818,7 @@
 				INFOPLIST_FILE = WeShot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.rambo-li.WeShot";
+				PRODUCT_BUNDLE_IDENTIFIER = me.ramboli.weshot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -826,7 +826,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FDC6B3B31E0068A100250AD5 /* Build configuration list for PBXProject "WeShot" */ = {
+		FDC6B3B31E0068A100250AD5 /* Build configuration list for PBXProject "WeShots" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FDC6B3CD1E0068A100250AD5 /* Debug */,
@@ -835,7 +835,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FDC6B3CF1E0068A100250AD5 /* Build configuration list for PBXNativeTarget "WeShot" */ = {
+		FDC6B3CF1E0068A100250AD5 /* Build configuration list for PBXNativeTarget "WeShots" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FDC6B3D01E0068A100250AD5 /* Debug */,

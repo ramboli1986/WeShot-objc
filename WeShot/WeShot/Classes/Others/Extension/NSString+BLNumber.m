@@ -12,14 +12,14 @@
 
 + (instancetype)stringWithIntger:(NSInteger)num{
     if (num >= 1000000) {
-        return [NSString stringWithFormat:@"%ld.%ldM",num/1000000, (num%1000000)/100000];
+        return [NSString stringWithFormat:@"%zd.%zdM",num/1000000, (num%1000000)/100000];
     } else if (num > 100000) {
-        return[NSString stringWithFormat:@"%ldK", num/100000];
+        return[NSString stringWithFormat:@"%zdK", num/100000];
     }
     else if (num >= 1000) {
-        return [NSString stringWithFormat:@"%ld.%ldK",num/1000, (num%1000)/100];
+        return [NSString stringWithFormat:@"%zd.%zdK",num/1000, (num%1000)/100];
     } else {
-        return [NSString stringWithFormat:@"%ld",num];
+        return [NSString stringWithFormat:@"%zd",num];
     }
 }
 
