@@ -162,6 +162,18 @@
     }];
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         [self.cv reloadData];
+        if (self.userid) {
+        [BLShotsTool isfollowUserWithUserID:self.userid success:^(id responseObject) {
+            [self followingStyle];
+            [self.activeIndicator stopAnimating];
+            [self.activeIndicator setHidden:YES];
+        } failure:^(NSError *error) {
+            [self unfollowStyle];
+            [self.activeIndicator stopAnimating];
+            [self.activeIndicator setHidden:YES];
+            
+        }];
+        }
         [self.cv.mj_header endRefreshing];
     });
 }
@@ -415,18 +427,8 @@
         [self.followBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         return;
     } else {
-        [BLShotsTool isfollowUserWithUserID:self.user.uid success:^(id responseObject) {
-            [self followingStyle];
-            [self.activeIndicator stopAnimating];
-            [self.activeIndicator setHidden:YES];
-        } failure:^(NSError *error) {
-            [self unfollowStyle];
-            [self.activeIndicator stopAnimating];
-            [self.activeIndicator setHidden:YES];
-            
-        }];
+        [_followBtn addTarget:self action:@selector(followUserBtn) forControlEvents:UIControlEventTouchUpInside];
     }
-    [_followBtn addTarget:self action:@selector(followUserBtn) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)followUserBtn{

@@ -23,7 +23,6 @@
     NSInteger selectedIndex;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupChildVC];
@@ -31,7 +30,6 @@
     [self setupTabBarBackground];
     [self addTabBarIndicator];
 }
-
 
 - (void)addTabBarIndicator{
     self.indicatorView = [[UIView alloc]init];
@@ -47,6 +45,7 @@
     }
     [self.tabBar addSubview:_indicatorView];
 }
+
 - (void)setupTabBarBackground{
     CGRect rect = CGRectMake(0, 0, 1, 1);
     UIColor *color = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.95];

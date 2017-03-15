@@ -36,7 +36,7 @@
 
 + (void)unfollowUserWithUserID:(NSInteger)uid success:(void(^)(id responseObject))success failure:(void(^)(NSError* error))failure;
 
-+ (void)isfollowUserWithUserID:(NSInteger)uid success:(void(^)(id responseObject))success failure:(void(^)(NSError* error))failure;
++ (void)isfollowUserWithUserID:(NSString*)uid success:(void(^)(id responseObject))success failure:(void(^)(NSError* error))failure;
 
 
 @end

@@ -141,10 +141,10 @@
     }];
 }
 
-+ (void)isfollowUserWithUserID:(NSInteger)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
++ (void)isfollowUserWithUserID:(NSString*)uid success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     BLShotsParams* params = [[BLShotsParams alloc]init];
     params.access_token = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
-    [BLHttpTool Get:[NSString stringWithFormat:@"%@user/following/%@",OAuth2_BASE_URL,[NSString stringWithFormat:@"%zd",uid]] parameters:params success:^(id responseObject) {
+    [BLHttpTool Get:[NSString stringWithFormat:@"%@user/following/%@",OAuth2_BASE_URL,uid] parameters:params success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
