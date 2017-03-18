@@ -4,19 +4,9 @@ A [Dribbble](http://dribbble.com) app build base on MVC.
 
 ![dribbble_app_screenshot](Screenshot/WeShotGIF.gif)
 
-####Screenshot - Home
 ![home page](Screenshot/1.png)
-
-####Screenshot - Exlpore
-
 ![explore page](Screenshot/2.png)
-
-####Screenshot - Shot Detail
-
 ![detail page](Screenshot/3.png)
-
-####Screenshot - Shot Detail
-
 ![detail page](Screenshot/4.png)
 
 
